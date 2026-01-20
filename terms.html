@@ -1,66 +1,337 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>الشروط والأحكام — أكاديمية عايد</title>
-  <link rel="manifest" href="./manifest.json" />
-  <link rel="icon" type="image/png" href="./assets/images/logo.png" />
-  <link rel="stylesheet" href="./assets/styles.css?v=20260120" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0f14" />
+  <meta name="description" content="الشروط والأحكام لموقع دورة STEP المكثفة 2026 — توضيح الالتزامات وحقوق الملكية وطريقة الاستخدام." />
+
+  <title>الشروط والأحكام | STEP عايد المكثفة 2026</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.json?v=2026-01-20" />
+  <link rel="icon" href="./assets/img/favicon.png?v=2026-01-20" />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./assets/styles.css?v=2026-01-20" />
 </head>
+
 <body>
-  <header>
-    <nav class="navbar">
-      <a href="./index.html" class="logo">أكاديمية عايد</a>
-      <button class="hamburger" id="hamburger" aria-label="القائمة">☰</button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="./index.html">الرئيسية</a></li>
-        <li><a href="./course-content.html">محتوى الدورة</a></li>
-        <li><a href="./level-test.html">اختبار تحديد المستوى</a></li>
-        <li><a href="./testimonials.html">قصص النجاح</a></li>
-        <li><a href="./faq.html">الأسئلة الشائعة</a></li>
-        <li><a href="./support.html">الدعم</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section class="page-header">
-      <h1>الشروط والأحكام</h1>
-    </section>
-    <section class="terms-section">
-      <ul class="terms-list">
-        <li>يلتزم الطالب بتنفيذ خطة المذاكرة المقترحة وعدم فتح مصادر إضافية تشتت تركيزه.</li>
-        <li>الرسوم غير قابلة للاسترجاع بعد تفعيل الحساب وإرسال بيانات الدخول.</li>
-        <li>لا يُسمح بنسخ أو تسريب أي جزء من محتوى الدورة أو مشاركته خارج الإطار الشخصي.</li>
-        <li>يحتفظ فريق الأكاديمية بحق تعديل المحتوى أو تحديثه لتحسين الخدمة دون إشعار مسبق.</li>
-        <li>الموقع والخدمة لا تضمن الحصول على درجة معينة؛ النجاح يعتمد على التزام الطالب.</li>
-        <li>باستخدامك للدورة، فإنك توافق على هذه الشروط وسياسة الخصوصية.</li>
-      </ul>
-    </section>
-  </main>
-  <footer>
-    <div class="footer-links">
-      <a href="./privacy.html">الخصوصية</a>
-      <a href="./terms.html" class="active">الشروط</a>
-      <a href="./refund.html">سياسة الاسترجاع</a>
-      <a href="./support.html">الدعم</a>
+  <!-- Top rotating notice bar -->
+  <div class="topbar" id="topbar" aria-live="polite">
+    <div class="topbar__inner">
+      <span class="dot pulse" aria-hidden="true"></span>
+      <span id="topbarText">جاري تحميل التحديثات…</span>
     </div>
-    <p>© 2026 أكاديمية عايد. جميع الحقوق محفوظة.</p>
-  </footer>
-  <button id="assistantButton" class="assistant-button" aria-label="مساعد التسجيل">؟</button>
-  <div id="assistantPanel" class="assistant-panel">
-    <button class="close-panel" id="closeAssistant">×</button>
-    <h3>مرحباً!</h3>
-    <p>كيف نقدر نساعدك؟</p>
-    <ul class="assistant-links">
-      <li><a href="./level-test.html">ابدأ اختبار المستوى</a></li>
-      <li><a href="./course-content.html">وش داخل الدورة؟</a></li>
-      <li><a href="./faq.html">الأسئلة الشائعة</a></li>
-      <li><a href="./support.html">الدعم</a></li>
-      <li><a href="./terms.html">السياسات</a></li>
-    </ul>
   </div>
-  <script src="./assets/site-data.js?v=20260120"></script>
-  <script src="./assets/app.js?v=20260120"></script>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="./index.html" aria-label="الصفحة الرئيسية">
+        <span class="brand__mark">A</span>
+        <span class="brand__text">
+          <span class="brand__title">Ayed Academy</span>
+          <span class="brand__sub">STEP Intensive 2026</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="التنقل الرئيسي">
+        <a class="nav__link" href="./index.html">الرئيسية</a>
+        <a class="nav__link" href="./course-content.html">محتوى الدورة</a>
+        <a class="nav__link" href="./testimonials.html">قصص النجاح</a>
+        <a class="nav__link" href="./faq.html">الأسئلة الشائعة</a>
+        <a class="nav__link" href="./support.html">الدعم</a>
+
+        <!-- Locked: يظهر فعلياً بعد الاختبار -->
+        <a class="nav__link nav__link--locked"
+           href="./register.html"
+           data-locked="true"
+           data-lock-reason="التسجيل يفتح بعد اختبار تحديد المستوى عشان نعطيك خطة مناسبة 💛">
+          التسجيل
+        </a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--ghost" href="./level-test.html">ابدأ اختبار تحديد المستوى</a>
+        <button class="btn btn--icon" id="openAssistantBtn" type="button" aria-label="فتح مساعد التسجيل">
+          <span aria-hidden="true">💬</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="badge">
+          <span class="badge__spark" aria-hidden="true">📌</span>
+          تنظيم + وضوح
+        </p>
+
+        <h1 class="page-hero__title">الشروط والأحكام</h1>
+
+        <p class="page-hero__lead">
+          الهدف من هالصفحة إن كل شيء يكون واضح من البداية: حقوقك، وحقوق الأكاديمية، وطريقة الاستخدام الصحيحة.
+          بمجرد استخدامك للموقع أو إكمال التسجيل، تعتبر موافق على الشروط التالية.
+        </p>
+
+        <div class="notice" style="margin-top:14px;">
+          <div class="notice__icon" aria-hidden="true">✅</div>
+          <div class="notice__text">
+            تنبيه سريع: التسجيل النهائي ما يتم إلا بعد تأكيد التحويل + إرسال الإيصال للحساب الرسمي.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Terms -->
+    <section class="section">
+      <div class="container">
+
+        <div class="card">
+          <h2 class="card__title">١) التعريفات</h2>
+          <ul class="list">
+            <li><strong>الأكاديمية/الدورة:</strong> دورة STEP المكثفة 2026 التابعة لأكاديمية عايد.</li>
+            <li><strong>المستخدم/الطالب:</strong> أي شخص يستخدم الموقع أو يقدّم طلب اشتراك.</li>
+            <li><strong>المحتوى:</strong> ملفات، نماذج، شروحات، جداول، اختبارات، أو أي مواد تدريبية مرتبطة بالدورة.</li>
+            <li><strong>الحساب الرسمي:</strong> قناة التواصل الرسمية لتأكيد الاشتراك واستلام الإيصال (يظهر داخل الموقع بوضوح).</li>
+          </ul>
+        </div>
+
+        <div class="grid grid--2" style="margin-top:14px;">
+          <div class="card">
+            <h2 class="card__title">٢) آلية الخدمة داخل الموقع</h2>
+            <p class="card__text">
+              الموقع مخصص لتسهيل رحلة الطالب: يبدأ بتحديد مستوى/خطة ثم ينتقل للتسجيل.
+              بعض الأقسام (مثل زر التسجيل) تكون مقفلة إلى أن يكمل الطالب اختبار تحديد المستوى — عشان نعطيه خطة على مقاسه.
+            </p>
+            <ul class="list">
+              <li>الاختبار يساعدنا نفهم مستواك ووش تحتاج تركز عليه.</li>
+              <li>النتائج والخطة توضح لك المسار الأفضل حسب وقت اختبارك.</li>
+              <li>التسجيل النهائي يتم بعد إرسال الإيصال للحساب الرسمي.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h2 class="card__title">٣) الدقة والمسؤولية</h2>
+            <p class="card__text">
+              نحرص يكون المحتوى والخطط دقيقة ومبنية على أفضل الممارسات وتجارب واقعية، لكن:
+              الالتزام + التطبيق مسؤولية الطالب، والنتائج تختلف حسب الجهد والوقت.
+            </p>
+            <div class="notice" style="margin-top:10px;">
+              <div class="notice__icon" aria-hidden="true">🧠</div>
+              <div class="notice__text">
+                نصيحة: اللي يلتزم بالخطة وينهي مراجعاته ويحل نماذج بشكل ذكي… غالبًا يشوف فرق واضح بسرعة.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px;">
+          <h2 class="card__title">٤) حقوق الملكية وعدم مشاركة المحتوى</h2>
+          <p class="card__text">
+            جميع مواد الدورة (ملفات/نماذج/شروحات/جداول/اختبارات) تعتبر ملكية فكرية للأكاديمية أو لأصحابها النظاميين.
+            الاشتراك يمنحك <strong>حق استخدام شخصي فقط</strong>.
+          </p>
+
+          <div class="grid grid--2" style="margin-top:10px;">
+            <div class="mini">
+              <div class="mini__title">ممنوع تمامًا</div>
+              <div class="mini__text">
+                مشاركة المحتوى، إعادة رفعه، بيعه، تصويره، أو نشره بأي شكل (قروبات/قنوات/روابط/ملفات).
+              </div>
+            </div>
+            <div class="mini">
+              <div class="mini__title">الإجراء عند التسريب</div>
+              <div class="mini__text">
+                يحق لإدارة الدورة إيقاف الوصول فورًا + إلغاء الاشتراك + اتخاذ الإجراءات النظامية عند الحاجة.
+              </div>
+            </div>
+          </div>
+
+          <div class="notice" style="margin-top:12px;">
+            <div class="notice__icon" aria-hidden="true">⚖️</div>
+            <div class="notice__text">
+              الهدف مو التشديد… الهدف حماية حقك وحق غيرك، ومنع انتشار نسخ غير محدثة تسبب تشتت للطلاب.
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid--2" style="margin-top:14px;">
+          <div class="card">
+            <h2 class="card__title">٥) الدفع والتحقق</h2>
+            <p class="card__text">
+              بيانات التحويل البنكي تُعرض داخل صفحة التسجيل مع أزرار نسخ لتسهيل العملية.
+              <strong>أي تفعيل بدون إيصال ما نقدر نعتمده.</strong>
+            </p>
+            <ul class="list">
+              <li>أرسل الإيصال للحساب الرسمي فقط.</li>
+              <li>اكتب سبب التحويل (إن أمكن): <strong>مشتريات</strong> أو <strong>STEP Intensive</strong>.</li>
+              <li>يفضل التحويل السريع لتسريع وصول الحوالة.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h2 class="card__title">٦) منع الاحتيال والانتحال</h2>
+            <p class="card__text">
+              أي تواصل خارج الحساب الرسمي أو أي روابط مشبوهة تعتبر غير معتمدة.
+              إذا شفت حساب ينتحل اسم الأكاديمية، بلغنا فورًا عبر صفحة الدعم.
+            </p>
+            <a class="btn btn--ghost" href="./support.html">فتح صفحة الدعم والإبلاغ</a>
+          </div>
+        </div>
+
+        <div class="grid grid--2" style="margin-top:14px;">
+          <div class="card">
+            <h2 class="card__title">٧) الاسترجاع والشكاوى</h2>
+            <p class="card__text">
+              سياسة الاسترجاع لها صفحة مستقلة وواضحة.
+              إذا عندك مشكلة بتفعيل الاشتراك أو تأخر الرد أو أي لبس في التحويل، استخدم صفحة الدعم عشان نستقبل طلبك بشكل مرتب.
+            </p>
+            <div class="row" style="gap:10px; margin-top:10px;">
+              <a class="btn btn--ghost" href="./refund.html">سياسة الاسترجاع</a>
+              <a class="btn btn--primary" href="./support.html">تقديم طلب دعم</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 class="card__title">٨) التحديثات والتعديلات</h2>
+            <p class="card__text">
+              يحق للأكاديمية تحديث محتوى الموقع/الدورة/الخطة بما يخدم جودة التدريب وتحديثات قياس.
+              أي تغييرات جوهرية يتم توضيحها داخل الموقع أو عبر قروب التنبيهات الرسمي.
+            </p>
+            <ul class="list">
+              <li>تحديثات المحتوى مستمرة حسب المستجدات.</li>
+              <li>قد تتغير بعض الصفحات لتحسين تجربة المستخدم.</li>
+              <li>أفضل طريقة تضمن وصول التحديثات: تثبيت الموقع كتطبيق (اختياري).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px;">
+          <h2 class="card__title">٩) التواصل الرسمي</h2>
+          <p class="card__text">
+            للاستفسارات والاشتراك والتأكيد النهائي:
+          </p>
+          <ul class="list">
+            <li>📩 الحساب الرسمي: <strong>@Ayed_Academy_2026</strong></li>
+            <li>🤖 بوت مجاني: <strong>@ayedacadmeybot</strong></li>
+            <li>📢 قروب التنبيهات: <strong>@Academy_Ayed_2026</strong></li>
+          </ul>
+
+          <div class="notice" style="margin-top:10px;">
+            <div class="notice__icon" aria-hidden="true">⏱️</div>
+            <div class="notice__text">
+              بعد إرسال الإيصال… انتظر الرد ولا ترسل رسائل متعددة؛ كثرة الرسائل تأخر عليك المعالجة.
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-strip" style="margin-top:18px;">
+          <div class="cta-strip__text">
+            الخطوة الصح؟ اختبر مستواك أول… وخلك داخل خطة تمشيك “بالضبط وش تذاكر”.
+          </div>
+          <div class="cta-strip__actions">
+            <a class="btn btn--primary" href="./level-test.html">ابدأ اختبار تحديد المستوى</a>
+            <a class="btn btn--ghost" href="./course-content.html">شوف محتوى الدورة</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer policy links -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="grid grid--3">
+          <div class="card">
+            <h3 class="card__title">سياسات</h3>
+            <ul class="list">
+              <li><a class="link" href="./privacy.html">سياسة الخصوصية</a></li>
+              <li><a class="link" href="./terms.html">الشروط والأحكام</a></li>
+              <li><a class="link" href="./refund.html">سياسة الاسترجاع</a></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">روابط مهمة</h3>
+            <ul class="list">
+              <li><a class="link" href="./support.html">الدعم</a></li>
+              <li><a class="link" href="./faq.html">الأسئلة الشائعة</a></li>
+              <li><a class="link" href="./level-test.html">اختبار تحديد المستوى</a></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">ملاحظة</h3>
+            <p class="card__text">
+              هالشروط قابلة للتحديث عند الحاجة. استمرارك باستخدام الموقع يعني موافقتك على النسخة الحالية.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Floating Assistant -->
+  <div class="assistant">
+    <button class="assistant__fab" id="assistantFab" type="button" aria-label="مساعد التسجيل السريع">
+      <span aria-hidden="true">💬</span>
+      <span class="assistant__fabText">مساعد التسجيل</span>
+    </button>
+
+    <div class="assistant__panel" id="assistantPanel" aria-hidden="true">
+      <div class="assistant__header">
+        <div>
+          <div class="assistant__title">مساعد التسجيل</div>
+          <div class="assistant__sub">اختصر عليك الطريق… خطوة بخطوة</div>
+        </div>
+        <button class="icon-btn" id="assistantClose" type="button" aria-label="إغلاق">✕</button>
+      </div>
+
+      <div class="assistant__body">
+        <div class="assistant__group">
+          <div class="assistant__groupTitle">روابط سريعة</div>
+          <a class="assistant__link" href="./level-test.html">✅ اختبار تحديد المستوى</a>
+          <a class="assistant__link" href="./results.html">📊 النتائج والخطة</a>
+          <a class="assistant__link" href="./course-content.html">📦 محتوى الدورة</a>
+          <a class="assistant__link" href="./faq.html">❓ الأسئلة الشائعة</a>
+          <a class="assistant__link" href="./support.html">🛟 الدعم</a>
+        </div>
+
+        <div class="assistant__group">
+          <div class="assistant__groupTitle">التسجيل</div>
+          <a class="assistant__link assistant__link--locked"
+             href="./register.html"
+             data-locked="true"
+             data-lock-reason="أكمل اختبار تحديد المستوى أولاً، وبعدها يفتح لك التسجيل مباشرة 💛">
+            🔒 التسجيل (يفتح بعد الاختبار)
+          </a>
+        </div>
+
+        <div class="assistant__note">
+          📩 الحساب الرسمي: <strong>@Ayed_Academy_2026</strong><br>
+          🤖 بوت مجاني: <strong>@ayedacadmeybot</strong><br>
+          📢 قروب التنبيهات: <strong>@Academy_Ayed_2026</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toasts -->
+  <div id="toasts" class="toast-wrap" aria-live="polite" aria-relevant="additions"></div>
+
+  <!-- Scripts -->
+  <script src="./assets/site-data.js?v=2026-01-20"></script>
+  <script src="./assets/app.js?v=2026-01-20"></script>
 </body>
 </html>
