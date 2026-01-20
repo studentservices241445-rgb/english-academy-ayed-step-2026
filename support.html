@@ -1,483 +1,0 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0f14" />
-  <meta name="description" content="صفحة الدعم للدورة المكثفة STEP 2026 — تقديم طلبات (تأخر تفعيل/مشكلة تسجيل/استرجاع) مع رسالة جاهزة للإرسال لحساب الأكاديمية." />
-
-  <title>الدعم | STEP عايد المكثفة 2026</title>
-
-  <!-- PWA -->
-  <link rel="manifest" href="./manifest.json?v=2026-01-20" />
-  <link rel="icon" href="./assets/img/favicon.png?v=2026-01-20" />
-
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="./assets/styles.css?v=2026-01-20" />
-</head>
-
-<body>
-  <!-- Top rotating notice bar -->
-  <div class="topbar" id="topbar" aria-live="polite">
-    <div class="topbar__inner">
-      <span class="dot pulse" aria-hidden="true"></span>
-      <span id="topbarText">جاري تحميل التحديثات…</span>
-    </div>
-  </div>
-
-  <!-- Header -->
-  <header class="header" id="header">
-    <div class="container header__inner">
-      <a class="brand" href="./index.html" aria-label="الصفحة الرئيسية">
-        <span class="brand__mark">A</span>
-        <span class="brand__text">
-          <span class="brand__title">Ayed Academy</span>
-          <span class="brand__sub">STEP Intensive 2026</span>
-        </span>
-      </a>
-
-      <nav class="nav" aria-label="التنقل الرئيسي">
-        <a class="nav__link" href="./index.html">الرئيسية</a>
-        <a class="nav__link" href="./course-content.html">محتوى الدورة</a>
-        <a class="nav__link" href="./testimonials.html">قصص النجاح</a>
-        <a class="nav__link" href="./faq.html">الأسئلة الشائعة</a>
-        <a class="nav__link is-active" href="./support.html">الدعم</a>
-
-        <!-- Locked: يظهر فعلياً بعد الاختبار -->
-        <a class="nav__link nav__link--locked"
-           href="./register.html"
-           data-locked="true"
-           data-lock-reason="التسجيل يفتح بعد اختبار تحديد المستوى عشان نعطيك خطة مناسبة 💛">
-          التسجيل
-        </a>
-      </nav>
-
-      <div class="header__actions">
-        <a class="btn btn--ghost" href="./level-test.html">ابدأ اختبار تحديد المستوى</a>
-        <button class="btn btn--icon" id="openAssistantBtn" type="button" aria-label="فتح مساعد التسجيل">
-          <span aria-hidden="true">💬</span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main class="main">
-
-    <!-- Page Hero -->
-    <section class="page-hero">
-      <div class="container">
-        <p class="badge">
-          <span class="badge__spark" aria-hidden="true">🛟</span>
-          دعم سريع + رسالة جاهزة
-        </p>
-
-        <h1 class="page-hero__title">الدعم</h1>
-
-        <p class="page-hero__lead">
-          هدفنا نخليك مرتاح. قبل لا ترسل لنا، خذ دقيقة على الخطوات هنا… وإذا احتجت تدخل معنا، جهزنا لك نموذج
-          يطلع لك <strong>رسالة جاهزة</strong> ترسلها لحساب الأكاديمية.
-        </p>
-
-        <div class="page-hero__cta">
-          <a class="btn btn--primary" href="./faq.html">شوف الأسئلة الشائعة أول</a>
-          <a class="btn btn--ghost" href="./level-test.html">ابدأ اختبار تحديد المستوى</a>
-        </div>
-
-        <div class="notice" style="margin-top:14px;">
-          <div class="notice__icon" aria-hidden="true">✅</div>
-          <div class="notice__text">
-            تنبيه مهم: <strong>لا تكرر الرسائل</strong> — تكرار الرسائل يزحم علينا ويأخر الرد عليك.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Quick Help -->
-    <section class="section section--alt">
-      <div class="container">
-        <div class="grid grid--3">
-          <div class="card">
-            <h3 class="card__title">١) قبل كل شيء</h3>
-            <p class="card__text">
-              تأكد أنك كملت <strong>اختبار تحديد المستوى</strong> — لأنه يطلع لك خطة واضحة ويشرح لك وش تركز عليه.
-            </p>
-            <a class="link" href="./level-test.html">اذهب للاختبار →</a>
-          </div>
-
-          <div class="card">
-            <h3 class="card__title">٢) أغلب الحل هنا</h3>
-            <p class="card__text">
-              الأسئلة الشائعة فيها: طريقة الدفع، إثبات التحويل، مدة التفعيل، ووش يصير بعد التسجيل.
-            </p>
-            <a class="link" href="./faq.html">اذهب للأسئلة الشائعة →</a>
-          </div>
-
-          <div class="card">
-            <h3 class="card__title">٣) إذا احتجت دعم</h3>
-            <p class="card__text">
-              عبّي النموذج تحت، وبيطلع لك نص رسالة مرتب + خط فاصل في النهاية + تنبيه بعدم التكرار.
-            </p>
-            <a class="link" href="#supportForm">انزل للنموذج →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Support Form -->
-    <section class="section" id="supportForm">
-      <div class="container">
-        <div class="section__head">
-          <h2 class="section__title">نموذج طلب دعم</h2>
-          <p class="section__desc">
-            اختر نوع المشكلة، عبّي البيانات الأساسية، وبعدها اضغط <strong>توليد رسالة جاهزة</strong>.
-          </p>
-        </div>
-
-        <div class="grid grid--2">
-          <!-- Form card -->
-          <div class="card">
-            <form id="supportTicket" class="form" autocomplete="on">
-              <div class="form__row">
-                <label class="field">
-                  <span class="field__label">نوع الطلب</span>
-                  <select class="field__control" id="reqType" required>
-                    <option value="" selected disabled>اختر…</option>
-                    <option value="activation">تأخر تفعيل الاشتراك / الانضمام للقنوات</option>
-                    <option value="payment">مشكلة في الدفع / تأكيد التحويل</option>
-                    <option value="refund">طلب استرجاع (قبل تفعيل الاشتراك)</option>
-                    <option value="tech">مشكلة تقنية بالموقع</option>
-                    <option value="complaint">شكوى / ملاحظة</option>
-                    <option value="fraud">بلاغ احتيال / انتحال اسم الأكاديمية</option>
-                  </select>
-                </label>
-              </div>
-
-              <div class="form__row">
-                <label class="field">
-                  <span class="field__label">الاسم الثلاثي</span>
-                  <input class="field__control" id="fullName" type="text" placeholder="مثال: محمد أحمد السبيعي" required />
-                </label>
-              </div>
-
-              <div class="form__row">
-                <label class="field">
-                  <span class="field__label">رقم الجوال (اختياري)</span>
-                  <input class="field__control" id="phone" type="tel" placeholder="05xxxxxxxx" />
-                </label>
-              </div>
-
-              <div class="form__row">
-                <label class="field">
-                  <span class="field__label">حسابك في تيليجرام (اختياري)</span>
-                  <input class="field__control" id="tgUser" type="text" placeholder="@username" />
-                </label>
-              </div>
-
-              <div class="form__row">
-                <label class="field">
-                  <span class="field__label">تاريخ التحويل (إذا ينطبق)</span>
-                  <input class="field__control" id="payDate" type="date" />
-                </label>
-              </div>
-
-              <div class="form__row">
-                <label class="field">
-                  <span class="field__label">المبلغ (إذا ينطبق)</span>
-                  <input class="field__control" id="amount" type="number" min="0" step="1" placeholder="مثال: 349" />
-                </label>
-              </div>
-
-              <div class="form__row">
-                <label class="field">
-                  <span class="field__label">آخر 4 أرقام من رقم العملية / الحوالة (إذا ينطبق)</span>
-                  <input class="field__control" id="ref4" type="text" inputmode="numeric" maxlength="4" placeholder="مثال: 4821" />
-                </label>
-              </div>
-
-              <div class="form__row">
-                <label class="field">
-                  <span class="field__label">وصف مختصر (وش صار؟)</span>
-                  <textarea class="field__control" id="details" rows="4" placeholder="اكتب المشكلة باختصار (سطرين تكفي)..." required></textarea>
-                </label>
-              </div>
-
-              <div class="notice" style="margin-top:12px;">
-                <div class="notice__icon" aria-hidden="true">ℹ️</div>
-                <div class="notice__text">
-                  إذا مشكلتك <strong>تأكيد التحويل</strong> — الأفضل ترسل الإيصال/صورة التحويل في نفس المحادثة مباشرة.
-                </div>
-              </div>
-
-              <div class="form__actions" style="margin-top:12px;">
-                <button class="btn btn--primary" id="buildMsg" type="button">توليد رسالة جاهزة</button>
-                <button class="btn btn--ghost" id="copyMsg" type="button" disabled>نسخ الرسالة</button>
-              </div>
-
-              <div class="form__actions" style="margin-top:10px;">
-                <a class="btn btn--ghost" id="openTelegram" href="#" aria-disabled="true">فتح تيليجرام وإرسال</a>
-                <a class="btn btn--ghost" href="./register.html">صفحة التسجيل</a>
-              </div>
-            </form>
-          </div>
-
-          <!-- Output card -->
-          <div class="card">
-            <h3 class="card__title">نص الرسالة الجاهزة</h3>
-            <p class="card__text muted">
-              بعد ما تضغط “توليد رسالة جاهزة”، بيظهر النص هنا مرتب، وفي نهايته خط فاصل وتنبيه مهم.
-            </p>
-
-            <div class="msgbox" id="msgBox" style="margin-top:12px;">
-              <pre id="msgPreview" class="msgbox__pre">—</pre>
-            </div>
-
-            <div class="notice" style="margin-top:12px;">
-              <div class="notice__icon" aria-hidden="true">⏱️</div>
-              <div class="notice__text">
-                يتم التأكيد بأقرب وقت بعد وصول الحوالة للحساب. تفعيل الاشتراك يتم فور المراجعة — ويفضل التحويل السريع لتسريع الوصول.
-              </div>
-            </div>
-
-            <div class="notice" style="margin-top:10px;">
-              <div class="notice__icon" aria-hidden="true">🔒</div>
-              <div class="notice__text">
-                لأمانك: تأكد أنك تراسل الحساب الرسمي فقط، ولا تشارك بياناتك أو إيصالاتك مع أي حسابات ثانية.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="cta-strip" style="margin-top:18px;">
-          <div class="cta-strip__text">
-            تذكير: التسجيل ما يفتح إلا بعد اختبار تحديد المستوى—عشان الخطة تكون دقيقة على مستواك.
-          </div>
-          <div class="cta-strip__actions">
-            <a class="btn btn--primary" href="./level-test.html">ابدأ الاختبار</a>
-            <a class="btn btn--ghost" href="./results.html">النتائج والخطة</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer links -->
-    <section class="section section--alt">
-      <div class="container">
-        <div class="grid grid--3">
-          <div class="card">
-            <h3 class="card__title">روابط مهمة</h3>
-            <ul class="list">
-              <li><a class="link" href="./privacy.html">سياسة الخصوصية</a></li>
-              <li><a class="link" href="./terms.html">الشروط والأحكام</a></li>
-              <li><a class="link" href="./refund.html">سياسة الاسترجاع</a></li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3 class="card__title">قنوات التواصل</h3>
-            <ul class="list">
-              <li>حساب الأكاديمية: <strong>@Ayed_Academy_2026</strong></li>
-              <li>بوت الاستفسارات: <strong>@ayedacadmeybot</strong></li>
-              <li>قروب التنبيهات: <strong>@Academy_Ayed_2026</strong></li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3 class="card__title">ملاحظة سريعة</h3>
-            <p class="card__text">
-              إذا كنت ما بدأت الاختبار… لا تضيع وقتك في التسجيل الآن. خلك على الترتيب:
-              <strong>اختبار → خطة → ثم التسجيل</strong>.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Floating Assistant -->
-  <div class="assistant">
-    <button class="assistant__fab" id="assistantFab" type="button" aria-label="مساعد التسجيل السريع">
-      <span aria-hidden="true">💬</span>
-      <span class="assistant__fabText">مساعد التسجيل</span>
-    </button>
-
-    <div class="assistant__panel" id="assistantPanel" aria-hidden="true">
-      <div class="assistant__header">
-        <div>
-          <div class="assistant__title">مساعد التسجيل</div>
-          <div class="assistant__sub">اختصر عليك الطريق… خطوة بخطوة</div>
-        </div>
-        <button class="icon-btn" id="assistantClose" type="button" aria-label="إغلاق">✕</button>
-      </div>
-
-      <div class="assistant__body">
-        <div class="assistant__group">
-          <div class="assistant__groupTitle">روابط سريعة</div>
-          <a class="assistant__link" href="./level-test.html">✅ اختبار تحديد المستوى</a>
-          <a class="assistant__link" href="./results.html">📊 النتائج والخطة</a>
-          <a class="assistant__link" href="./course-content.html">📦 محتوى الدورة</a>
-          <a class="assistant__link" href="./faq.html">❓ الأسئلة الشائعة</a>
-        </div>
-
-        <div class="assistant__group">
-          <div class="assistant__groupTitle">التسجيل</div>
-          <a class="assistant__link assistant__link--locked"
-             href="./register.html"
-             data-locked="true"
-             data-lock-reason="أكمل اختبار تحديد المستوى أولاً، وبعدها يفتح لك التسجيل مباشرة 💛">
-            🔒 التسجيل (يفتح بعد الاختبار)
-          </a>
-        </div>
-
-        <div class="assistant__note">
-          📩 للتواصل الرسمي: <strong>@Ayed_Academy_2026</strong><br>
-          🤖 بوت مجاني: <strong>@ayedacadmeybot</strong><br>
-          📢 قروب التنبيهات: <strong>@Academy_Ayed_2026</strong>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toasts -->
-  <div id="toasts" class="toast-wrap" aria-live="polite" aria-relevant="additions"></div>
-
-  <!-- Scripts -->
-  <script src="./assets/site-data.js?v=2026-01-20"></script>
-  <script src="./assets/app.js?v=2026-01-20"></script>
-
-  <!-- Support page logic (self-contained) -->
-  <script>
-    (function () {
-      const $ = (id) => document.getElementById(id);
-
-      const reqType = $('reqType');
-      const fullName = $('fullName');
-      const phone = $('phone');
-      const tgUser = $('tgUser');
-      const payDate = $('payDate');
-      const amount = $('amount');
-      const ref4 = $('ref4');
-      const details = $('details');
-
-      const buildBtn = $('buildMsg');
-      const copyBtn = $('copyMsg');
-      const openTg = $('openTelegram');
-
-      const preview = $('msgPreview');
-
-      function typeTitle(v) {
-        switch (v) {
-          case 'activation': return 'تأخر تفعيل الاشتراك / الانضمام للقنوات';
-          case 'payment': return 'مشكلة في الدفع / تأكيد التحويل';
-          case 'refund': return 'طلب استرجاع (قبل تفعيل الاشتراك)';
-          case 'tech': return 'مشكلة تقنية بالموقع';
-          case 'complaint': return 'شكوى / ملاحظة';
-          case 'fraud': return 'بلاغ احتيال / انتحال';
-          default: return 'طلب دعم';
-        }
-      }
-
-      function clean(s) {
-        return (s || '').toString().trim();
-      }
-
-      function buildMessage() {
-        const t = clean(reqType.value);
-        const name = clean(fullName.value);
-        const d = clean(details.value);
-
-        if (!t || !name || !d) {
-          if (window.toast) window.toast('كمل البيانات المطلوبة عشان نطلع لك رسالة جاهزة ✅');
-          return null;
-        }
-
-        const lines = [];
-        lines.push('السلام عليكم');
-        lines.push('');
-        lines.push('ابغى مساعدة بخصوص: *' + typeTitle(t) + '*');
-        lines.push('');
-        lines.push('الاسم: ' + name);
-
-        const p = clean(phone.value);
-        if (p) lines.push('الجوال: ' + p);
-
-        const tg = clean(tgUser.value);
-        if (tg) lines.push('تيليجرام: ' + tg);
-
-        const pd = clean(payDate.value);
-        if (pd) lines.push('تاريخ التحويل: ' + pd);
-
-        const am = clean(amount.value);
-        if (am) lines.push('المبلغ: ' + am + ' ريال');
-
-        const r4 = clean(ref4.value);
-        if (r4) lines.push('آخر 4 أرقام من العملية/الحوالة: ' + r4);
-
-        lines.push('');
-        lines.push('التفاصيل:');
-        lines.push(d);
-        lines.push('');
-        lines.push('ملاحظة: سأرفق الإيصال/صورة التحويل في نفس المحادثة لتأكيد الطلب (إذا ينطبق).');
-        lines.push('');
-        lines.push('_____________________________');
-        lines.push('*بعد إرسال الرسالة:*');
-        lines.push('- الرجاء عدم تكرار الرسائل حتى لا يتأخر الرد.');
-        lines.push('- سيتم التأكيد بأقرب وقت بعد وصول الحوالة للحساب والمراجعة.');
-        lines.push('');
-
-        return lines.join('\n');
-      }
-
-      function setTelegramLink(msg) {
-        const encoded = encodeURIComponent(msg);
-        // ملاحظة: المستخدم قد يرسلها للحساب الرسمي من داخل تيليجرام، الرابط يفتح محرر رسالة.
-        openTg.href = 'https://t.me/share/url?url=&text=' + encoded;
-        openTg.setAttribute('aria-disabled', 'false');
-      }
-
-      buildBtn.addEventListener('click', () => {
-        const msg = buildMessage();
-        if (!msg) return;
-
-        preview.textContent = msg;
-        copyBtn.disabled = false;
-        setTelegramLink(msg);
-
-        if (window.toast) window.toast('تم تجهيز الرسالة ✅ انسخها أو افتح تيليجرام');
-      });
-
-      copyBtn.addEventListener('click', async () => {
-        const msg = preview.textContent;
-        if (!msg || msg === '—') return;
-
-        try {
-          await navigator.clipboard.writeText(msg);
-          if (window.toast) window.toast('تم نسخ الرسالة ✅');
-        } catch (e) {
-          // fallback
-          const ta = document.createElement('textarea');
-          ta.value = msg;
-          document.body.appendChild(ta);
-          ta.select();
-          document.execCommand('copy');
-          ta.remove();
-          if (window.toast) window.toast('تم نسخ الرسالة ✅');
-        }
-      });
-
-      // Init
-      openTg.addEventListener('click', (e) => {
-        if (!openTg.href || openTg.getAttribute('aria-disabled') === 'true') {
-          e.preventDefault();
-          if (window.toast) window.toast('ولّد الرسالة أول ثم افتح تيليجرام ✅');
-        }
-      });
-    })();
-  </script>
-</body>
-</html>
