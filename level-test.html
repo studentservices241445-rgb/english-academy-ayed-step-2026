@@ -1,62 +1,212 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>اختبار تحديد المستوى – أكاديمية عايد</title>
-  <link rel="stylesheet" href="./assets/styles.css?v=20260120" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>اختبار تحديد المستوى | أكاديمية عايد – STEP 2026</title>
+  <meta name="description" content="اختبار تحديد مستوى يساعدك تعرف نقاط قوتك وضعفك، ويطلع لك خطة مذاكرة مناسبة حسب وقت اختبارك." />
+
+  <link rel="stylesheet" href="./assets/styles.css?v=2026-01-20" />
+
+  <!-- (اختياري لاحقًا للـPWA) -->
+  <link rel="manifest" href="./manifest.json?v=2026-01-20" />
+  <meta name="theme-color" content="#0b0b0f" />
 </head>
+
 <body>
-  <!-- ترويسة الموقع -->
-  <header class="navbar">
-    <a href="./index.html" class="logo">أكاديمية&nbsp;عايد</a>
-    <button id="hamburger" class="hamburger">☰</button>
-    <ul id="navLinks" class="nav-links">
-      <li><a href="./index.html">الرئيسية</a></li>
-      <li><a href="./course-content.html">محتوى الدورة</a></li>
-      <li><a href="./level-test.html" class="active">اختبار المستوى</a></li>
-      <li><a href="./testimonials.html">قصص النجاح</a></li>
-      <li><a href="./faq.html">الأسئلة الشائعة</a></li>
-      <li><a href="./support.html">الدعم</a></li>
-    </ul>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand__mark">★</span>
+        <span class="brand__text">أكاديمية عايد – STEP 2026</span>
+      </a>
+
+      <nav class="nav">
+        <a class="nav__link" href="./index.html">الرئيسية</a>
+        <a class="nav__link" href="./course-content.html">محتوى الدورة</a>
+        <a class="nav__link" href="./faq.html">الأسئلة الشائعة</a>
+        <a class="nav__link is-active" href="./level-test.html">اختبار تحديد المستوى</a>
+
+        <!-- التسجيل: نبي نوجه الناس للاختبار أول -->
+        <a class="nav__link nav__cta" href="./level-test.html" aria-disabled="true" title="لازم تكمل الاختبار أول">التسجيل</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- شريط التنبيهات -->
-  <div class="ticker-bar"><span id="ticker"></span></div>
+  <main class="container" style="padding-top: 1.2rem; padding-bottom: 3rem;">
+    <section class="card" id="levelTestApp">
+      <div class="card__head">
+        <h1 class="h1">اختبار تحديد المستوى</h1>
+        <p class="muted">
+          قبل ما نسجّلك… نبغى نعرف وضعك الحقيقي ✅
+          <br />
+          عشان نطلع لك <strong>خطة مذاكرة على قد وقتك ومستواك</strong> وتعرف بالضبط وش تركز عليه داخل الدورة بدون تشتت.
+        </p>
+      </div>
 
-  <!-- مساحة الاختبار -->
-  <main class="page-content">
-    <div id="testApp" class="test-container"></div>
+      <noscript>
+        <div class="note">
+          لازم تفعّل JavaScript عشان يشتغل الاختبار والخطة.
+        </div>
+      </noscript>
+
+      <!-- STEP 1: معلومات الطالب -->
+      <div class="stack" id="stepProfile">
+        <div class="grid2">
+          <div class="field">
+            <label class="label" for="name">اسمك (اختياري)</label>
+            <input class="input" id="name" name="name" type="text" placeholder="مثال: محمد" maxlength="40" />
+            <div class="hint">نستخدمه فقط عشان نخاطبك بالخطة بشكل لطيف.</div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="examWindow">متى اختبارك؟ (اختيار مهم)</label>
+            <select class="input" id="examWindow" name="examWindow" required>
+              <option value="" selected disabled>اختر…</option>
+              <option value="7">خلال 7 أيام</option>
+              <option value="14">خلال أسبوعين</option>
+              <option value="30">خلال شهر</option>
+              <option value="60">بعد شهر وأكثر</option>
+              <option value="0">مو محدد للحين</option>
+            </select>
+            <div class="hint">هذا هو اللي يحدد “ضغط الخطة” وسرعة المراجعة.</div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="prevTest">هل سبق اختبرت STEP؟</label>
+            <select class="input" id="prevTest" name="prevTest">
+              <option value="no" selected>لا</option>
+              <option value="yes">نعم</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label class="label" for="prevScore">إذا نعم: درجتك السابقة (اختياري)</label>
+            <input class="input" id="prevScore" name="prevScore" type="number" min="0" max="100" placeholder="مثال: 68" />
+            <div class="hint">حتى لو ما تذكر بالضبط… عادي.</div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="targetScore">درجتك المستهدفة (اختياري)</label>
+            <input class="input" id="targetScore" name="targetScore" type="number" min="0" max="100" placeholder="مثال: 85" />
+          </div>
+
+          <div class="field">
+            <label class="label" for="studyTime">كم تقدر تذاكر يوميًا؟</label>
+            <select class="input" id="studyTime" name="studyTime">
+              <option value="30">نص ساعة</option>
+              <option value="60" selected>ساعة</option>
+              <option value="90">ساعة ونص</option>
+              <option value="120">ساعتين</option>
+              <option value="180">٣ ساعات وأكثر</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="card card--inner">
+          <h2 class="h2">وش أكثر شي يوقفك؟ (اختياري)</h2>
+          <p class="muted">اختر اللي ينطبق عليك… عشان نركز بالخطة على اللي يرفع درجتك بأسرع وقت.</p>
+
+          <div class="chips" role="group" aria-label="نقاط صعوبة">
+            <label class="chip"><input type="checkbox" value="grammar" class="chip__check" /> Grammar (القواعد)</label>
+            <label class="chip"><input type="checkbox" value="reading" class="chip__check" /> Reading (القراءة)</label>
+            <label class="chip"><input type="checkbox" value="listening" class="chip__check" /> Listening (الاستماع)</label>
+            <label class="chip"><input type="checkbox" value="vocab" class="chip__check" /> Vocabulary (المفردات)</label>
+            <label class="chip"><input type="checkbox" value="time" class="chip__check" /> إدارة الوقت</label>
+            <label class="chip"><input type="checkbox" value="focus" class="chip__check" /> تشتت/عدم التزام</label>
+          </div>
+
+          <div class="grid2" style="margin-top:.9rem;">
+            <div class="field">
+              <label class="label" for="learningStyle">أسلوبك اللي يناسبك</label>
+              <select class="input" id="learningStyle" name="learningStyle">
+                <option value="mixed" selected>مختلط (الأفضل)</option>
+                <option value="videos">أحب الشرح (فيديو/تلخيص)</option>
+                <option value="pdf">أحب ملفات مرتبة PDF</option>
+                <option value="practice">أحب الحل والتدريب</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="label" for="testCity">منطقة الاختبار (اختياري)</label>
+              <input class="input" id="testCity" name="testCity" type="text" placeholder="مثال: الرياض / جدة" maxlength="30" />
+              <div class="hint">تفيدنا للتنظيم فقط، مو شرط.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>مهم:</strong> الاختبار قصير ومفيد… الهدف منه يطلع لك خطة واضحة ويبين لك وش تركز عليه داخل الدورة.
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-primary" id="startTestBtn" type="button">
+            ابدأ اختبار تحديد المستوى
+          </button>
+          <a class="btn btn-ghost" href="./index.html">رجوع للرئيسية</a>
+        </div>
+      </div>
+
+      <!-- STEP 2: واجهة الاختبار -->
+      <div class="stack" id="stepQuiz" style="display:none;">
+        <div class="quiz-top">
+          <div>
+            <div class="muted">اختبار تحديد المستوى</div>
+            <div class="h2" style="margin:.15rem 0 0;">سؤال <span id="qIndex">1</span> من <span id="qTotal">20</span></div>
+          </div>
+
+          <div class="progress-wrap" aria-label="شريط التقدم">
+            <div class="progress-bar">
+              <div class="progress-bar__fill" id="progressFill" style="width: 0%;"></div>
+            </div>
+            <div class="muted" style="font-size:.9rem; text-align:center; margin-top:.35rem;">
+              خلك مركز… وبعدها الخطة تطلع لك جاهزة ✨
+            </div>
+          </div>
+        </div>
+
+        <div class="card card--inner">
+          <div class="pill-row">
+            <span class="pill" id="qSectionPill">General</span>
+            <span class="pill pill--ghost" id="qTagPill">STEP</span>
+          </div>
+
+          <div class="q-prompt" id="qPrompt">...</div>
+
+          <div class="options" id="qOptions" role="group" aria-label="خيارات السؤال">
+            <!-- injected -->
+          </div>
+
+          <div class="note" id="qHint" style="display:none;"></div>
+
+          <div class="actions">
+            <button class="btn btn-ghost" id="prevBtn" type="button">السابق</button>
+            <button class="btn btn-primary" id="nextBtn" type="button">التالي</button>
+          </div>
+
+          <div class="muted" style="font-size:.92rem; margin-top:.25rem;">
+            ما فيه أي تعقيد… الهدف نعرف مستواك ونطلع لك خطة “تمشيك صح”.
+          </div>
+        </div>
+
+        <div class="actions" style="justify-content:center;">
+          <button class="btn btn-ghost" id="quitBtn" type="button">إلغاء والعودة</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: تحميل/انتظار (اختياري) -->
+      <div class="stack" id="stepLoading" style="display:none;">
+        <div class="note">
+          جاري تجهيز نتيجتك وخطتك… لحظة 👌
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- المساعد العائم -->
-  <button id="assistantButton" class="assistant-button" aria-label="فتح المساعد">💬</button>
-  <div id="assistantPanel" class="assistant-panel">
-    <button id="closeAssistant" class="close-panel">×</button>
-    <h3>أين تود الذهاب؟</h3>
-    <ul>
-      <li><a href="./level-test.html">ابدأ اختبار المستوى</a></li>
-      <li><a href="./course-content.html">محتوى الدورة</a></li>
-      <li><a href="./faq.html">الأسئلة الشائعة</a></li>
-      <li><a href="./support.html">الدعم</a></li>
-      <li><a href="./terms.html">السياسات</a></li>
-    </ul>
-    <p style="font-size: 0.8rem; color:#bbb; margin-top:1rem;">زر التسجيل يظهر بعد إكمال الاختبار</p>
-  </div>
+  <!-- توستات/مساعد عام -->
+  <div id="toasts" class="toast-wrap" aria-live="polite"></div>
 
-  <!-- فوتـر -->
-  <footer class="footer">
-    <div class="footer-links">
-      <a href="./privacy.html">سياسة الخصوصية</a>
-      <a href="./terms.html">الشروط والأحكام</a>
-      <a href="./refund.html">سياسة الاسترجاع</a>
-      <a href="./support.html">الدعم</a>
-    </div>
-    <p>© 2026 أكاديمية عايد. جميع الحقوق محفوظة.</p>
-  </footer>
-
-  <script src="./assets/site-data.js?v=20260120"></script>
-  <script src="./assets/app.js?v=20260120"></script>
-  <script src="./assets/test.js?v=20260120"></script>
+  <script src="./assets/app.js?v=2026-01-20"></script>
+  <script src="./assets/test.js?v=2026-01-20"></script>
 </body>
 </html>
