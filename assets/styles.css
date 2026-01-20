@@ -1,217 +1,533 @@
-
 :root {
-  --bg-color: #0b0f14;
-  --primary-color: #d4af37;
-  --text-color: #f5f5f5;
-  --secondary-color: #1a1e23;
-  --card-bg: #151a21;
+  --bg-color: #0a0f15;
+  --primary: #d4af37;
+  --accent: #c39c41;
+  --secondary: #1c2532;
+  --card-bg: #151e28;
+  --text: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: "Tahoma", sans-serif;
+  font-family: 'Cairo', sans-serif;
   background: var(--bg-color);
-  color: var(--text-color);
+  color: var(--text);
   line-height: 1.6;
 }
 
-h1, h2, h3, h4 {
-  color: var(--primary-color);
-  margin-top: 0;
-}
-
-p {
-  margin: 0.5rem 0;
-}
-
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  background: var(--secondary-color);
+  background: var(--secondary);
+  padding: 0.5rem 1rem;
+  position: relative;
+  z-index: 100;
 }
-.navbar ul {
+.navbar .logo {
+  font-weight: bold;
+  color: var(--primary);
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+.nav-links {
   list-style: none;
   display: flex;
   gap: 1rem;
   margin: 0;
-  padding: 0;
 }
-.navbar li a {
-  color: var(--text-color);
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
   padding: 0.5rem 0.75rem;
   border-radius: 4px;
+  transition: background 0.2s ease;
 }
-.navbar li a.active,
-.navbar li a:hover {
-  background: var(--primary-color);
+.nav-links a.active,
+.nav-links a:hover {
+  background: var(--primary);
   color: var(--bg-color);
 }
 
-.logo {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: var(--primary-color);
-}
-
-section {
-  padding: 2rem 1rem;
-  max-width: 900px;
-  margin: auto;
-}
-
-.feature-list,
-footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.feature-list li {
-  margin: 0.5rem 0;
-}
-
-.btn-primary {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background: var(--primary-color);
-  color: var(--bg-color);
+.hamburger {
+  display: none;
+  background: none;
   border: none;
-  border-radius: 4px;
+  color: var(--text);
+  font-size: 1.6rem;
   cursor: pointer;
 }
-.btn-primary:hover {
-  opacity: 0.9;
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--secondary);
+    width: 200px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .nav-links.open {
+    max-height: 500px;
+  }
+  .hamburger {
+    display: block;
+  }
 }
 
-footer {
-  background: var(--secondary-color);
-  padding: 1.5rem;
+/* Hero */
+.hero {
   text-align: center;
-  font-size: 0.875rem;
+  padding: 3rem 1rem;
+  background: linear-gradient(to bottom, #101820, #0a0f15);
 }
-footer ul {
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+.hero p {
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+.hero-buttons {
   display: flex;
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: background 0.2s ease;
+}
+.btn.primary {
+  background: var(--primary);
+  color: var(--bg-color);
+}
+.btn.primary:hover {
+  background: var(--accent);
+}
+.btn.secondary {
+  background: var(--secondary);
+  color: var(--text);
+  border: 1px solid var(--primary);
+}
+.btn.secondary:hover {
+  background: var(--primary);
+  color: var(--bg-color);
+}
+
+/* Sections */
+.features, .steps, .testimonials-preview, .faq-preview, .content-sections, .testimonials-section, .support-section, .policy-section, .terms-section, .refund-section {
+  padding: 2rem 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.features h2, .steps h2, .testimonials-preview h2, .faq-preview h2, .testimonials-section h1, .page-header h1 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+/* Feature grid */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.card {
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.card h3 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+/* Steps */
+.steps {
+  background: var(--secondary);
+}
+.step-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0;
+}
+.step-list li {
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  flex: 1 1 250px;
+}
+
+/* Testimonials preview and grid */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.testimonial, .testimonial-card {
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.testimonial span, .testimonial-card span { display: block; margin-top: 0.5rem; color: var(--primary); }
+.testimonial-card span.score { font-weight: bold; }
+
+/* FAQ preview */
+.faq-list {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq-list li { margin-bottom: 0.5rem; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: var(--secondary);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
   margin-bottom: 0.5rem;
+}
+.footer-links a {
+  color: var(--text);
+  text-decoration: none;
+}
+.footer-links a:hover {
+  text-decoration: underline;
 }
 
 /* Assistant */
 .assistant-button {
   position: fixed;
   bottom: 1rem;
-  right: 1rem;
-  width: 48px;
-  height: 48px;
-  background: var(--primary-color);
+  left: 1rem;
+  background: var(--primary);
+  color: var(--bg-color);
   border: none;
   border-radius: 50%;
-  color: var(--bg-color);
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
   cursor: pointer;
-  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 1000;
 }
 .assistant-panel {
   position: fixed;
-  bottom: 5rem;
-  right: 1rem;
-  width: 280px;
-  background: var(--secondary-color);
-  color: var(--text-color);
-  border-radius: 8px;
+  bottom: 1rem;
+  left: 1rem;
+  background: var(--card-bg);
+  color: var(--text);
   padding: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  z-index: 999;
+  border-radius: 8px;
+  width: 260px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  display: none;
+  z-index: 1001;
 }
-.assistant-panel.open {
-  max-height: 400px;
+.assistant-panel.open { display: block; }
+.assistant-panel .close-panel {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  float: left;
 }
-.assistant-panel h3 {
+.assistant-panel h3 { margin-top: 0; color: var(--primary); }
+.assistant-panel ul { list-style: none; padding: 0; margin: 0; }
+.assistant-panel li { margin-bottom: 0.5rem; }
+.assistant-panel a { color: var(--text); text-decoration: none; display: block; padding: 0.5rem; border-radius: 4px; }
+.assistant-panel a:hover { background: var(--secondary); }
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background: var(--primary);
+  color: var(--bg-color);
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1100;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* اختبارات والمعلومات السريعة */
+.test-container, .results-summary, .plan-section, .price-box {
+  max-width: 800px;
+  margin: 1rem auto;
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+/* نموذج المعلومات السريعة */
+.info-form h2 {
+  color: var(--primary);
   margin-top: 0;
 }
-.assistant-panel ul {
+.info-form .form-group {
+  margin-bottom: 0.5rem;
+}
+.info-form label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--primary);
+}
+.info-form select,
+.info-form input,
+.info-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: var(--bg-color);
+  color: var(--text);
+}
+.info-form button {
+  margin-top: 0.75rem;
+  background: var(--primary);
+  color: var(--bg-color);
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.info-form button:hover {
+  background: var(--accent);
+}
+
+/* عناصر سؤال الاختبار */
+.question-wrap h2 {
+  color: var(--primary);
+  margin-top: 0;
+}
+.question-prompt {
+  margin-bottom: 1rem;
+}
+.options {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.assistant-panel li {
-  margin: 0.5rem 0;
-}
-.assistant-panel .hint {
-  font-size: 0.8rem;
-  color: #aaa;
-  margin-top: 1rem;
-}
-
-/* FAQ details */
-details {
-  background: var(--secondary-color);
-  margin-top: 1rem;
-  padding: 1rem;
+.options li {
+  background: var(--secondary);
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
   border-radius: 4px;
-}
-details summary {
-  font-weight: bold;
   cursor: pointer;
-  color: var(--primary-color);
+  transition: background 0.2s ease;
+}
+.options li.selected,
+.options li:hover {
+  background: var(--primary);
+  color: var(--bg-color);
+}
+.progress-bar {
+  background: #2a3646;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+.progress-bar .progress {
+  background: var(--primary);
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+.nav-buttons button {
+  background: var(--primary);
+  color: var(--bg-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 0.25rem;
+}
+.nav-buttons button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-details[open] summary {
+/* نتائج الاختبار */
+.results-summary h2, .results-summary h3 {
+  color: var(--primary);
+}
+.results-summary ul {
+  list-style: disc;
+  padding-right: 1.5rem;
+}
+.results-summary .bar-row {
+  display: flex;
+  align-items: center;
   margin-bottom: 0.5rem;
 }
-
-/* Testimonials */
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
+.results-summary .bar-row span:first-child {
+  flex: 0 0 100px;
 }
-.testimonial-card {
-  background: var(--secondary-color);
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+.results-summary .bar-row span:last-child {
+  margin-left: 0.5rem;
 }
-
-/* Forms */
-form label {
-  display: block;
-  margin-top: 1rem;
-  font-weight: bold;
-}
-form input,
-form select,
-form textarea {
-  width: 100%;
-  margin-top: 0.25rem;
-  padding: 0.5rem;
+.results-summary .bar {
+  flex: 1;
+  background: #2a3646;
+  height: 8px;
   border-radius: 4px;
-  border: 1px solid #444;
-  background: #222;
-  color: var(--text-color);
+  overflow: hidden;
+  margin: 0 0.5rem;
 }
-form textarea {
-  min-height: 100px;
-  resize: vertical;
+.results-summary .bar-fill {
+  height: 100%;
+  background: var(--primary);
+  width: 0;
 }
 
-.note {
-  margin-top: 1rem;
-  font-size: 0.8rem;
-  color: #aaa;
+/* price box */
+.price-box .current-price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary);
+  margin: 0.5rem 0;
+}
+.price-box .original-price {
+  text-decoration: line-through;
+  color: #777;
+}
+.price-box button {
+  background: var(--primary);
+  color: var(--bg-color);
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+.price-box button:hover {
+  background: var(--accent);
+}
+
+/* نموذج التسجيل */
+.bank-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem;
+}
+.bank-list li {
+  margin-bottom: 0.5rem;
+}
+.bank-list .copy-btn {
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85rem;
+}
+.cta-btn {
+  background: var(--primary);
+  color: var(--bg-color);
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+.cta-btn:hover {
+  background: var(--accent);
+}
+
+/* Page header */
+.page-header { padding: 2rem 1rem; text-align: center; }
+.page-header h1 { color: var(--primary); margin-bottom: 0.5rem; }
+
+/* Content sections */
+.content-section {
+  background: var(--card-bg);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+}
+.content-section h2 { color: var(--primary); margin-top: 0; }
+
+/* Terms/Refund lists */
+.terms-list, .refund-section ul {
+  list-style: disc;
+  margin: 0 auto;
+  padding-right: 1.5rem;
+  max-width: 800px;
+  color: var(--text);
+}
+.terms-list li, .refund-section li { margin-bottom: 0.5rem; }
+
+/* Policy section */
+.policy-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  background: var(--card-bg);
+  border-radius: 6px;
+}
+
+/* Support form */
+.support-section { max-width: 600px; margin: 0 auto; background: var(--card-bg); padding: 1rem; border-radius: 6px; }
+.support-form .form-group { margin-bottom: 0.75rem; }
+.support-form label { display: block; margin-bottom: 0.25rem; color: var(--primary); }
+.support-form input, .support-form select, .support-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: var(--bg-color);
+  color: var(--text);
+}
+.support-form button { margin-top: 0.5rem; }
+
+/* 404 */
+.not-found { text-align: center; padding: 3rem 1rem; }
+.not-found h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
+
+@media (max-width: 600px) {
+  .feature-grid, .testimonials-grid, .step-list, .testimonials-section .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  .step-list li { flex: 1 1 auto; }
 }
