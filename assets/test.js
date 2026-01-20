@@ -80,7 +80,15 @@
           if (sec === 'listening') secName = 'الاستماع';
           return `<li>${secName}: ${s.correct} / ${s.total} (${secPercent}%)</li>`;
         }).join('');
-        mount.innerHTML = `
+  
+              localStorage.setItem('ayedResults', JSON.stringify({
+        totalCorrect: totalCorrect,
+        totalQuestions: selected.length,
+        percent: percent,
+        level: level,
+        stats: stats
+      }));
+mount.innerHTML = `
           <div class="results-wrap">
             <h2>نتيجتك</h2>
             <p>حصلت على ${totalCorrect} من ${selected.length} (${percent}%).</p>
