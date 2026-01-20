@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "section": "grammar",
+    "prompt": "اختر الكلمة المناسبة: I ____ going to the market yesterday.",
+    "options": ["am", "was", "were", "is"],
+    "answer": "was",
+    "explanation": "الماضي البسيط للفعل 'to be' مع I هو 'was'."
+  },
+  {
+    "id": 2,
+    "section": "grammar",
+    "prompt": "أي الجمل التالية صحيحة؟",
+    "options": ["She don't like apples.", "She doesn't like apples.", "She doesn't likes apples.", "She don't likes apples."],
+    "answer": "She doesn't like apples.",
+    "explanation": "في الزمن الحاضر البسيط مع الضمير she نستخدم doesn't والفعل الأساسي بدون s."
+  },
+  {
+    "id": 3,
+    "section": "grammar",
+    "prompt": "Complete: They have been ____ this movie for two hours.",
+    "options": ["watch", "watched", "watching", "watches"],
+    "answer": "watching",
+    "explanation": "صيغة المضارع التام المستمر تكون been + verb-ing."
+  },
+  {
+    "id": 4,
+    "section": "grammar",
+    "prompt": "اختر صيغة الماضي الصحيح للفعل 'to go'",
+    "options": ["goes", "gone", "went", "goed"],
+    "answer": "went",
+    "explanation": "الماضي البسيط للفعل go هو went."
+  },
+  {
+    "id": 5,
+    "section": "grammar",
+    "prompt": "أي الأزمنة التالية يعبر عن عادة يومية؟",
+    "options": ["Present simple", "Past simple", "Present continuous", "Present perfect"],
+    "answer": "Present simple",
+    "explanation": "الحاضر البسيط يستخدم للتعبير عن العادات والأشياء الروتينية."
+  },
+  {
+    "id": 6,
+    "section": "grammar",
+    "prompt": "اختر الضمير الصحيح: The book belongs to ____.",
+    "options": ["I", "me", "my", "mine"],
+    "answer": "me",
+    "explanation": "نستخدم ضمير المفعول me بعد الفعل belongs to."
+  },
+  {
+    "id": 7,
+    "section": "reading",
+    "prompt": "في النص التالي: 'Learning a new language opens doors to opportunities.' ما معنى الجملة؟",
+    "options": ["يفتح تعلم لغة جديدة الأبواب للفرص.", "يغلق تعلم لغة جديدة الأبواب.", "لا يؤثر تعلم لغة جديدة في الفرص.", "يمنع تعلم لغة جديدة حدوث فرص."],
+    "answer": "يفتح تعلم لغة جديدة الأبواب للفرص.",
+    "explanation": "العبارة تعني أن تعلم لغة جديدة يوسع الفرص المتاحة."
+  },
+  {
+    "id": 8,
+    "section": "reading",
+    "prompt": "What is the main idea of the paragraph: 'Studying regularly helps students achieve better results and reduces stress before exams.'?",
+    "options": ["المذاكرة المنتظمة تساعد الطلاب على تحقيق نتائج أفضل وتقليل التوتر قبل الاختبارات.", "المذاكرة قبل الاختبارات تسبب توتر.", "لا علاقة للمذاكرة بالنتائج.", "التوتر يساعد على التفوق."],
+    "answer": "المذاكرة المنتظمة تساعد الطلاب على تحقيق نتائج أفضل وتقليل التوتر قبل الاختبارات.",
+    "explanation": "الفقرة تذكر فائدة المذاكرة المنتظمة في تحسين النتائج وتقليل التوتر."
+  },
+  {
+    "id": 9,
+    "section": "reading",
+    "prompt": "Choose the correct synonym: 'Rapid' means ____.",
+    "options": ["slow", "fast", "heavy", "weak"],
+    "answer": "fast",
+    "explanation": "Rapid تعني سريع."
+  },
+  {
+    "id": 10,
+    "section": "listening",
+    "prompt": "عندما تسمع عبارة 'I'll call you later', ما الذي يعنيه المتحدث؟",
+    "options": ["سأراك الآن", "سأتصل بك لاحقًا", "لن أتصل بك", "اتصل بي لاحقًا"],
+    "answer": "سأتصل بك لاحقًا",
+    "explanation": "العبارة تعني أنه سيتصل بك لاحقا."
+  },
+  {
+    "id": 11,
+    "section": "listening",
+    "prompt": "If someone says 'Could you repeat that, please?', what do they want?",
+    "options": ["They want you to go away", "They want you to speak faster", "They want you to repeat what you said", "They don't care"],
+    "answer": "They want you to repeat what you said",
+    "explanation": "هذه عبارة تستخدم لطلب إعادة ما قلته."
+  },
+  {
+    "id": 12,
+    "section": "listening",
+    "prompt": "اختر الإجابة الصحيحة: عند الاستماع إلى كلمة 'knight'، كيف تُنطق البداية؟",
+    "options": ["الـk تنطق", "الـk لا تنطق", "الـg تنطق", "الـt لا تنطق"],
+    "answer": "الـk لا تنطق",
+    "explanation": "الحرف k في بداية الكلمة knight لا ينطق."
+  }
+]
