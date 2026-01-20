@@ -1,87 +1,448 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>الدعم وخدمة الطالب — أكاديمية عايد</title>
-  <link rel="manifest" href="./manifest.json" />
-  <link rel="icon" type="image/png" href="./assets/images/logo.png" />
-  <link rel="stylesheet" href="./assets/styles.css?v=20260120" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0f14" />
+  <meta name="description" content="الدعم والمساعدة الرسمية لدورة STEP المكثفة 2026 — تفعيل الاشتراك، حل المشاكل، والاستفسارات عبر القنوات الرسمية." />
+
+  <title>الدعم والمساعدة | STEP عايد المكثفة 2026</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.json?v=2026-01-20" />
+  <link rel="icon" href="./assets/img/favicon.png?v=2026-01-20" />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./assets/styles.css?v=2026-01-20" />
 </head>
+
 <body>
-  <header>
-    <nav class="navbar">
-      <a href="./index.html" class="logo">أكاديمية عايد</a>
-      <button class="hamburger" id="hamburger" aria-label="القائمة">☰</button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="./index.html">الرئيسية</a></li>
-        <li><a href="./course-content.html">محتوى الدورة</a></li>
-        <li><a href="./level-test.html">اختبار تحديد المستوى</a></li>
-        <li><a href="./testimonials.html">قصص النجاح</a></li>
-        <li><a href="./faq.html">الأسئلة الشائعة</a></li>
-        <li><a href="./support.html" class="active">الدعم</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section class="page-header">
-      <h1>الدعم وخدمة الطالب</h1>
-      <p>نحن هنا لمساعدتك في أي استفسار أو مشكلة. يمكنك التواصل معنا عبر النموذج أو مباشرة عبر تليجرام.</p>
-    </section>
-    <section class="support-section">
-      <div class="contact-info">
-        <p>إذا كان لديك سؤال عام أو تحتاج مساعدة بخصوص الحساب، لا تتردد في التواصل.</p>
-        <p>يمكنك أيضاً مراسلة الحساب الرسمي في تليجرام: <a href="https://t.me/Ayed_Academy_2026" target="_blank">@Ayed_Academy_2026</a></p>
+  <!-- Top rotating notice bar -->
+  <div class="topbar" id="topbar" aria-live="polite">
+    <div class="topbar__inner">
+      <span class="dot pulse" aria-hidden="true"></span>
+      <span id="topbarText">جاري تحميل التحديثات…</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="./index.html" aria-label="الصفحة الرئيسية">
+        <span class="brand__mark">A</span>
+        <span class="brand__text">
+          <span class="brand__title">Ayed Academy</span>
+          <span class="brand__sub">STEP Intensive 2026</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="التنقل الرئيسي">
+        <a class="nav__link" href="./index.html">الرئيسية</a>
+        <a class="nav__link" href="./course-content.html">محتوى الدورة</a>
+        <a class="nav__link" href="./testimonials.html">قصص النجاح</a>
+        <a class="nav__link" href="./faq.html">الأسئلة الشائعة</a>
+        <a class="nav__link is-active" href="./support.html">الدعم</a>
+
+        <!-- Locked: يظهر فعلياً بعد الاختبار -->
+        <a class="nav__link nav__link--locked"
+           href="./register.html"
+           data-locked="true"
+           data-lock-reason="التسجيل يفتح بعد اختبار تحديد المستوى عشان نعطيك خطة مناسبة 💛">
+          التسجيل
+        </a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--ghost" href="./level-test.html">ابدأ اختبار تحديد المستوى</a>
+        <button class="btn btn--icon" id="openAssistantBtn" type="button" aria-label="فتح مساعد التسجيل">
+          <span aria-hidden="true">💬</span>
+        </button>
       </div>
-      <form class="support-form" onsubmit="event.preventDefault(); alert('تم إرسال رسالتك بنجاح. سنرد عليك قريباً.'); this.reset();">
-        <div class="form-group">
-          <label for="support-name">الاسم</label>
-          <input type="text" id="support-name" required />
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="badge">
+          <span class="badge__spark" aria-hidden="true">🛟</span>
+          دعم سريع + خطوات واضحة
+        </p>
+
+        <h1 class="page-hero__title">الدعم والمساعدة</h1>
+
+        <p class="page-hero__lead">
+          هدفنا نخليك تمشي بسلاسة بدون تشتت. اختر نوع طلبك من تحت،
+          وبنجهز لك <strong>رسالة مرتبة</strong> ترسلها للحساب الرسمي مباشرة.
+        </p>
+
+        <div class="page-hero__cta">
+          <a class="btn btn--primary" href="#supportForm">ابدأ الآن</a>
+          <a class="btn btn--ghost" href="./faq.html">أقرأ الأسئلة الشائعة أول</a>
         </div>
-        <div class="form-group">
-          <label for="support-email">البريد الإلكتروني / وسيلة التواصل</label>
-          <input type="email" id="support-email" placeholder="اختياري" />
+
+        <div class="notice">
+          <div class="notice__icon" aria-hidden="true">✅</div>
+          <div class="notice__text">
+            <strong>مهم:</strong> لا ترسل أكثر من رسالة لنفس الطلب، لأن كثرة الرسائل تسبب تأخير بالفرز والرد.
+            وإذا عندك إيصال/مرفق… جهزه عشان ترفقه داخل الخاص.
+          </div>
         </div>
-        <div class="form-group">
-          <label for="support-type">نوع الطلب</label>
-          <select id="support-type">
-            <option value="question">سؤال عام</option>
-            <option value="activation">تفعيل الحساب</option>
-            <option value="refund">طلب استرجاع</option>
-            <option value="other">أخرى</option>
-          </select>
+      </div>
+    </section>
+
+    <!-- Quick help cards -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">أكثر 4 أشياء تجينا</h2>
+          <p class="section__desc">اختر اللي يشبه حالتك… وبنجهز لك رسالة جاهزة للحساب الرسمي.</p>
         </div>
-        <div class="form-group">
-          <label for="support-message">الرسالة</label>
-          <textarea id="support-message" rows="4" required></textarea>
+
+        <div class="grid grid--4">
+          <div class="card">
+            <h3 class="card__title">تفعيل الاشتراك</h3>
+            <p class="card__text">حوّلت ورفعت الإيصال/أرسلته، وتبي تأكيد التفعيل بسرعة.</p>
+            <a class="btn btn--ghost" href="#supportForm" data-pick-type="activation">ابدأ طلب تفعيل</a>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">مشكلة بالاختبار</h3>
+            <p class="card__text">الاختبار ما يفتح/ما ينتقل للسؤال اللي بعده/النتائج ما ظهرت.</p>
+            <a class="btn btn--ghost" href="#supportForm" data-pick-type="test">حل مشكلة الاختبار</a>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">استرجاع/سياسة</h3>
+            <p class="card__text">استفسار عن الاسترجاع أو الشروط أو سياسة الخصوصية.</p>
+            <a class="btn btn--ghost" href="#supportForm" data-pick-type="refund">طلب استرجاع/استفسار</a>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">بلاغ احتيال</h3>
+            <p class="card__text">وصلتك روابط/حسابات غير رسمية وتبي تتأكد أو تبلغنا.</p>
+            <a class="btn btn--ghost" href="#supportForm" data-pick-type="fraud">بلاغ احتيال</a>
+          </div>
         </div>
-        <button type="submit" class="btn primary">إرسال</button>
-      </form>
+      </div>
+    </section>
+
+    <!-- Official channels -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">القنوات الرسمية</h2>
+          <p class="section__desc">أي تواصل خارج القنوات هذي لا نعتمده.</p>
+        </div>
+
+        <div class="grid grid--3">
+          <div class="card">
+            <h3 class="card__title">📩 الحساب الرسمي</h3>
+            <p class="card__text">
+              التواصل الرسمي والتأكيد النهائي للاشتراك:
+              <strong>@Ayed_Academy_2026</strong>
+            </p>
+            <a class="btn btn--primary" href="https://t.me/Ayed_Academy_2026" target="_blank" rel="noopener">فتح تلجرام</a>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">📢 قروب التنبيهات</h3>
+            <p class="card__text">
+              تحديثات المحتوى + عروض + مواعيد وخطط:
+              <strong>@Academy_Ayed_2026</strong>
+            </p>
+            <a class="btn btn--ghost" href="https://t.me/Academy_Ayed_2026" target="_blank" rel="noopener">فتح القروب</a>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">🤖 بوت مجاني</h3>
+            <p class="card__text">
+              تجميعات + كويزات + منصة مجانية:
+              <strong>@ayedacadmeybot</strong>
+            </p>
+            <a class="btn btn--ghost" href="https://t.me/ayedacadmeybot" target="_blank" rel="noopener">فتح البوت</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support form -->
+    <section class="section section--alt" id="supportForm">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">نموذج الدعم السريع</h2>
+          <p class="section__desc">
+            عبّ البيانات بسرعة، وبزر واحد نجهز لك رسالة رسمية للحساب.
+            (لا تظهر للزوار أي تعليمات تقنية — فقط خطوات واضحة)
+          </p>
+        </div>
+
+        <div class="card form-card">
+          <form id="supportQuickForm" class="form" novalidate>
+            <div class="form__row">
+              <label class="field">
+                <span class="field__label">نوع الطلب *</span>
+                <select class="field__control" id="issueType" required>
+                  <option value="" selected disabled>اختر نوع الطلب</option>
+                  <option value="activation">تفعيل الاشتراك / تأكيد الانضمام</option>
+                  <option value="test">مشكلة في اختبار تحديد المستوى</option>
+                  <option value="register">مشكلة في التسجيل / رفع الإيصال</option>
+                  <option value="refund">استرجاع / شروط وسياسات</option>
+                  <option value="fraud">بلاغ احتيال / رابط غير رسمي</option>
+                  <option value="other">استفسار عام</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span class="field__label">اسمك (اختياري)</span>
+                <input class="field__control" id="fullName" type="text" placeholder="مثال: محمد" />
+              </label>
+            </div>
+
+            <div class="form__row">
+              <label class="field">
+                <span class="field__label">وسيلة تواصل مفضلة (اختياري)</span>
+                <select class="field__control" id="contactMethod">
+                  <option value="" selected>بدون</option>
+                  <option value="telegram">تلجرام</option>
+                  <option value="whatsapp">واتساب</option>
+                  <option value="email">إيميل</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span class="field__label">حساب/رقم التواصل (اختياري)</span>
+                <input class="field__control" id="contactValue" type="text" placeholder="مثال: @username أو 05xxxxxxxx أو email" />
+              </label>
+            </div>
+
+            <div class="form__row">
+              <label class="field">
+                <span class="field__label">تاريخ التحويل (اختياري)</span>
+                <input class="field__control" id="transferDate" type="date" />
+              </label>
+
+              <label class="field">
+                <span class="field__label">آخر 4 أرقام من رقم العملية/المرجع (اختياري)</span>
+                <input class="field__control" id="refLast4" type="text" inputmode="numeric" maxlength="4" placeholder="مثال: 4821" />
+              </label>
+            </div>
+
+            <label class="field">
+              <span class="field__label">وصف مختصر للمشكلة *</span>
+              <textarea class="field__control" id="details" rows="4" required placeholder="اكتب مشكلتك أو طلبك باختصار..."></textarea>
+              <span class="field__hint">إذا عندك إيصال أو صورة — جهزها عشان ترفقها في الخاص بعد إرسال الرسالة.</span>
+            </label>
+
+            <div class="notice" style="margin-top:12px;">
+              <div class="notice__icon" aria-hidden="true">📌</div>
+              <div class="notice__text">
+                <strong>تنبيه:</strong> بعد إرسال الرسالة للحساب الرسمي، ارفق الإيصال/الملف في نفس المحادثة مباشرة للتأكيد النهائي.
+                ولا تكرر الإرسال أكثر من مرة.
+              </div>
+            </div>
+
+            <div class="form__actions">
+              <button class="btn btn--primary" type="submit">إرسال الرسالة للحساب الرسمي</button>
+              <button class="btn btn--ghost" type="button" id="copyMsgBtn">نسخ الرسالة</button>
+              <a class="btn btn--ghost" href="./level-test.html">رجوع للاختبار</a>
+            </div>
+
+            <textarea id="supportMsgOut" class="field__control" rows="8" readonly
+              style="margin-top:12px; display:none;"
+              aria-label="نص الرسالة الجاهزة"></textarea>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-strip">
+          <div class="cta-strip__text">
+            تبي تمشي صح من البداية؟ سو اختبار تحديد المستوى… وخلك على خطة واحدة واضحة 💛
+          </div>
+          <div class="cta-strip__actions">
+            <a class="btn btn--primary" href="./level-test.html">ابدأ الاختبار</a>
+            <a class="btn btn--ghost" href="./course-content.html">شوف محتوى الدورة</a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
-  <footer>
-    <div class="footer-links">
-      <a href="./privacy.html">الخصوصية</a>
-      <a href="./terms.html">الشروط</a>
-      <a href="./refund.html">سياسة الاسترجاع</a>
-      <a href="./support.html">الدعم</a>
+
+  <!-- Floating Assistant -->
+  <div class="assistant">
+    <button class="assistant__fab" id="assistantFab" type="button" aria-label="مساعد التسجيل السريع">
+      <span aria-hidden="true">💬</span>
+      <span class="assistant__fabText">مساعد التسجيل</span>
+    </button>
+
+    <div class="assistant__panel" id="assistantPanel" aria-hidden="true">
+      <div class="assistant__header">
+        <div>
+          <div class="assistant__title">مساعد التسجيل</div>
+          <div class="assistant__sub">اختصر عليك الطريق… خطوة بخطوة</div>
+        </div>
+        <button class="icon-btn" id="assistantClose" type="button" aria-label="إغلاق">✕</button>
+      </div>
+
+      <div class="assistant__body">
+        <div class="assistant__group">
+          <div class="assistant__groupTitle">ابدأ من هنا</div>
+          <a class="assistant__link" href="./level-test.html">✅ اختبار تحديد المستوى</a>
+          <a class="assistant__link" href="./course-content.html">📦 محتوى الدورة</a>
+          <a class="assistant__link" href="./testimonials.html">🏆 قصص النجاح</a>
+          <a class="assistant__link" href="./faq.html">❓ الأسئلة الشائعة</a>
+        </div>
+
+        <div class="assistant__group">
+          <div class="assistant__groupTitle">بعد ما تخلص الاختبار</div>
+          <a class="assistant__link" href="./results.html">📊 النتائج والخطة</a>
+          <a class="assistant__link assistant__link--locked"
+             href="./register.html"
+             data-locked="true"
+             data-lock-reason="أكمل اختبار تحديد المستوى أولاً، وبعدها يفتح لك التسجيل مباشرة 💛">
+            🔒 التسجيل (يفتح بعد الاختبار)
+          </a>
+        </div>
+
+        <div class="assistant__note">
+          📩 للاستفسار والاشتراك: <strong>@Ayed_Academy_2026</strong><br>
+          🤖 بوت مجاني: <strong>@ayedacadmeybot</strong><br>
+          📢 قروب التنبيهات: <strong>@Academy_Ayed_2026</strong>
+        </div>
+      </div>
     </div>
-    <p>© 2026 أكاديمية عايد. جميع الحقوق محفوظة.</p>
-  </footer>
-  <button id="assistantButton" class="assistant-button" aria-label="مساعد التسجيل">؟</button>
-  <div id="assistantPanel" class="assistant-panel">
-    <button class="close-panel" id="closeAssistant">×</button>
-    <h3>مرحباً!</h3>
-    <p>كيف نقدر نساعدك؟</p>
-    <ul class="assistant-links">
-      <li><a href="./level-test.html">ابدأ اختبار المستوى</a></li>
-      <li><a href="./course-content.html">وش داخل الدورة؟</a></li>
-      <li><a href="./faq.html">الأسئلة الشائعة</a></li>
-      <li><a href="./support.html">الدعم</a></li>
-      <li><a href="./terms.html">السياسات</a></li>
-    </ul>
   </div>
-  <script src="./assets/site-data.js?v=20260120"></script>
-  <script src="./assets/app.js?v=20260120"></script>
+
+  <!-- Toasts -->
+  <div id="toasts" class="toast-wrap" aria-live="polite" aria-relevant="additions"></div>
+
+  <!-- Scripts -->
+  <script src="./assets/site-data.js?v=2026-01-20"></script>
+  <script src="./assets/app.js?v=2026-01-20"></script>
+
+  <!-- Support page script (inline) -->
+  <script>
+    (function () {
+      const form = document.getElementById('supportQuickForm');
+      const issueType = document.getElementById('issueType');
+      const fullName = document.getElementById('fullName');
+      const contactMethod = document.getElementById('contactMethod');
+      const contactValue = document.getElementById('contactValue');
+      const transferDate = document.getElementById('transferDate');
+      const refLast4 = document.getElementById('refLast4');
+      const details = document.getElementById('details');
+      const out = document.getElementById('supportMsgOut');
+      const copyBtn = document.getElementById('copyMsgBtn');
+
+      // Quick pick from cards
+      document.querySelectorAll('[data-pick-type]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          issueType.value = btn.getAttribute('data-pick-type') || '';
+          issueType.dispatchEvent(new Event('change'));
+          window.setTimeout(() => details.focus(), 150);
+        });
+      });
+
+      function typeLabel(v) {
+        const map = {
+          activation: 'طلب تفعيل الاشتراك / تأكيد الانضمام',
+          test: 'مشكلة في اختبار تحديد المستوى',
+          register: 'مشكلة في التسجيل / رفع الإيصال',
+          refund: 'استرجاع / شروط وسياسات',
+          fraud: 'بلاغ احتيال / رابط غير رسمي',
+          other: 'استفسار عام'
+        };
+        return map[v] || 'طلب';
+      }
+
+      function buildMessage() {
+        const parts = [];
+        const name = (fullName.value || '').trim();
+        const cm = (contactMethod.value || '').trim();
+        const cv = (contactValue.value || '').trim();
+        const td = transferDate.value ? transferDate.value : '';
+        const r4 = (refLast4.value || '').trim();
+        const det = (details.value || '').trim();
+
+        parts.push('السلام عليكم ورحمة الله وبركاته،');
+        parts.push('');
+        parts.push('أرسل لكم هذا الطلب عبر الموقع الرسمي لدورة STEP المكثفة 2026.');
+        parts.push('');
+        parts.push('🧾 نوع الطلب: ' + typeLabel(issueType.value));
+        if (name) parts.push('👤 الاسم: ' + name);
+
+        if (cm && cv) {
+          const cmLabel = cm === 'telegram' ? 'تلجرام' : (cm === 'whatsapp' ? 'واتساب' : 'إيميل');
+          parts.push('📞 وسيلة التواصل: ' + cmLabel + ' — ' + cv);
+        }
+
+        if (td) parts.push('📅 تاريخ التحويل (إن وجد): ' + td);
+        if (r4) parts.push('🔢 آخر 4 أرقام مرجع العملية (إن وجد): ' + r4);
+
+        parts.push('');
+        parts.push('📝 تفاصيل الطلب:');
+        parts.push(det || '—');
+
+        parts.push('');
+        parts.push('📎 ملاحظة: سأقوم الآن بإرفاق الإيصال/الملف داخل نفس المحادثة للتأكيد النهائي.');
+        parts.push('');
+        parts.push('_______');
+        parts.push('• رجاءً لا أرسل أكثر من رسالة لنفس الطلب حتى لا يتأخر الرد.');
+        parts.push('• أعرف أن التأكيد يتم بأقرب وقت بعد المراجعة، وأتعاون معكم بإرسال المطلوب مباشرة.');
+        return parts.join('\n');
+      }
+
+      function openTelegramWithText(text) {
+        const username = 'Ayed_Academy_2026';
+        const url = 'https://t.me/' + username + '?text=' + encodeURIComponent(text);
+        window.open(url, '_blank', 'noopener');
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!issueType.value) {
+          window.toast ? window.toast('اختر نوع الطلب أولاً 🙏') : alert('اختر نوع الطلب أولاً');
+          return;
+        }
+        if (!details.value.trim()) {
+          window.toast ? window.toast('اكتب وصف مختصر للمشكلة 🙏') : alert('اكتب وصف مختصر للمشكلة');
+          details.focus();
+          return;
+        }
+
+        const msg = buildMessage();
+        out.style.display = 'block';
+        out.value = msg;
+
+        window.toast ? window.toast('تم تجهيز الرسالة — سيتم فتح تلجرام الآن ✅') : null;
+        openTelegramWithText(msg);
+      });
+
+      copyBtn.addEventListener('click', async function () {
+        const msg = buildMessage();
+        out.style.display = 'block';
+        out.value = msg;
+        try {
+          await navigator.clipboard.writeText(msg);
+          window.toast ? window.toast('تم نسخ الرسالة ✅') : alert('تم نسخ الرسالة');
+        } catch (err) {
+          out.focus();
+          out.select();
+          document.execCommand('copy');
+          window.toast ? window.toast('تم نسخ الرسالة ✅') : alert('تم نسخ الرسالة');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
