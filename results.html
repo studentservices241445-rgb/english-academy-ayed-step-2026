@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0f14" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/styles.css?v=2026-01-20" />
+  <title>النتيجة والخطة — STEP المكثفة 2026</title>
+</head>
+<body>
+  <div class="ticker" data-interval="4500" data-messages='["تم فتح مقاعد محدودة هذا الأسبوع","ابدأ اختبار تحديد المستوى الآن وخذ خطتك","الدورة مكثفة + متابعة + واجبات","نتيجة الاختبار تعطيك مسارك داخل الدورة"]'>
+    <span class="ticker__slot"></span>
+  </div>
+
+<!-- ===== Header (Paste into كل صفحات HTML) ===== -->
+<header class="site-header">
+  <div class="container nav">
+
+    <a class="nav-brand" href="./index.html" aria-label="English Academy Ayed">
+      <span class="brand-mark" aria-hidden="true">
+        <!-- شعار SVG بسيط وفخم (بدون صور خارجية) -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ayed">
+          <path d="M14 1.5C20.9 1.5 26.5 7.1 26.5 14C26.5 20.9 20.9 26.5 14 26.5C7.1 26.5 1.5 20.9 1.5 14C1.5 7.1 7.1 1.5 14 1.5Z" stroke="currentColor" stroke-width="2"/>
+          <path d="M8.5 17.2L14 6.5L19.5 17.2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10.2 14.5H17.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </span>
+
+      <span class="brand-text">
+        <span class="brand-title">أكاديمية عايد</span>
+        <span class="brand-sub">STEP المكثفة 2026</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="التنقل الرئيسي">
+      <a href="./index.html">الرئيسية</a>
+      <a href="./course-content.html">محتوى الدورة</a>
+      <a href="./level-test.html" class="is-cta">ابدأ الاختبار</a>
+      <a href="./faq.html">الأسئلة الشائعة</a>
+      <a href="./testimonials.html">قصص النجاح</a>
+      <a href="./support.html">الدعم</a>
+    </nav>
+
+    <button id="navToggle" class="nav-toggle" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="navDrawer">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
+
+  </div>
+
+  <!-- Drawer (Mobile) -->
+  <div id="navDrawer" class="nav-drawer" aria-label="قائمة الجوال">
+    <a href="./index.html">الرئيسية</a>
+    <a href="./course-content.html">محتوى الدورة</a>
+    <a href="./level-test.html" class="is-cta">ابدأ الاختبار</a>
+    <a href="./faq.html">الأسئلة الشائعة</a>
+    <a href="./testimonials.html">قصص النجاح</a>
+    <a href="./support.html">الدعم</a>
+  </div>
+</header>
+<!-- ===== /Header ===== -->
+
+
+  <main class="page">
+    <section class="page-head">
+      <div class="container">
+        <h1 class="h1">نتيجتك وخطتك</h1>
+        <p class="lead">هنا يظهر التحليل + الخطة + زر التسجيل (بعد الاختبار فقط).</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div id="resultsApp" class="results"></div>
+        <div class="section-actions">
+          <a id="goRegister" class="btn btn-primary" href="./register.html">انتقل للتسجيل</a>
+          <a class="btn btn-ghost" href="./course-content.html">راجع محتوى الدورة</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-brand">English Academy — Ayed</div>
+        <div class="muted">منصة تدريب STEP المكثفة 2026 — تجربة اختبار وخطة شخصية.</div>
+      </div>
+      <div class="footer-links">
+        <a href="./privacy.html">سياسة الخصوصية</a>
+        <a href="./terms.html">الشروط والأحكام</a>
+        <a href="./refund.html">سياسة الاسترجاع</a>
+      </div>
+      <div class="footer-meta">
+        <div>© <span id="year"></span> جميع الحقوق محفوظة</div>
+        <div class="muted">نسخة: {v}</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/app.js?v={v}" defer></script>
+
+
+  <button id="assistantFab" class="assistant-fab" aria-label="مساعد سريع" aria-expanded="false" type="button">
+    <span class="assistant-fab__dot" aria-hidden="true"></span>
+    <span class="assistant-fab__icon" aria-hidden="true">✦</span>
+  </button>
+
+  <aside id="assistantPanel" class="assistant" aria-hidden="true">
+    <div class="assistant__head">
+      <div class="assistant__title">مساعد سريع</div>
+      <button id="assistantClose" class="assistant__close" type="button" aria-label="إغلاق">×</button>
+    </div>
+    <div class="assistant__body">
+      <button class="assistant__btn" data-go="./level-test.html">ابدأ اختبار تحديد المستوى</button>
+      <button class="assistant__btn" data-go="./course-content.html">محتوى الدورة</button>
+      <button class="assistant__btn" data-go="./faq.html">الأسئلة الشائعة</button>
+      <button class="assistant__btn" data-go="./testimonials.html">قصص النجاح</button>
+      <button class="assistant__btn" data-go="./support.html">الدعم</button>
+    </div>
+    <div class="assistant__foot">
+      <div class="assistant__note">* زر التسجيل يظهر بعد نتيجة الاختبار.</div>
+    </div>
+  </aside>
+
+  <div id="toasts" class="toast-wrap" aria-live="polite"></div>
+
+
+  <script src="./assets/site-data.js?v=2026-01-20" defer></script>
+  <script src="./assets/test.js?v=2026-01-20" defer></script>
+
+</body>
+</html>
