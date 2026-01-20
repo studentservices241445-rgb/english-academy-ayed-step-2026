@@ -1,134 +1,261 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>نتيجة الاختبار والخطة – أكاديمية عايد</title>
-  <link rel="stylesheet" href="./assets/styles.css?v=20260120" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>نتيجة الاختبار والخطة | أكاديمية عايد – STEP 2026</title>
+  <meta name="description" content="عرض نتيجة اختبار تحديد المستوى وخطة مذاكرة مخصصة حسب مستواك وموعد اختبارك." />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./assets/styles.css?v=2026-01-20" />
+
+  <!-- (اختياري لاحقًا للـPWA) -->
+  <link rel="manifest" href="./manifest.json?v=2026-01-20" />
+  <meta name="theme-color" content="#0b0b0f" />
 </head>
+
 <body>
-  <!-- الترويسة -->
-  <header class="navbar">
-    <a href="./index.html" class="logo">أكاديمية&nbsp;عايد</a>
-    <button id="hamburger" class="hamburger">☰</button>
-    <ul id="navLinks" class="nav-links">
-      <li><a href="./index.html">الرئيسية</a></li>
-      <li><a href="./course-content.html">محتوى الدورة</a></li>
-      <li><a href="./level-test.html">اختبار المستوى</a></li>
-      <li><a href="./testimonials.html">قصص النجاح</a></li>
-      <li><a href="./faq.html">الأسئلة الشائعة</a></li>
-      <li><a href="./support.html">الدعم</a></li>
-    </ul>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand__mark">★</span>
+        <span class="brand__text">أكاديمية عايد – STEP 2026</span>
+      </a>
+
+      <nav class="nav">
+        <a class="nav__link" href="./index.html">الرئيسية</a>
+        <a class="nav__link" href="./course-content.html">محتوى الدورة</a>
+        <a class="nav__link" href="./faq.html">الأسئلة الشائعة</a>
+        <a class="nav__link" href="./level-test.html">اختبار تحديد المستوى</a>
+        <a class="nav__link nav__cta" href="./register.html" aria-disabled="true" title="التسجيل يفتح بعد الاختبار">التسجيل</a>
+      </nav>
+    </div>
   </header>
 
-  <div class="ticker-bar"><span id="ticker"></span></div>
-
-  <main class="page-content">
-    <div id="resultsApp" class="results-summary"></div>
-    <div id="planSection" class="plan-section"></div>
-    <div id="priceSection" class="price-box" style="display:none;"></div>
+  <main class="container" style="padding-top: 1.2rem; padding-bottom: 3rem;">
+    <section class="card" id="resultsApp" aria-live="polite">
+      <!-- Filled by script -->
+    </section>
   </main>
 
-  <!-- المساعد العائم -->
-  <button id="assistantButton" class="assistant-button" aria-label="فتح المساعد">💬</button>
-  <div id="assistantPanel" class="assistant-panel">
-    <button id="closeAssistant" class="close-panel">×</button>
-    <h3>أين تود الذهاب؟</h3>
-    <ul>
-      <li><a href="./course-content.html">محتوى الدورة</a></li>
-      <li><a href="./faq.html">الأسئلة الشائعة</a></li>
-      <li><a href="./support.html">الدعم</a></li>
-      <li><a href="./terms.html">السياسات</a></li>
-    </ul>
-  </div>
+  <!-- مساعد/توستات عام (إذا موجود عندك) -->
+  <script src="./assets/app.js?v=2026-01-20"></script>
 
-  <footer class="footer">
-    <div class="footer-links">
-      <a href="./privacy.html">سياسة الخصوصية</a>
-      <a href="./terms.html">الشروط والأحكام</a>
-      <a href="./refund.html">سياسة الاسترجاع</a>
-      <a href="./support.html">الدعم</a>
-    </div>
-    <p>© 2026 أكاديمية عايد. جميع الحقوق محفوظة.</p>
-  </footer>
-
-  <script src="./assets/site-data.js?v=20260120"></script>
-  <script src="./assets/app.js?v=20260120"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const resultsApp = document.getElementById('resultsApp');
-      const planSection = document.getElementById('planSection');
-      const priceSection = document.getElementById('priceSection');
-      const data = localStorage.getItem('ayedResults');
-      if (!data) {
-        resultsApp.innerHTML = '<p>لم يتم العثور على نتيجة الاختبار. يرجى إجراء الاختبار أولاً.</p>';
-        return;
+    (() => {
+      "use strict";
+
+      const KEY = "ayed_step_leveltest_v2026_01_20:result";
+      const $app = document.getElementById("resultsApp");
+
+      const escapeHtml = (s) =>
+        String(s ?? "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+
+      const readableSection = (sec) => {
+        sec = (sec || "").toLowerCase();
+        if (sec === "grammar") return "Grammar (القواعد)";
+        if (sec === "reading") return "Reading (القراءة)";
+        if (sec === "listening") return "Listening (الاستماع)";
+        if (sec === "vocab") return "Vocabulary (المفردات)";
+        return "General (عام)";
+      };
+
+      const gradeLabel = (pct) => {
+        if (pct >= 90) return "ممتاز جدًا 🔥";
+        if (pct >= 80) return "ممتاز 👏";
+        if (pct >= 70) return "جيد جدًا ✅";
+        if (pct >= 60) return "جيد 👍";
+        return "نحتاج شدّ حيل بسيط 💪";
+      };
+
+      function renderEmpty() {
+        $app.innerHTML = `
+          <div class="card__head">
+            <h1 class="h1">ما لقينا نتيجة</h1>
+            <p class="muted">لازم تكمل اختبار تحديد المستوى أول، وبعدها نطلع لك الخطة والسعر.</p>
+          </div>
+
+          <div class="stack">
+            <div class="note">
+              إذا فتحت الصفحة من جهاز ثاني أو وضع خاص بدون ما تسوي الاختبار، طبيعي ما تظهر النتيجة.
+            </div>
+
+            <div class="actions">
+              <a class="btn btn-primary" href="./level-test.html">ابدأ اختبار تحديد المستوى</a>
+              <a class="btn btn-ghost" href="./index.html">رجوع للرئيسية</a>
+            </div>
+          </div>
+        `;
       }
-      const results = JSON.parse(data);
-      const { percent, stats, wrongSkills, info } = results;
-      // توليد ملخص النتائج
-      let summaryHtml = `<h2>نتيجتك الإجمالية: ${percent.toFixed(0)}% من 100</h2>`;
-      summaryHtml += '<h3>تفصيل الأقسام:</h3>';
-      Object.keys(stats).forEach((sec) => {
-        const pct = stats[sec];
-        let label;
-        if (sec === 'grammar') label = 'القواعد';
-        else if (sec === 'reading') label = 'القراءة';
-        else if (sec === 'listening') label = 'الاستماع';
-        else if (sec === 'vocab' || sec === 'vocabulary') label = 'المفردات';
-        else label = sec;
-        summaryHtml += `<div class="bar-row"><span>${label}</span><div class="bar"><div class="bar-fill" style="width:${pct}%"></div></div> <span>${pct}%</span></div>`;
-      });
-      // المهارات الأضعف
-      const sortedSkills = Object.keys(wrongSkills).sort((a,b) => wrongSkills[b] - wrongSkills[a]).slice(0,3);
-      if (sortedSkills.length) {
-        summaryHtml += '<h3>المهارات التي تحتاج تركيز:</h3><ul>';
-        sortedSkills.forEach(skill => {
-          summaryHtml += `<li>${skill} (${wrongSkills[skill]} خطأ)</li>`;
-        });
-        summaryHtml += '</ul>';
+
+      function render(payload) {
+        const profile = payload.profile || {};
+        const quiz = payload.quiz || {};
+        const plan = payload.plan || {};
+        const pricing = payload.pricing || { discountedPriceSar: 349, regularPriceSar: 599, currency: "SAR" };
+
+        const name = profile.name ? `يا ${escapeHtml(profile.name)}` : "يا بطل";
+        const pct = Number(quiz.pct || 0);
+        const correct = Number(quiz.correct || 0);
+        const total = Number(quiz.total || 0);
+
+        const sections = Array.isArray(quiz.bySection) ? quiz.bySection : [];
+        const wrong = Array.isArray(quiz.wrongItems) ? quiz.wrongItems : [];
+
+        const sectionRows = sections.map(s => {
+          const sp = Number(s.pct || 0);
+          return `
+            <tr>
+              <td>${escapeHtml(readableSection(s.section))}</td>
+              <td>${escapeHtml(String(s.correct ?? 0))} / ${escapeHtml(String(s.total ?? 0))}</td>
+              <td><strong>${escapeHtml(String(sp))}%</strong></td>
+            </tr>
+          `;
+        }).join("");
+
+        const wrongCards = wrong.slice(0, 10).map(w => {
+          const picked = Number.isInteger(w.pickedIndex) ? w.pickedIndex : -1;
+          const ans = Number.isInteger(w.answerIndex) ? w.answerIndex : -1;
+          const pickedL = picked >= 0 ? String.fromCharCode(65 + picked) : "—";
+          const ansL = ans >= 0 ? String.fromCharCode(65 + ans) : "—";
+          return `
+            <div class="mini-card">
+              <div class="mini-card__top">
+                <span class="pill">${escapeHtml(readableSection(w.section))}</span>
+                <span class="muted">إجابتك: <strong>${escapeHtml(pickedL)}</strong> — الصحيح: <strong>${escapeHtml(ansL)}</strong></span>
+              </div>
+              <div class="mini-card__q">${escapeHtml(w.prompt || "")}</div>
+              ${w.explain ? `<div class="mini-card__explain">${escapeHtml(w.explain)}</div>` : ""}
+            </div>
+          `;
+        }).join("");
+
+        const planBullets = Array.isArray(plan.bullets) ? plan.bullets : [];
+        const planHtml = planBullets.map(b => {
+          // allow simple markdown-like bold **text**
+          const safe = escapeHtml(b).replaceAll(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replaceAll("\n", "<br/>");
+          return `<div class="plan-line">${safe}</div>`;
+        }).join("");
+
+        const showPrice = payload?.flags?.showPrice !== false;
+
+        $app.innerHTML = `
+          <div class="card__head">
+            <h1 class="h1">نتيجتك وخطتك</h1>
+            <p class="muted">تم تجهيز خطة على قد وقتك ومستواك — بدون تشتت 👌</p>
+          </div>
+
+          <div class="stack">
+            <div class="hero-metric">
+              <div class="hero-metric__left">
+                <div class="muted">${name}، نتيجتك الحالية:</div>
+                <div class="score">${escapeHtml(String(pct))}%</div>
+                <div class="muted">${escapeHtml(gradeLabel(pct))} — (${escapeHtml(String(correct))}/${escapeHtml(String(total))})</div>
+              </div>
+              <div class="hero-metric__right">
+                <div class="note">
+                  <strong>الآن وش تسوي؟</strong><br/>
+                  اتبع الخطة تحت، وبعدها سجّل عشان توصلك ملفات الدورة وقنوات المتابعة بأقرب وقت.
+                </div>
+              </div>
+            </div>
+
+            <div class="grid2">
+              <div class="card card--inner">
+                <h2 class="h2">تحليل الأقسام</h2>
+                <div class="muted">هذا يوضح لك وين تركز أكثر.</div>
+                <div class="table-wrap">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>القسم</th>
+                        <th>النتيجة</th>
+                        <th>النسبة</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      ${sectionRows || `<tr><td colspan="3" class="muted">لا يوجد تحليل أقسام متاح</td></tr>`}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="card card--inner">
+                <h2 class="h2">خطة مذاكرة مقترحة</h2>
+                <div class="muted">${escapeHtml(plan.summary || "")}</div>
+                <div class="plan">
+                  ${planHtml || `<div class="muted">الخطة غير متاحة حاليًا.</div>`}
+                  ${plan.closing ? `<div class="plan-close">${escapeHtml(plan.closing).replaceAll("\n","<br/>")}</div>` : ``}
+                </div>
+
+                <div class="actions" style="margin-top: .9rem;">
+                  <a class="btn btn-primary" href="./register.html">ابدأ التسجيل وتأكيد الدفع</a>
+                  <a class="btn btn-ghost" href="./course-content.html">شوف محتوى الدورة بالتفصيل</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--inner">
+              <h2 class="h2">أخطاءك (مختصر ومفيد)</h2>
+              <div class="muted">عرضنا لك أهم الأخطاء عشان تعرف “سبب الغلط” مو بس الإجابة.</div>
+              ${wrongCards ? `<div class="mini-grid">${wrongCards}</div>` : `<div class="note">ما شاء الله! ما عندك أخطاء كثيرة 👏</div>`}
+            </div>
+
+            <div class="card card--inner">
+              <h2 class="h2">الاشتراك</h2>
+              <div class="muted">السعر يظهر بعد الاختبار فقط ✅</div>
+
+              ${showPrice ? `
+                <div class="price-box">
+                  <div class="price-main">
+                    <div class="price-now">${escapeHtml(String(pricing.discountedPriceSar || 349))} ريال</div>
+                    <div class="price-sub muted">بدل ${escapeHtml(String(pricing.regularPriceSar || 599))} ريال</div>
+                  </div>
+                  <div class="price-note">
+                    <div class="note">
+                      <strong>معلومة:</strong> المقاعد محدودة — وإذا اكتملت يرجع السعر الرسمي تلقائيًا.
+                    </div>
+                  </div>
+                </div>
+              ` : `
+                <div class="note">أكمل الاختبار عشان يظهر لك السعر.</div>
+              `}
+
+              <div class="actions" style="margin-top: .9rem;">
+                <a class="btn btn-primary" href="./register.html">سجّل الآن (تأكيد الدفع)</a>
+                <a class="btn btn-ghost" href="./level-test.html">إعادة الاختبار</a>
+              </div>
+            </div>
+
+            <div class="muted" style="text-align:center;">
+              إذا تحس النتيجة ما تمثّل مستواك (كنت مستعجل/مشتت)، عادي أعد الاختبار… الأسئلة تتغيّر.
+            </div>
+          </div>
+        `;
+
+        // Disable register CTA in header ONLY if you want to force the flow:
+        // Here we keep it clickable from results.
+        const headerCta = document.querySelector(".nav__cta");
+        if (headerCta) {
+          headerCta.removeAttribute("aria-disabled");
+          headerCta.removeAttribute("title");
+          headerCta.setAttribute("href", "./register.html");
+        }
       }
-      resultsApp.innerHTML = summaryHtml;
-      // اختيار قالب الخطة بناءً على الموعد ونسبة النجاح
-      let plan = '';
-      // استخدم info.examDate من quick info
-      const exam = info && info.examDate ? info.examDate : '';
-      // تحديد الخطة التقريبية
-      if (exam.includes('7')) {
-        plan += '<h3>خطة 7 أيام</h3><ul>';
-        plan += '<li>ركّز على أهم التكنيكات في القراءة والقواعد.</li>';
-        plan += '<li>حل نماذج مختصرة يومياً (15-20 سؤال).</li>';
-        plan += '<li>مراجعة الأخطاء السابقة والتركيز على المهارات الضعيفة.</li>';
-        plan += '<li>آخر يومين: اختبارات تجريبية بدون مصادر جديدة.</li>';
-        plan += '</ul>';
-      } else if (exam.includes('14')) {
-        plan += '<h3>خطة 14 يوم</h3><ul>';
-        plan += '<li>تأسيس سريع للقواعد عبر دروس قصيرة.</li>';
-        plan += '<li>تدرب على نماذج القراءة يومياً مع تدوين الأخطاء.</li>';
-        plan += '<li>خصص وقتًا للاستماع اليومي (20-30 دقيقة).</li>';
-        plan += '<li>آخر 4 أيام: اختبارات كاملة ومراجعة الأخطاء.</li>';
-        plan += '</ul>';
-      } else if (exam.includes('شهر') || exam.includes('30')) {
-        plan += '<h3>خطة 30 يوم</h3><ul>';
-        plan += '<li>تأسيس شامل للقواعد والمفردات.</li>';
-        plan += '<li>تعمق في استراتيجيات القراءة والاستماع.</li>';
-        plan += '<li>حل نماذج متعددة وتدوين الملاحظات.</li>';
-        plan += '<li>زيادة سرعة الحل تدريجياً مع الممارسة.</li>';
-        plan += '</ul>';
-      } else {
-        plan += '<h3>خطة 45–60 يوم</h3><ul>';
-        plan += '<li>ابدأ بتأسيس هادئ للقواعد والمفردات.</li>';
-        plan += '<li>وزع أقسام الاختبار على الأسبوع بالتساوي.</li>';
-        plan += '<li>حل اختبارات تجريبية أسبوعياً وتحليل النتائج.</li>';
-        plan += '<li>تابع تحسين السرعة والدقة حتى موعد الاختبار.</li>';
-        plan += '</ul>';
-      }
-      planSection.innerHTML = plan;
-      // إظهار السعر وزر التسجيل
-      const seats = 20; // رقم ثابت لإبراز المقاعد (يمكن تحديثه ديناميكياً)
-      priceSection.innerHTML = `<p>المقاعد المتبقية: <strong>${seats}</strong></p><p class="current-price">349 ريال</p><p class="original-price">599 ريال</p><button onclick="window.location.href='./register.html'">سجّل الآن</button>`;
-      priceSection.style.display = 'block';
-    });
+
+      let payload = null;
+      try {
+        payload = JSON.parse(localStorage.getItem(KEY) || "null");
+      } catch (e) {}
+
+      if (!payload || !payload.quiz) renderEmpty();
+      else render(payload);
+    })();
   </script>
 </body>
 </html>
