@@ -1,114 +1,230 @@
+// test.js: منطق اختبار تحديد المستوى (بيانات سريعة + 20 سؤال عشوائي + تحليل)
 (function() {
-  document.addEventListener('DOMContentLoaded', async () => {
-    const mount = document.getElementById('testApp');
-    if (!mount) return;
+  const state = {
+    info: {},
+    questions: [],
+    current: 0,
+    answers: []
+  };
+  const mount = document.getElementById('testApp');
+
+  async function loadQuestions() {
     try {
-      const res = await fetch('./assets/questions.json', {cache: 'no-cache'});
-      const allQuestions = await res.json();
-      const selected = allQuestions.sort(() => Math.random() - 0.5).slice(0, 10);
-      let current = 0;
-      const answers = new Array(selected.length);
-      function render() {
-        const q = selected[current];
-        const progressPercent = Math.round((current / selected.length) * 100);
-        const optionsHTML = q.options.map(opt => {
-          const isSelected = answers[current] === opt;
-          return `<button class="option${isSelected ? ' selected' : ''}">${opt}</button>`;
-        }).join('');
-        mount.innerHTML = `
-          <div class="quiz-wrap">
-            <div class="progress-wrap">
-              <div class="progress-bar" style="width:${progressPercent}%"></div>
-            </div>
-            <h2 class="question-num">سؤال ${current + 1} من ${selected.length}</h2>
-            <p class="prompt">${q.prompt}</p>
-            <div class="options">${optionsHTML}</div>
-            <div class="controls">
-              ${current > 0 ? '<button id="prevBtn">السابق</button>' : ''}
-              <button id="nextBtn" ${answers[current] ? '' : 'disabled'}>${current === selected.length - 1 ? 'عرض النتيجة' : 'التالي'}</button>
-            </div>
-          </div>
-        `;
-        mount.querySelectorAll('.option').forEach(btn => {
-          btn.addEventListener('click', () => {
-            answers[current] = btn.innerText;
-            render();
-          });
-        });
-        const prevBtn = mount.querySelector('#prevBtn');
-        if (prevBtn) {
-          prevBtn.addEventListener('click', () => {
-            current--;
-            render();
-          });
-        }
-        const nextBtn = mount.querySelector('#nextBtn');
-        if (nextBtn) {
-          nextBtn.addEventListener('click', () => {
-            if (!answers[current]) return;
-            if (current === selected.length - 1) {
-              showResults();
-            } else {
-              current++;
-              render();
-            }
-          });
-        }
-      }
-      function showResults() {
-        const stats = {};
-        let totalCorrect = 0;
-        selected.forEach((q, idx) => {
-          if (!stats[q.section]) stats[q.section] = { total: 0, correct: 0 };
-          stats[q.section].total++;
-          if (answers[idx] === q.answer) {
-            stats[q.section].correct++;
-            totalCorrect++;
-          }
-        });
-        const percent = Math.round((totalCorrect / selected.length) * 100);
-        let level;
-        if (percent >= 80) level = 'متقدم';
-        else if (percent >= 50) level = 'متوسط';
-        else level = 'مبتدئ';
-        const listItems = Object.keys(stats).map(sec => {
-          const s = stats[sec];
-          const secPercent = Math.round((s.correct / s.total) * 100);
-          let secName = sec;
-          if (sec === 'grammar') secName = 'القواعد';
-          if (sec === 'reading') secName = 'القراءة';
-          if (sec === 'listening') secName = 'الاستماع';
-          return `<li>${secName}: ${s.correct} / ${s.total} (${secPercent}%)</li>`;
-        }).join('');
-  
-              localStorage.setItem('ayedResults', JSON.stringify({
-        totalCorrect: totalCorrect,
-        totalQuestions: selected.length,
-        percent: percent,
-        level: level,
-        stats: stats
-      }));
-mount.innerHTML = `
-          <div class="results-wrap">
-            <h2>نتيجتك</h2>
-            <p>حصلت على ${totalCorrect} من ${selected.length} (${percent}%).</p>
-            <p>مستواك التقريبي: <strong>${level}</strong></p>
-            <h3>تحليل الأقسام:</h3>
-            <ul>${listItems}</ul>
-            <h3>خطة المذاكرة</h3>
-            <p>ابدأ بمراجعة القسم الذي حصلت فيه على أقل نسبة، ثم انتقل إلى الأقسام الأخرى. خصص وقتًا يوميًا للدراسة وحل التمارين المرفقة.</p>
-            <div class="price-box">
-              <p>السعر المخفض: <span class="price-now">349 ريال</span></p>
-              <p>السعر الرسمي: <del>599 ريال</del></p>
-              <a href="./register.html" class="cta-button">سجّل الآن</a>
-            </div>
-          </div>
-        `;
-      }
-      render();
+      const res = await fetch('./assets/questions.json?v=20260120');
+      const data = await res.json();
+      // تجهيز الحقول لتوحيد الخيارات
+      const prepared = data.map((q) => {
+        const copy = Object.assign({}, q);
+        // تحويل choices إلى options إن لزم
+        if (!copy.options && copy.choices) copy.options = copy.choices;
+        // تحويل answerIndex إلى answer
+        if (typeof copy.answer === 'undefined' && typeof copy.answerIndex !== 'undefined') copy.answer = copy.answerIndex;
+        return copy;
+      });
+      // خلط الأسئلة واختيار 20 سؤال
+      const shuffled = prepared.sort(() => Math.random() - 0.5);
+      return shuffled.slice(0, 20);
     } catch (err) {
-      mount.innerHTML = '<p>حدث خطأ في تحميل الاختبار. يرجى المحاولة لاحقًا.</p>';
-      console.error(err);
+      console.error('Error loading questions', err);
+      return [];
     }
+  }
+
+  function renderInfoForm() {
+    mount.innerHTML = `
+      <form id="quickInfoForm" class="info-form">
+        <h2>معلومات سريعة</h2>
+        <div class="form-group">
+          <label for="qi-examDate">موعد الاختبار</label>
+          <select id="qi-examDate">
+            <option value="خلال 7 أيام">خلال 7 أيام</option>
+            <option value="خلال 14 يوم">خلال 14 يوم</option>
+            <option value="خلال شهر">خلال شهر</option>
+            <option value="أكثر من شهر">أكثر من شهر</option>
+            <option value="لم أحدد بعد">لسا ما حجزت</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="qi-level">مستواك الحالي</label>
+          <select id="qi-level">
+            <option value="مبتدئ">مبتدئ</option>
+            <option value="متوسط">متوسط</option>
+            <option value="متقدم">متقدم</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="qi-tested">هل اختبرت STEP قبل؟</label>
+          <select id="qi-tested">
+            <option value="لا">لا</option>
+            <option value="نعم">نعم</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="qi-prevScore">الدرجة السابقة (إن وجدت)</label>
+          <input type="text" id="qi-prevScore" />
+        </div>
+        <div class="form-group">
+          <label for="qi-target">الدرجة المستهدفة</label>
+          <input type="text" id="qi-target" />
+        </div>
+        <div class="form-group">
+          <label for="qi-hours">عدد ساعات المذاكرة اليومية</label>
+          <select id="qi-hours">
+            <option value="1">1 ساعة</option>
+            <option value="2">2 ساعتين</option>
+            <option value="3">3 ساعات</option>
+            <option value="4+">4+ ساعات</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="qi-mode">طريقة المذاكرة المفضلة</label>
+          <select id="qi-mode">
+            <option value="فيديو + تطبيق">فيديو + تطبيق</option>
+            <option value="ملفات PDF + حل">ملفات PDF + حل</option>
+            <option value="مختلط">مختلط</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="qi-region">منطقة الاختبار (اختياري)</label>
+          <select id="qi-region">
+            <option value="غير محدد">غير محدد</option>
+            <option value="الرياض">الرياض</option>
+            <option value="جدة">جدة</option>
+            <option value="الشرقية">الشرقية</option>
+            <option value="القصيم">القصيم</option>
+            <option value="أخرى">أخرى</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="qi-contact">وسيلة التواصل (اختياري)</label>
+          <select id="qi-contact">
+            <option value="">لا شيء</option>
+            <option value="تليجرام">تليجرام</option>
+            <option value="واتساب">واتساب</option>
+            <option value="إيميل">إيميل</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="qi-contactVal">بيانات التواصل</label>
+          <input type="text" id="qi-contactVal" />
+        </div>
+        <button type="submit" class="cta-btn">ابدأ الاختبار</button>
+      </form>
+    `;
+    const form = document.getElementById('quickInfoForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // حفظ البيانات
+      state.info = {
+        examDate: document.getElementById('qi-examDate').value,
+        level: document.getElementById('qi-level').value,
+        testedBefore: document.getElementById('qi-tested').value,
+        previousScore: document.getElementById('qi-prevScore').value.trim(),
+        targetScore: document.getElementById('qi-target').value.trim(),
+        hours: document.getElementById('qi-hours').value,
+        studyMode: document.getElementById('qi-mode').value,
+        region: document.getElementById('qi-region').value,
+        contactMethod: document.getElementById('qi-contact').value,
+        contactInfo: document.getElementById('qi-contactVal').value.trim()
+      };
+      renderQuestion();
+    });
+  }
+
+  function renderQuestion() {
+    const q = state.questions[state.current];
+    const total = state.questions.length;
+    // بناء الخيارات
+    let optsHtml = '<ul class="options">';
+    q.options.forEach((opt, idx) => {
+      const selected = state.answers[state.current] === idx;
+      optsHtml += `<li data-index="${idx}"${selected ? ' class="selected"' : ''}>${opt}</li>`;
+    });
+    optsHtml += '</ul>';
+    const progressPct = ((state.current + 1) / total) * 100;
+    mount.innerHTML = `
+      <div class="question-wrap">
+        <h2>سؤال ${state.current + 1} من ${total}</h2>
+        <p class="question-prompt">${q.prompt}</p>
+        ${optsHtml}
+        <div class="progress-bar"><div class="progress" style="width:${progressPct}%"></div></div>
+        <div class="nav-buttons" style="margin-top:1rem; display:flex; justify-content:space-between;">
+          <button id="prevBtn" ${state.current === 0 ? 'disabled' : ''}>السابق</button>
+          <button id="nextBtn">${state.current === total - 1 ? 'إنهاء الاختبار' : 'التالي'}</button>
+        </div>
+      </div>
+    `;
+    // التعامل مع اختيار الإجابات
+    mount.querySelectorAll('.options li').forEach(li => {
+      li.addEventListener('click', () => {
+        const idx = parseInt(li.getAttribute('data-index'));
+        state.answers[state.current] = idx;
+        // إعادة تلوين الخيارات
+        mount.querySelectorAll('.options li').forEach(x => x.classList.remove('selected'));
+        li.classList.add('selected');
+      });
+    });
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      if (state.current > 0) {
+        state.current--;
+        renderQuestion();
+      }
+    });
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      if (state.current < total - 1) {
+        // تأكد من اختيار إجابة
+        if (typeof state.answers[state.current] === 'undefined') {
+          alert('يرجى اختيار إجابة قبل الانتقال للسؤال التالي');
+          return;
+        }
+        state.current++;
+        renderQuestion();
+      } else {
+        // إذا السؤال الأخير
+        if (typeof state.answers[state.current] === 'undefined') {
+          alert('يرجى اختيار إجابة قبل إنهاء الاختبار');
+          return;
+        }
+        finishTest();
+      }
+    });
+  }
+
+  function finishTest() {
+    // حساب النتيجة النهائية
+    const total = state.questions.length;
+    let correct = 0;
+    const sectionCounts = {};
+    const sectionCorrect = {};
+    const wrongSkills = {};
+    state.questions.forEach((q, idx) => {
+      const section = q.section;
+      sectionCounts[section] = (sectionCounts[section] || 0) + 1;
+      const chosen = state.answers[idx];
+      if (chosen === q.answer) {
+        correct++;
+        sectionCorrect[section] = (sectionCorrect[section] || 0) + 1;
+      } else {
+        const tag = q.skillTag || 'مهارة عامة';
+        wrongSkills[tag] = (wrongSkills[tag] || 0) + 1;
+      }
+    });
+    // حساب النسب لكل قسم
+    const stats = {};
+    Object.keys(sectionCounts).forEach((sec) => {
+      const score = sectionCorrect[sec] || 0;
+      const pct = (score / sectionCounts[sec]) * 100;
+      stats[sec] = parseFloat(pct.toFixed(0));
+    });
+    const percent = (correct / total) * 100;
+    const results = { percent: parseFloat(percent.toFixed(0)), stats, wrongSkills, info: state.info };
+    localStorage.setItem('ayedResults', JSON.stringify(results));
+    window.location.href = './results.html';
+  }
+
+  // التهيئة
+  document.addEventListener('DOMContentLoaded', async () => {
+    state.questions = await loadQuestions();
+    renderInfoForm();
   });
 })();
