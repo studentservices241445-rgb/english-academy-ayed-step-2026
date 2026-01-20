@@ -10,18 +10,21 @@
 
   async function loadQuestions() {
     try {
-      const res = await fetch('./assets/questions.json?v=20260120');
+      // تحميل الأسئلة من الملف الموجود في الجذر
+      const res = await fetch('../questions.json?v=20260120');
       const data = await res.json();
-      // تجهيز الحقول لتوحيد الخيارات
+      // تجهيز الحقول لتوحيد الخيارات بين الملفات القديمة والجديدة
       const prepared = data.map((q) => {
         const copy = Object.assign({}, q);
-        // تحويل choices إلى options إن لزم
+        // تحويل choices إلى options إن وُجدت
         if (!copy.options && copy.choices) copy.options = copy.choices;
-        // تحويل answerIndex إلى answer
-        if (typeof copy.answer === 'undefined' && typeof copy.answerIndex !== 'undefined') copy.answer = copy.answerIndex;
+        // تحويل answerIndex إلى answer إن كان موجوداً
+        if (typeof copy.answer === 'undefined' && typeof copy.answerIndex !== 'undefined') {
+          copy.answer = copy.answerIndex;
+        }
         return copy;
       });
-      // خلط الأسئلة واختيار 20 سؤال
+      // خلط الأسئلة واختيار 20 سؤال بشكل عشوائي
       const shuffled = prepared.sort(() => Math.random() - 0.5);
       return shuffled.slice(0, 20);
     } catch (err) {
@@ -114,7 +117,7 @@
     const form = document.getElementById('quickInfoForm');
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      // حفظ البيانات
+      // حفظ بيانات النموذج
       state.info = {
         examDate: document.getElementById('qi-examDate').value,
         level: document.getElementById('qi-level').value,
@@ -134,7 +137,7 @@
   function renderQuestion() {
     const q = state.questions[state.current];
     const total = state.questions.length;
-    // بناء الخيارات
+    // بناء قائمة الخيارات
     let optsHtml = '<ul class="options">';
     q.options.forEach((opt, idx) => {
       const selected = state.answers[state.current] === idx;
@@ -154,12 +157,11 @@
         </div>
       </div>
     `;
-    // التعامل مع اختيار الإجابات
+    // اختيار الإجابة
     mount.querySelectorAll('.options li').forEach(li => {
       li.addEventListener('click', () => {
         const idx = parseInt(li.getAttribute('data-index'));
         state.answers[state.current] = idx;
-        // إعادة تلوين الخيارات
         mount.querySelectorAll('.options li').forEach(x => x.classList.remove('selected'));
         li.classList.add('selected');
       });
@@ -172,7 +174,7 @@
     });
     document.getElementById('nextBtn').addEventListener('click', () => {
       if (state.current < total - 1) {
-        // تأكد من اختيار إجابة
+        // تأكد من اختيار إجابة قبل الانتقال
         if (typeof state.answers[state.current] === 'undefined') {
           alert('يرجى اختيار إجابة قبل الانتقال للسؤال التالي');
           return;
@@ -180,7 +182,7 @@
         state.current++;
         renderQuestion();
       } else {
-        // إذا السؤال الأخير
+        // السؤال الأخير
         if (typeof state.answers[state.current] === 'undefined') {
           alert('يرجى اختيار إجابة قبل إنهاء الاختبار');
           return;
@@ -198,7 +200,7 @@
     const sectionCorrect = {};
     const wrongSkills = {};
     state.questions.forEach((q, idx) => {
-      const section = q.section;
+      const section = q.section || 'عام';
       sectionCounts[section] = (sectionCounts[section] || 0) + 1;
       const chosen = state.answers[idx];
       if (chosen === q.answer) {
@@ -217,12 +219,18 @@
       stats[sec] = parseFloat(pct.toFixed(0));
     });
     const percent = (correct / total) * 100;
-    const results = { percent: parseFloat(percent.toFixed(0)), stats, wrongSkills, info: state.info };
+    const results = {
+      percent: parseFloat(percent.toFixed(0)),
+      stats,
+      wrongSkills,
+      info: state.info
+    };
     localStorage.setItem('ayedResults', JSON.stringify(results));
+    // الانتقال لصفحة النتائج
     window.location.href = './results.html';
   }
 
-  // التهيئة
+  // التهيئة الأولية
   document.addEventListener('DOMContentLoaded', async () => {
     state.questions = await loadQuestions();
     renderInfoForm();
