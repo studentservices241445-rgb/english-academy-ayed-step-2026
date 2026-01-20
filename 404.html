@@ -1,54 +1,58 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - الصفحة غير موجودة</title>
-  <link rel="stylesheet" href="./assets/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>خطأ 404 — الصفحة غير موجودة</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/png" href="./assets/images/logo.png" />
+  <link rel="stylesheet" href="./assets/styles.css?v=20260120" />
 </head>
 <body>
-<header class="site-header">
-  <div class="container">
-    <h1 class="logo"><a href="./index.html">أكاديمية أيـد</a></h1>
-    <nav class="nav">
-      <a href="./index.html">الرئيسية</a>
-      <a href="./level-test.html">اختبار المستوى</a>
-      <a href="./course-content.html">محتوى الدورة</a>
-      <a href="./testimonials.html">قصص النجاح</a>
-      <a href="./faq.html">الأسئلة الشائعة</a>
-      <a href="./support.html">الدعم</a>
+  <header>
+    <nav class="navbar">
+      <a href="./index.html" class="logo">أكاديمية عايد</a>
+      <button class="hamburger" id="hamburger" aria-label="القائمة">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="./index.html" class="active">الرئيسية</a></li>
+        <li><a href="./course-content.html">محتوى الدورة</a></li>
+        <li><a href="./level-test.html">اختبار تحديد المستوى</a></li>
+        <li><a href="./testimonials.html">قصص النجاح</a></li>
+        <li><a href="./faq.html">الأسئلة الشائعة</a></li>
+        <li><a href="./support.html">الدعم</a></li>
+      </ul>
     </nav>
-  </div>
-</header>
-
-<main class="container notfound-page">
-  <h1>404 - الصفحة غير موجودة</h1>
-  <p>يبدو أنك وصلت إلى رابط غير متاح. استخدم القائمة للتنقل أو العودة إلى الرئيسية.</p>
-  <a href="./index.html" class="cta-btn">العودة للرئيسية</a>
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <p>© 2026 أكاديمية أيـد. جميع الحقوق محفوظة.</p>
-    <nav class="footer-nav">
+  </header>
+  <main>
+    <section class="not-found">
+      <h1>404 - الصفحة غير موجودة</h1>
+      <p>عذراً، الصفحة التي تبحث عنها غير موجودة أو تم نقلها.</p>
+      <a href="./index.html" class="btn primary">الرجوع للرئيسية</a>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-links">
       <a href="./privacy.html">الخصوصية</a>
       <a href="./terms.html">الشروط</a>
       <a href="./refund.html">سياسة الاسترجاع</a>
       <a href="./support.html">الدعم</a>
-    </nav>
+    </div>
+    <p>© 2026 أكاديمية عايد. جميع الحقوق محفوظة.</p>
+  </footer>
+  <button id="assistantButton" class="assistant-button" aria-label="مساعد التسجيل">؟</button>
+  <div id="assistantPanel" class="assistant-panel">
+    <button class="close-panel" id="closeAssistant">×</button>
+    <h3>مرحباً!</h3>
+    <p>كيف نقدر نساعدك؟</p>
+    <ul class="assistant-links">
+      <li><a href="./level-test.html">ابدأ اختبار المستوى</a></li>
+      <li><a href="./course-content.html">وش داخل الدورة؟</a></li>
+      <li><a href="./faq.html">الأسئلة الشائعة</a></li>
+      <li><a href="./support.html">الدعم</a></li>
+      <li><a href="./terms.html">السياسات</a></li>
+    </ul>
   </div>
-</footer>
-
-<button id="assistantBtn" class="assistant-btn" aria-label="مساعد التسجيل">؟</button>
-<div id="assistantPanel" class="assistant-panel">
-  <h3>كيف يمكنني مساعدتك؟</h3>
-  <a href="./level-test.html">ابدأ اختبار المستوى</a>
-  <a href="./course-content.html">محتوى الدورة</a>
-  <a href="./faq.html">الأسئلة الشائعة</a>
-  <a href="./support.html">الدعم</a>
-</div>
-
-<script src="./assets/site-data.js"></script>
-<script src="./assets/app.js"></script>
+  <script src="./assets/site-data.js?v=20260120"></script>
+  <script src="./assets/app.js?v=20260120"></script>
 </body>
 </html>

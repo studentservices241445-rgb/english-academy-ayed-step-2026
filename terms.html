@@ -1,62 +1,66 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الشروط والأحكام | أكاديمية أيـد</title>
-  <link rel="stylesheet" href="./assets/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الشروط والأحكام — أكاديمية عايد</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/png" href="./assets/images/logo.png" />
+  <link rel="stylesheet" href="./assets/styles.css?v=20260120" />
 </head>
 <body>
-<header class="site-header">
-  <div class="container">
-    <h1 class="logo"><a href="./index.html">أكاديمية أيـد</a></h1>
-    <nav class="nav">
-      <a href="./index.html">الرئيسية</a>
-      <a href="./level-test.html">اختبار المستوى</a>
-      <a href="./course-content.html">محتوى الدورة</a>
-      <a href="./testimonials.html">قصص النجاح</a>
-      <a href="./faq.html">الأسئلة الشائعة</a>
-      <a href="./support.html">الدعم</a>
+  <header>
+    <nav class="navbar">
+      <a href="./index.html" class="logo">أكاديمية عايد</a>
+      <button class="hamburger" id="hamburger" aria-label="القائمة">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="./index.html">الرئيسية</a></li>
+        <li><a href="./course-content.html">محتوى الدورة</a></li>
+        <li><a href="./level-test.html">اختبار تحديد المستوى</a></li>
+        <li><a href="./testimonials.html">قصص النجاح</a></li>
+        <li><a href="./faq.html">الأسئلة الشائعة</a></li>
+        <li><a href="./support.html">الدعم</a></li>
+      </ul>
     </nav>
-  </div>
-</header>
-
-<main class="container terms-page">
-  <h1>الشروط والأحكام</h1>
-  <p>باستخدامك لهذا الموقع والتسجيل في الدورة، فإنك توافق على الشروط التالية:</p>
-  <ul>
-    <li>الالتزام بالخطة والجدول المقترحين لتحقيق أفضل النتائج.</li>
-    <li>المبلغ المدفوع مقابل محتوى الدورة غير قابل للاسترجاع بعد تفعيل حسابك.</li>
-    <li>يحظر مشاركة أو تسريب الملفات والمواد التعليمية للأشخاص الآخرين.</li>
-    <li>يحق للإدارة تعديل المحتوى أو المواعيد حسب الحاجة.</li>
-    <li>التسجيل لا يضمن تحقيق نتيجة معينة، والنتائج تعتمد على اجتهاد الطالب.</li>
-    <li>تخص المادة التعليمية بالاستخدام الشخصي فقط وليس للاستخدام التجاري.</li>
-  </ul>
-  <p>قد نحدث هذه الشروط من وقت لآخر، وسنعلن عن أي تعديلات عبر الموقع.</p>
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <p>© 2026 أكاديمية أيـد. جميع الحقوق محفوظة.</p>
-    <nav class="footer-nav">
+  </header>
+  <main>
+    <section class="page-header">
+      <h1>الشروط والأحكام</h1>
+    </section>
+    <section class="terms-section">
+      <ul class="terms-list">
+        <li>يلتزم الطالب بتنفيذ خطة المذاكرة المقترحة وعدم فتح مصادر إضافية تشتت تركيزه.</li>
+        <li>الرسوم غير قابلة للاسترجاع بعد تفعيل الحساب وإرسال بيانات الدخول.</li>
+        <li>لا يُسمح بنسخ أو تسريب أي جزء من محتوى الدورة أو مشاركته خارج الإطار الشخصي.</li>
+        <li>يحتفظ فريق الأكاديمية بحق تعديل المحتوى أو تحديثه لتحسين الخدمة دون إشعار مسبق.</li>
+        <li>الموقع والخدمة لا تضمن الحصول على درجة معينة؛ النجاح يعتمد على التزام الطالب.</li>
+        <li>باستخدامك للدورة، فإنك توافق على هذه الشروط وسياسة الخصوصية.</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-links">
       <a href="./privacy.html">الخصوصية</a>
-      <a href="./terms.html">الشروط</a>
+      <a href="./terms.html" class="active">الشروط</a>
       <a href="./refund.html">سياسة الاسترجاع</a>
       <a href="./support.html">الدعم</a>
-    </nav>
+    </div>
+    <p>© 2026 أكاديمية عايد. جميع الحقوق محفوظة.</p>
+  </footer>
+  <button id="assistantButton" class="assistant-button" aria-label="مساعد التسجيل">؟</button>
+  <div id="assistantPanel" class="assistant-panel">
+    <button class="close-panel" id="closeAssistant">×</button>
+    <h3>مرحباً!</h3>
+    <p>كيف نقدر نساعدك؟</p>
+    <ul class="assistant-links">
+      <li><a href="./level-test.html">ابدأ اختبار المستوى</a></li>
+      <li><a href="./course-content.html">وش داخل الدورة؟</a></li>
+      <li><a href="./faq.html">الأسئلة الشائعة</a></li>
+      <li><a href="./support.html">الدعم</a></li>
+      <li><a href="./terms.html">السياسات</a></li>
+    </ul>
   </div>
-</footer>
-
-<button id="assistantBtn" class="assistant-btn" aria-label="مساعد التسجيل">؟</button>
-<div id="assistantPanel" class="assistant-panel">
-  <h3>كيف يمكنني مساعدتك؟</h3>
-  <a href="./level-test.html">ابدأ اختبار المستوى</a>
-  <a href="./course-content.html">محتوى الدورة</a>
-  <a href="./faq.html">الأسئلة الشائعة</a>
-  <a href="./support.html">الدعم</a>
-</div>
-
-<script src="./assets/site-data.js"></script>
-<script src="./assets/app.js"></script>
+  <script src="./assets/site-data.js?v=20260120"></script>
+  <script src="./assets/app.js?v=20260120"></script>
 </body>
 </html>

@@ -1,122 +1,149 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>التسجيل | أكاديمية أيـد</title>
-  <link rel="stylesheet" href="./assets/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>التسجيل وتأكيد الدفع – أكاديمية عايد</title>
+  <link rel="stylesheet" href="./assets/styles.css?v=20260120" />
 </head>
 <body>
-<header class="site-header">
-  <div class="container">
-    <h1 class="logo"><a href="./index.html">أكاديمية أيـد</a></h1>
-    <nav class="nav">
-      <a href="./index.html">الرئيسية</a>
-      <a href="./level-test.html">اختبار المستوى</a>
-      <a href="./course-content.html">محتوى الدورة</a>
-      <a href="./testimonials.html">قصص النجاح</a>
-      <a href="./faq.html">الأسئلة الشائعة</a>
-      <a href="./support.html">الدعم</a>
-    </nav>
-  </div>
-</header>
-
-<main class="register-page container">
-  <section class="bank-details">
-    <h1>بيانات التحويل البنكي</h1>
-    <p>الرسوم: <strong>349 ريال</strong> (الخصم الحالي)</p>
-    <ul class="bank-list">
-      <li><strong>البنك:</strong> الراجحي <button type="button" class="copy-btn" data-copy="الراجحي">نسخ</button></li>
-      <li><strong>رقم الحساب:</strong> 12345678901 <button type="button" class="copy-btn" data-copy="12345678901">نسخ</button></li>
-      <li><strong>الآيبان:</strong> SA0000000123456789012345 <button type="button" class="copy-btn" data-copy="SA0000000123456789012345">نسخ</button></li>
-      <li><strong>اسم المستفيد:</strong> أكاديمية أيـد <button type="button" class="copy-btn" data-copy="أكاديمية أيـد">نسخ</button></li>
-      <li><strong>غرض التحويل:</strong> رسوم دورة التحضير STEP <button type="button" class="copy-btn" data-copy="رسوم دورة التحضير STEP">نسخ</button></li>
+  <header class="navbar">
+    <a href="./index.html" class="logo">أكاديمية&nbsp;عايد</a>
+    <button id="hamburger" class="hamburger">☰</button>
+    <ul id="navLinks" class="nav-links">
+      <li><a href="./index.html">الرئيسية</a></li>
+      <li><a href="./course-content.html">محتوى الدورة</a></li>
+      <li><a href="./level-test.html">اختبار المستوى</a></li>
+      <li><a href="./testimonials.html">قصص النجاح</a></li>
+      <li><a href="./faq.html">الأسئلة الشائعة</a></li>
+      <li><a href="./support.html">الدعم</a></li>
     </ul>
-    <p class="note">يرجى التحويل على البيانات المذكورة فقط.</p>
-  </section>
+  </header>
 
-  <section class="registration-form">
-    <h2>نموذج التسجيل</h2>
-    <form id="registerForm">
-      <div class="field">
-        <label for="fullName">اسم الطالب <span>*</span></label>
-        <input type="text" id="fullName" required>
-      </div>
-      <div class="field">
-        <label for="testDate">موعد الاختبار (اختياري)</label>
-        <input type="date" id="testDate">
-      </div>
-      <div class="field">
-        <label for="testedBefore">هل اختبرت STEP سابقا؟ (اختياري)</label>
-        <select id="testedBefore">
-          <option value="">اختر</option>
-          <option value="yes">نعم</option>
-          <option value="no">لا</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="score">الدرجة السابقة/المستهدفة (اختياري)</label>
-        <input type="text" id="score">
-      </div>
-      <div class="field">
-        <label for="contactMethod">وسيلة التواصل المفضلة (اختياري)</label>
-        <select id="contactMethod">
-          <option value="">اختر</option>
-          <option value="telegram">Telegram</option>
-          <option value="whatsapp">WhatsApp</option>
-          <option value="email">Email</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="contactHandle">معرف التواصل (اختياري)</label>
-        <input type="text" id="contactHandle" placeholder="@username أو رقم الهاتف">
-      </div>
-      <div class="field">
-        <label for="region">المنطقة (اختياري)</label>
-        <input type="text" id="region">
-      </div>
-      <div class="field">
-        <label for="notes">ملاحظات إضافية (اختياري)</label>
-        <textarea id="notes" rows="3"></textarea>
-      </div>
-      <div class="field">
-        <label for="receipt">ارفع إيصال التحويل <span>*</span></label>
-        <input type="file" id="receipt" accept="image/*" required>
-      </div>
-      <div class="checkboxes">
-        <label><input type="checkbox" id="agreeShare" required> أتعهد بعدم مشاركة أو تسريب محتوى الدورة</label>
-        <label><input type="checkbox" id="agreeTransfer" required> أؤكد أني حولت على البيانات الرسمية أعلى</label>
-        <label><input type="checkbox" id="agreePolicy" required> أوافق على السياسات</label>
-      </div>
-      <button type="submit" class="cta-btn">إرسال طلب الاشتراك</button>
-    </form>
-  </section>
-</main>
+  <div class="ticker-bar"><span id="ticker"></span></div>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>© 2026 أكاديمية أيـد. جميع الحقوق محفوظة.</p>
-    <nav class="footer-nav">
-      <a href="./privacy.html">الخصوصية</a>
-      <a href="./terms.html">الشروط</a>
+  <main class="page-content">
+    <div class="page-header"><h1>التسجيل وتأكيد الدفع</h1></div>
+    <!-- قسم بيانات التحويل البنكي -->
+    <section class="content-section" id="bankSection">
+      <h2>بيانات التحويل البنكي</h2>
+      <p>يرجى تحويل الرسوم على البيانات التالية:</p>
+      <ul class="bank-list">
+        <li>البنك: بنك الإنماء <button class="copy-btn" data-copy="بنك الإنماء">نسخ</button></li>
+        <li>رقم الحساب: 68206067557000 <button class="copy-btn" data-copy="68206067557000">نسخ</button></li>
+        <li>الآيبان: SA4905000068206067557000 <button class="copy-btn" data-copy="SA4905000068206067557000">نسخ</button></li>
+        <li>اسم المستفيد: مؤسسة كريتيفا جلوبال لتقنية المعلومات <button class="copy-btn" data-copy="مؤسسة كريتيفا جلوبال لتقنية المعلومات">نسخ</button></li>
+        <li>غرض التحويل: مشتريات دورة STEP المكثفة – منصة عايد الرسمية <button class="copy-btn" data-copy="مشتريات دورة STEP المكثفة – منصة عايد الرسمية">نسخ</button></li>
+      </ul>
+      <p style="font-size:0.85rem; color:#ccc;">يرجى استخدام غرض التحويل المقترح لتسهيل التعرف على المعاملة. لا نتحمل مسؤولية التحويل لحسابات خاطئة.</p>
+    </section>
+
+    <!-- قسم نموذج التسجيل -->
+    <section class="content-section">
+      <h2>نموذج التسجيل</h2>
+      <form id="registerForm" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="fullName">الاسم الثلاثي *</label>
+          <input type="text" id="fullName" required />
+        </div>
+        <div class="form-group">
+          <label for="examDate">موعد الاختبار</label>
+          <select id="examDate">
+            <option value="لم أحدد بعد">لسا ما حجزت</option>
+            <option value="خلال 7 أيام">خلال 7 أيام</option>
+            <option value="خلال 14 يوم">خلال 14 يوم</option>
+            <option value="خلال شهر">خلال شهر</option>
+            <option value="أكثر من شهر">أكثر من شهر</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="previousExam">هل اختبرت STEP من قبل؟</label>
+          <select id="previousExam">
+            <option value="لا">لا</option>
+            <option value="نعم">نعم</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="previousScore">درجتك السابقة (إن وجدت)</label>
+          <input type="text" id="previousScore" />
+        </div>
+        <div class="form-group">
+          <label for="targetScore">الدرجة المستهدفة</label>
+          <input type="text" id="targetScore" />
+        </div>
+        <div class="form-group">
+          <label for="region">منطقة الاختبار</label>
+          <select id="region">
+            <option value="غير محدد">غير محدد</option>
+            <option value="الرياض">الرياض</option>
+            <option value="جدة">جدة</option>
+            <option value="الشرقية">الشرقية</option>
+            <option value="القصيم">القصيم</option>
+            <option value="أخرى">أخرى</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="contactMethod">وسيلة التواصل المفضلة</label>
+          <select id="contactMethod">
+            <option value="">لا شيء</option>
+            <option value="تليجرام">تليجرام</option>
+            <option value="واتساب">واتساب</option>
+            <option value="إيميل">إيميل</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="contactInfo">بيانات التواصل (اختياري)</label>
+          <input type="text" id="contactInfo" placeholder="مثال: @username أو 05XXXXXXXX أو email@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="receiptFile">رفع الإيصال *</label>
+          <input type="file" id="receiptFile" accept="image/*,.pdf" required />
+        </div>
+        <div class="form-group">
+          <label for="notes">ملاحظات إضافية</label>
+          <textarea id="notes" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="checkbox" id="agree1" required />
+          <label for="agree1">أتعهد بعدم مشاركة محتوى الدورة</label>
+        </div>
+        <div class="form-group">
+          <input type="checkbox" id="agree2" required />
+          <label for="agree2">أؤكد أنني حوّلت على البيانات الرسمية أعلاه</label>
+        </div>
+        <div class="form-group">
+          <input type="checkbox" id="agree3" required />
+          <label for="agree3">أوافق على السياسات والأحكام</label>
+        </div>
+        <button type="submit" class="cta-btn">إرسال طلب الاشتراك</button>
+      </form>
+    </section>
+  </main>
+
+  <button id="assistantButton" class="assistant-button" aria-label="فتح المساعد">💬</button>
+  <div id="assistantPanel" class="assistant-panel">
+    <button id="closeAssistant" class="close-panel">×</button>
+    <h3>أين تود الذهاب؟</h3>
+    <ul>
+      <li><a href="./course-content.html">محتوى الدورة</a></li>
+      <li><a href="./faq.html">الأسئلة الشائعة</a></li>
+      <li><a href="./support.html">الدعم</a></li>
+      <li><a href="./terms.html">السياسات</a></li>
+    </ul>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="./privacy.html">سياسة الخصوصية</a>
+      <a href="./terms.html">الشروط والأحكام</a>
       <a href="./refund.html">سياسة الاسترجاع</a>
       <a href="./support.html">الدعم</a>
-    </nav>
-  </div>
-</footer>
+    </div>
+    <p>© 2026 أكاديمية عايد. جميع الحقوق محفوظة.</p>
+  </footer>
 
-<!-- مساعد التسجيل -->
-<button id="assistantBtn" class="assistant-btn" aria-label="مساعد التسجيل">؟</button>
-<div id="assistantPanel" class="assistant-panel">
-  <h3>كيف يمكنني مساعدتك؟</h3>
-  <a href="./level-test.html">ابدأ اختبار المستوى</a>
-  <a href="./course-content.html">محتوى الدورة</a>
-  <a href="./faq.html">الأسئلة الشائعة</a>
-  <a href="./support.html">الدعم</a>
-</div>
-
-<script src="./assets/register.js"></script>
-<script src="./assets/site-data.js"></script>
-<script src="./assets/app.js"></script>
+  <script src="./assets/site-data.js?v=20260120"></script>
+  <script src="./assets/app.js?v=20260120"></script>
+  <script src="./assets/register.js?v=20260120"></script>
 </body>
 </html>

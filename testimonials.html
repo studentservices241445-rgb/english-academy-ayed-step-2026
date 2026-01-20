@@ -1,20 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>قصص النجاح</title>
-  <link rel="stylesheet" href="./assets/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>قصص النجاح — أكاديمية عايد</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/png" href="./assets/images/logo.png" />
+  <link rel="stylesheet" href="./assets/styles.css?v=20260120" />
 </head>
 <body>
   <header>
     <nav class="navbar">
-      <a href="./index.html" class="logo">STEP</a>
-      <ul>
+      <a href="./index.html" class="logo">أكاديمية عايد</a>
+      <button class="hamburger" id="hamburger" aria-label="القائمة">☰</button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="./index.html">الرئيسية</a></li>
         <li><a href="./course-content.html">محتوى الدورة</a></li>
-        <li><a href="./level-test.html">اختبار المستوى</a></li>
+        <li><a href="./level-test.html">اختبار تحديد المستوى</a></li>
         <li><a href="./testimonials.html" class="active">قصص النجاح</a></li>
         <li><a href="./faq.html">الأسئلة الشائعة</a></li>
         <li><a href="./support.html">الدعم</a></li>
@@ -22,44 +24,78 @@
     </nav>
   </header>
   <main>
-    <section class="testimonials-intro">
-      <h1>قصص النجاح</h1>
-      <p>تجارب بعض من أخذوا الاختبار وقاموا بتطبيق الخطة.</p>
+    <section class="page-header">
+      <h1>قصص نجاح طلابنا</h1>
+      <p>مجموعة من التجارب الواقعية لطالبات وطلاب استفادوا من خطة الدورة.</p>
     </section>
-    <section class="testimonials-grid">
-      <div class="testimonial-card">
-        <p>بعد التشخيص فهمت أخطائي وصار عندي مسار واضح.</p>
-      </div>
-      <div class="testimonial-card">
-        <p>الخطة قسمت وقتي وجعلت مذاكرتي مركزة بدل العشوائية.</p>
-      </div>
-      <div class="testimonial-card">
-        <p>أول مرة أحس أني أعرف مستويّالحقيقي قبل أن أدفع.</p>
+    <section class="testimonials-section">
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p>«كنت ضايعة بين مصادر كثير... بعد الخطة التزمت بمصدر واحد، وفرق معي التنظيم. أهم شي لا تكثّر مصادر.»</p>
+          <span>شهد (م.) — الرياض</span>
+          <span class="score">النتيجة: 92</span>
+        </div>
+        <div class="testimonial-card">
+          <p>«اللي نفعني هو التكنيكات + النماذج، وصرت أعرف وش أبغى من كل سؤال.»</p>
+          <span>تركي (ق.) — جدة</span>
+          <span class="score">النتيجة: 89</span>
+        </div>
+        <div class="testimonial-card">
+          <p>«كنت أطيح في Reading بسبب السرعة... الخطة ركزتني على نوعية أسئلة معينة وتحسنت.»</p>
+          <span>نورة (ع.) — الشرقية</span>
+          <span class="score">النتيجة: 90</span>
+        </div>
+        <div class="testimonial-card">
+          <p>«جرامر كان يكسّرني... مع المراجعات القصيرة اليومية صرت أجيب أعلى.»</p>
+          <span>عبدالله (س.) — القصيم</span>
+          <span class="score">النتيجة: 87</span>
+        </div>
+        <div class="testimonial-card">
+          <p>«أكثر شي فادني تقسيم الأيام، كل يوم أعرف وش علي.»</p>
+          <span>ريم (هـ.) — الرياض</span>
+          <span class="score">النتيجة: 93</span>
+        </div>
+        <div class="testimonial-card">
+          <p>«الليسننق كنت أتهرب منه... 20 دقيقة يومياً سوّت فرق كبير.»</p>
+          <span>فيصل (ن.) — مكة</span>
+          <span class="score">النتيجة: 88</span>
+        </div>
+        <div class="testimonial-card">
+          <p>«الخطة خلتني أراجع أخطائي بدل أعيد نفس الغلط.»</p>
+          <span>هند (ر.) — جدة</span>
+          <span class="score">النتيجة: 91</span>
+        </div>
+        <div class="testimonial-card">
+          <p>«تجميعات النماذج مع المراجعة قبل الاختبار طلّعت النتيجة.»</p>
+          <span>سلمان (ب.) — المدينة</span>
+          <span class="score">النتيجة: 86</span>
+        </div>
       </div>
     </section>
   </main>
   <footer>
-    <ul>
-      <li><a href="./privacy.html">سياسة الخصوصية</a></li>
-      <li><a href="./terms.html">الشروط والأحكام</a></li>
-      <li><a href="./refund.html">سياسة الاسترجاع</a></li>
-      <li><a href="./support.html">الدعم</a></li>
-    </ul>
-    <p>&copy; 2026 English Academy Ayed STEP</p>
+    <div class="footer-links">
+      <a href="./privacy.html">الخصوصية</a>
+      <a href="./terms.html">الشروط</a>
+      <a href="./refund.html">سياسة الاسترجاع</a>
+      <a href="./support.html">الدعم</a>
+    </div>
+    <p>© 2026 أكاديمية عايد. جميع الحقوق محفوظة.</p>
   </footer>
-  <!-- Floating Assistant -->
-  <button id="assistantToggle" class="assistant-button" aria-label="مساعد التسجيل"></button>
+  <button id="assistantButton" class="assistant-button" aria-label="مساعد التسجيل">؟</button>
   <div id="assistantPanel" class="assistant-panel">
-    <button id="assistantClose" aria-label="إغلاق">&times;</button>
-    <h3>كيف نساعدك؟</h3>
-    <ul>
+    <button class="close-panel" id="closeAssistant">×</button>
+    <h3>مرحباً!</h3>
+    <p>كيف نقدر نساعدك؟</p>
+    <ul class="assistant-links">
       <li><a href="./level-test.html">ابدأ اختبار المستوى</a></li>
-      <li><a href="./course-content.html">محتوى الدورة</a></li>
+      <li><a href="./course-content.html">وش داخل الدورة؟</a></li>
       <li><a href="./faq.html">الأسئلة الشائعة</a></li>
       <li><a href="./support.html">الدعم</a></li>
+      <li><a href="./terms.html">السياسات</a></li>
     </ul>
-    <p class="hint">سيظهر زر التسجيل بعد إكمال الاختبار وظهور خطتك.</p>
   </div>
-  <script src="./assets/app.js"></script>
+  <script src="./assets/site-data.js?v=20260120"></script>
+  <script src="./assets/app.js?v=20260120"></script>
 </body>
 </html>

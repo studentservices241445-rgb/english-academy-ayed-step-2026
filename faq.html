@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الأسئلة الشائعة</title>
-  <link rel="stylesheet" href="./assets/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الأسئلة الشائعة — أكاديمية عايد</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/png" href="./assets/images/logo.png" />
+  <link rel="stylesheet" href="./assets/styles.css?v=20260120" />
 </head>
 <body>
   <header>
     <nav class="navbar">
-      <a href="./index.html" class="logo">STEP</a>
-      <ul>
+      <a href="./index.html" class="logo">أكاديمية عايد</a>
+      <button class="hamburger" id="hamburger" aria-label="القائمة">☰</button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="./index.html">الرئيسية</a></li>
         <li><a href="./course-content.html">محتوى الدورة</a></li>
-        <li><a href="./level-test.html">اختبار المستوى</a></li>
+        <li><a href="./level-test.html">اختبار تحديد المستوى</a></li>
         <li><a href="./testimonials.html">قصص النجاح</a></li>
         <li><a href="./faq.html" class="active">الأسئلة الشائعة</a></li>
         <li><a href="./support.html">الدعم</a></li>
@@ -21,63 +24,64 @@
     </nav>
   </header>
   <main>
-    <section class="faq-intro">
+    <section class="page-header">
       <h1>الأسئلة الشائعة</h1>
-      <p>هنا تجد أوبة أوسلة للأسئلة المتكررة.</p>
+      <p>جمعنا هنا أكثر الأسئلة التي تردنا وإجاباتها بإيجاز.</p>
     </section>
-    <section class="faq-list">
+    <section class="faq-section">
       <details>
-        <summary>ما هو اختبار تحديد المستوى؟</summary>
-        <p>هو اختبار تفاعلي يساعدك على معرفة مستواك الحالي في اللغة الإنجليزية ويُنتج خطة دراسة تناسب احتياجاتك. لا يُلزمك بالتسجيل في الدورة.</p>
+        <summary>ماذا يعني اختبار تحديد المستوى؟</summary>
+        <p>الاختبار يساعدك على معرفة مستواك الحالي في أقسام Grammar وReading وListening. بعد الاختبار نعرض لك نسبة الأداء وتحليل نقاط القوة والضعف وخطة مناسبة لوقتك.</p>
       </details>
       <details>
-        <summary>هل التسجيل إلزامي بعد الاختبار؟</summary>
-        <p>التسجيل قرار اختياري تماماً، يمكنك الاطلاع على النتيجة والخطة قبل أن تقرر الانضمام.</p>
+        <summary>هل يجب التسجيل بعد الاختبار مباشرة؟</summary>
+        <p>التسجيل اختياري تماماً. يمكنك الاكتفاء بمعرفة خطتك ونتيجتك ثم تقرر لاحقاً. السعر والمقاعد لا تظهر إلا بعد الانتهاء من الاختبار.</p>
       </details>
       <details>
         <summary>متى يظهر السعر؟</summary>
-        <p>يظهر السعر المخفض بعد انتهاء الاختبار واستعراض النتيجة والخطة، لضمان اتخاذ قرار واعٍ.</p>
+        <p>السعر يظهر فقط بعد أن تكمل اختبار تحديد المستوى وتطلع على خطتك الشخصية. نحن نهتم أن تعرف مستوى استعدادك قبل أي التزام.</p>
       </details>
       <details>
-        <summary>كيف أعرف المقاعد المتبقية؟</summary>
-        <p>يظهر عداد المقاعد في أعلى الموقع ويتم تحديثه تلقائياً حسب توفر الأماكن.</p>
+        <summary>كيف أعرف عدد المقاعد المتبقية؟</summary>
+        <p>يظهر عداد المقاعد المتبقية بعد انتهاء الاختبار ضمن صفحة النتائج. نضيف مقاعد إضافية عند الحاجة لكن العدد محدود.</p>
       </details>
       <details>
         <summary>ما هي طريقة الدفع؟</summary>
-        <p>الدفع يتم عن طريق تحويل بنكي للبيانات الموجودة في صفحة التسجيل.</p>
+        <p>التحويل البنكي هو الطريقة الوحيدة حالياً. جميع البيانات (البنك، الحساب، الآيبان، المستفيد) ستظهر في صفحة التسجيل مع أزرار نسخ لكل قيمة.</p>
       </details>
       <details>
-        <summary>هل يناسب المبتدئين؟</summary>
-        <p>نعم، يختار الاختبار الأسئلة المناسبة لمستواك ونبني لك خطة تعلم من الصفر إذا لزم الأمر.</p>
+        <summary>هل الدورة مناسبة للمبتدئين؟</summary>
+        <p>نعم، لدينا قسم تأسيسي ومحاضرات تمهيدية تساعد المبتدئ على فهم الأساسيات قبل الدخول في الأقسام المتقدمة.</p>
       </details>
       <details>
-        <summary>هل يمكنني استرداد الرسوم؟</summary>
-        <p>تطبق سياسة الاسترجاع الموضحة في صفحة الاسترجاع، يرجى الاطلاع عليها قبل إتمام التسجيل.</p>
+        <summary>ما هي سياسة الاسترجاع؟</summary>
+        <p>يمكنك طلب استرجاع كامل خلال يومين قبل تفعيل حسابك. بعد التفعيل لا توجد استرجاعات ولكن قد يتم منح رصيد أو جلسة تعويضية حسب حالتك. راجع صفحة سياسة الاسترجاع للمزيد.</p>
       </details>
     </section>
   </main>
   <footer>
-    <ul>
-      <li><a href="./privacy.html">سياسة الخصوصية</a></li>
-      <li><a href="./terms.html">الشروط والأحكام</a></li>
-      <li><a href="./refund.html">سياسة الاسترجاع</a></li>
-      <li><a href="./support.html">الدعم</a></li>
-    </ul>
-    <p>&copy; 2026 English Academy Ayed STEP</p>
+    <div class="footer-links">
+      <a href="./privacy.html">الخصوصية</a>
+      <a href="./terms.html">الشروط</a>
+      <a href="./refund.html">سياسة الاسترجاع</a>
+      <a href="./support.html">الدعم</a>
+    </div>
+    <p>© 2026 أكاديمية عايد. جميع الحقوق محفوظة.</p>
   </footer>
-  <!-- Floating Assistant -->
-  <button id="assistantToggle" class="assistant-button" aria-label="مساعد التسجيل"></button>
+  <button id="assistantButton" class="assistant-button" aria-label="مساعد التسجيل">؟</button>
   <div id="assistantPanel" class="assistant-panel">
-    <button id="assistantClose" aria-label="إغلاق">&times;</button>
-    <h3>كيف نساعدك؟</h3>
-    <ul>
+    <button class="close-panel" id="closeAssistant">×</button>
+    <h3>مرحباً!</h3>
+    <p>كيف نقدر نساعدك؟</p>
+    <ul class="assistant-links">
       <li><a href="./level-test.html">ابدأ اختبار المستوى</a></li>
-      <li><a href="./course-content.html">محتوى الدورة</a></li>
+      <li><a href="./course-content.html">وش داخل الدورة؟</a></li>
       <li><a href="./faq.html">الأسئلة الشائعة</a></li>
       <li><a href="./support.html">الدعم</a></li>
+      <li><a href="./terms.html">السياسات</a></li>
     </ul>
-    <p class="hint">سيظهر زر التسجيل بعد إكمال الاختبار وظهور خطتك.</p>
   </div>
-  <script src="./assets/app.js"></script>
+  <script src="./assets/site-data.js?v=20260120"></script>
+  <script src="./assets/app.js?v=20260120"></script>
 </body>
 </html>

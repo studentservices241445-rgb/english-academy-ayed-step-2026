@@ -1,60 +1,65 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>سياسة الاسترجاع | أكاديمية أيـد</title>
-  <link rel="stylesheet" href="./assets/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>سياسة الاسترجاع — أكاديمية عايد</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/png" href="./assets/images/logo.png" />
+  <link rel="stylesheet" href="./assets/styles.css?v=20260120" />
 </head>
 <body>
-<header class="site-header">
-  <div class="container">
-    <h1 class="logo"><a href="./index.html">أكاديمية أيـد</a></h1>
-    <nav class="nav">
-      <a href="./index.html">الرئيسية</a>
-      <a href="./level-test.html">اختبار المستوى</a>
-      <a href="./course-content.html">محتوى الدورة</a>
-      <a href="./testimonials.html">قصص النجاح</a>
-      <a href="./faq.html">الأسئلة الشائعة</a>
-      <a href="./support.html">الدعم</a>
+  <header>
+    <nav class="navbar">
+      <a href="./index.html" class="logo">أكاديمية عايد</a>
+      <button class="hamburger" id="hamburger" aria-label="القائمة">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="./index.html">الرئيسية</a></li>
+        <li><a href="./course-content.html">محتوى الدورة</a></li>
+        <li><a href="./level-test.html">اختبار تحديد المستوى</a></li>
+        <li><a href="./testimonials.html">قصص النجاح</a></li>
+        <li><a href="./faq.html">الأسئلة الشائعة</a></li>
+        <li><a href="./support.html">الدعم</a></li>
+      </ul>
     </nav>
-  </div>
-</header>
-
-<main class="container refund-page">
-  <h1>سياسة الاسترجاع</h1>
-  <p>نحرص على رضاكم، ولذلك نوضح سياستنا للاسترجاع.</p>
-  <ul>
-    <li>يمكن الاسترجاع الكامل للرسوم قبل تفعيل حساب الدورة خلال 2 يوم من التحويل.</li>
-    <li>بعد تفعيل الحساب، لا يوجد استرجاع للرسوم، لكن قد نقدم قيمة ائتمانية لدورات أخرى حسب الحالة.</li>
-    <li>في حال تحويلك خطأ أو عدم حجز مقعدك، يمكنك طلب الإسترجاع خلال 3 أيام.</li>
-    <li>لطلب الإسترجاع، يرجى التواصل مع فريق الدعم مع إرفاق ملف الإيصال والبيانات.</li>
-  </ul>
-  <p>حناك حالات استثنائية يمكن فيها دراسة طلب الإسترجاع بشكل فردي. نحن حريصون على خدمتكم.</p>
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <p>© 2026 أكاديمية أيـد. جميع الحقوق محفوظة.</p>
-    <nav class="footer-nav">
+  </header>
+  <main>
+    <section class="page-header">
+      <h1>سياسة الاسترجاع</h1>
+    </section>
+    <section class="refund-section">
+      <ul class="terms-list">
+        <li>يمكن طلب استرجاع المبلغ كاملًا خلال يومين من تاريخ التحويل ما لم يتم تفعيل الحساب.</li>
+        <li>بعد تفعيل الحساب وإرسال بيانات الدخول، لا يمكن الاسترجاع، لكن يمكن منح رصيد أو جلسة تعويضية حسب الحالة.</li>
+        <li>في حال وقوع خطأ في الحجز أو نفاد المقاعد قبل التفعيل، يتم استرجاع المبلغ كاملًا خلال ثلاثة أيام.</li>
+        <li>لإجراء استرجاع، يرجى إرسال نسخة من الإيصال مع الطلب عبر صفحة الدعم أو الحساب الرسمي في تليجرام.</li>
+        <li>تخضع طلبات الاسترجاع للتقييم الفردي وقد يتم استثناء حالات خاصة.</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-links">
       <a href="./privacy.html">الخصوصية</a>
       <a href="./terms.html">الشروط</a>
-      <a href="./refund.html">سياسة الاسترجاع</a>
+      <a href="./refund.html" class="active">سياسة الاسترجاع</a>
       <a href="./support.html">الدعم</a>
-    </nav>
+    </div>
+    <p>© 2026 أكاديمية عايد. جميع الحقوق محفوظة.</p>
+  </footer>
+  <button id="assistantButton" class="assistant-button" aria-label="مساعد التسجيل">؟</button>
+  <div id="assistantPanel" class="assistant-panel">
+    <button class="close-panel" id="closeAssistant">×</button>
+    <h3>مرحباً!</h3>
+    <p>كيف نقدر نساعدك؟</p>
+    <ul class="assistant-links">
+      <li><a href="./level-test.html">ابدأ اختبار المستوى</a></li>
+      <li><a href="./course-content.html">وش داخل الدورة؟</a></li>
+      <li><a href="./faq.html">الأسئلة الشائعة</a></li>
+      <li><a href="./support.html">الدعم</a></li>
+      <li><a href="./terms.html">السياسات</a></li>
+    </ul>
   </div>
-</footer>
-
-<button id="assistantBtn" class="assistant-btn" aria-label="مساعد التسجيل">؟</button>
-<div id="assistantPanel" class="assistant-panel">
-  <h3>كيف يمكنني مساعدتك؟</h3>
-  <a href="./level-test.html">ابدأ اختبار المستوى</a>
-  <a href="./course-content.html">محتوى الدورة</a>
-  <a href="./faq.html">الأسئلة الشائعة</a>
-  <a href="./support.html">الدعم</a>
-</div>
-
-<script src="./assets/site-data.js"></script>
-<script src="./assets/app.js"></script>
+  <script src="./assets/site-data.js?v=20260120"></script>
+  <script src="./assets/app.js?v=20260120"></script>
 </body>
 </html>

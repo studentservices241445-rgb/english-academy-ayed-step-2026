@@ -1,0 +1,23 @@
+{
+  "name": "أكاديمية عايد الرسمية — STEP المكثفة 2026",
+  "short_name": "STEP2026",
+  "description": "دورة عملية لاختبار STEP مع خطة مذاكرة مخصصة بعد اختبار تحديد المستوى.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a0f15",
+  "theme_color": "#d4af37",
+  "icons": [
+    {
+      "src": "./assets/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

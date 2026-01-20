@@ -1,20 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الدعم والاستفسار</title>
-  <link rel="stylesheet" href="./assets/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الدعم وخدمة الطالب — أكاديمية عايد</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/png" href="./assets/images/logo.png" />
+  <link rel="stylesheet" href="./assets/styles.css?v=20260120" />
 </head>
 <body>
   <header>
     <nav class="navbar">
-      <a href="./index.html" class="logo">STEP</a>
-      <ul>
+      <a href="./index.html" class="logo">أكاديمية عايد</a>
+      <button class="hamburger" id="hamburger" aria-label="القائمة">☰</button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="./index.html">الرئيسية</a></li>
         <li><a href="./course-content.html">محتوى الدورة</a></li>
-        <li><a href="./level-test.html">اختبار المستوى</a></li>
+        <li><a href="./level-test.html">اختبار تحديد المستوى</a></li>
         <li><a href="./testimonials.html">قصص النجاح</a></li>
         <li><a href="./faq.html">الأسئلة الشائعة</a></li>
         <li><a href="./support.html" class="active">الدعم</a></li>
@@ -22,62 +24,64 @@
     </nav>
   </header>
   <main>
-    <section class="support-info">
-      <h1>الدعم والاستفسار</h1>
-      <p>نحن هنا لمساعدتك. يرجى ملء النموذج وسنرد عليك قريباً.</p>
+    <section class="page-header">
+      <h1>الدعم وخدمة الطالب</h1>
+      <p>نحن هنا لمساعدتك في أي استفسار أو مشكلة. يمكنك التواصل معنا عبر النموذج أو مباشرة عبر تليجرام.</p>
     </section>
-    <section class="support-form">
-      <form id="supportForm">
-        <label>نوع الطلب:
-          <select name="type">
-            <option value="general">استفسار عام</option>
-            <option value="payment">استفسار الدفع</option>
-            <option value="technical">مشكلة تقنية</option>
+    <section class="support-section">
+      <div class="contact-info">
+        <p>إذا كان لديك سؤال عام أو تحتاج مساعدة بخصوص الحساب، لا تتردد في التواصل.</p>
+        <p>يمكنك أيضاً مراسلة الحساب الرسمي في تليجرام: <a href="https://t.me/Ayed_Academy_2026" target="_blank">@Ayed_Academy_2026</a></p>
+      </div>
+      <form class="support-form" onsubmit="event.preventDefault(); alert('تم إرسال رسالتك بنجاح. سنرد عليك قريباً.'); this.reset();">
+        <div class="form-group">
+          <label for="support-name">الاسم</label>
+          <input type="text" id="support-name" required />
+        </div>
+        <div class="form-group">
+          <label for="support-email">البريد الإلكتروني / وسيلة التواصل</label>
+          <input type="email" id="support-email" placeholder="اختياري" />
+        </div>
+        <div class="form-group">
+          <label for="support-type">نوع الطلب</label>
+          <select id="support-type">
+            <option value="question">سؤال عام</option>
+            <option value="activation">تفعيل الحساب</option>
+            <option value="refund">طلب استرجاع</option>
+            <option value="other">أخرى</option>
           </select>
-        </label>
-        <label>الاسم:
-          <input type="text" name="name" required />
-        </label>
-        <label>وسيلة التواصل:
-          <input type="text" name="contact" placeholder="واتساب أو بريد إلكتروني" />
-        </label>
-        <label>رسالتك:
-          <textarea name="message" required></textarea>
-        </label>
-        <button type="submit" class="btn-primary">أرسل الطلب</button>
+        </div>
+        <div class="form-group">
+          <label for="support-message">الرسالة</label>
+          <textarea id="support-message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn primary">إرسال</button>
       </form>
-      <p class="note">نحترم خصوصيتك. يتم استخدام معلوماتك للرد على استفسارك فقط.</p>
     </section>
   </main>
   <footer>
-    <ul>
-      <li><a href="./privacy.html">سياسة الخصوصية</a></li>
-      <li><a href="./terms.html">الشروط والأحكام</a></li>
-      <li><a href="./refund.html">سياسة الاسترجاع</a></li>
-      <li><a href="./support.html">الدعم</a></li>
-    </ul>
-    <p>&copy; 2026 English Academy Ayed STEP</p>
+    <div class="footer-links">
+      <a href="./privacy.html">الخصوصية</a>
+      <a href="./terms.html">الشروط</a>
+      <a href="./refund.html">سياسة الاسترجاع</a>
+      <a href="./support.html">الدعم</a>
+    </div>
+    <p>© 2026 أكاديمية عايد. جميع الحقوق محفوظة.</p>
   </footer>
-  <!-- Floating Assistant -->
-  <button id="assistantToggle" class="assistant-button" aria-label="مساعد التسجيل"></button>
+  <button id="assistantButton" class="assistant-button" aria-label="مساعد التسجيل">؟</button>
   <div id="assistantPanel" class="assistant-panel">
-    <button id="assistantClose" aria-label="إغلاق">&times;</button>
-    <h3>كيف نساعدك؟</h3>
-    <ul>
+    <button class="close-panel" id="closeAssistant">×</button>
+    <h3>مرحباً!</h3>
+    <p>كيف نقدر نساعدك؟</p>
+    <ul class="assistant-links">
       <li><a href="./level-test.html">ابدأ اختبار المستوى</a></li>
-      <li><a href="./course-content.html">محتوى الدورة</a></li>
+      <li><a href="./course-content.html">وش داخل الدورة؟</a></li>
       <li><a href="./faq.html">الأسئلة الشائعة</a></li>
       <li><a href="./support.html">الدعم</a></li>
+      <li><a href="./terms.html">السياسات</a></li>
     </ul>
-    <p class="hint">سيظهر زر التسجيل بعد إكمال الاختبار وظهور خطتك.</p>
   </div>
-  <script src="./assets/app.js"></script>
-  <script>
-    document.getElementById('supportForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('تم إرسال طلبك. سنتواصل معك قريباً عبر وسيلة التواصل التي أدخلتها.');
-      this.reset();
-    });
-  </script>
+  <script src="./assets/site-data.js?v=20260120"></script>
+  <script src="./assets/app.js?v=20260120"></script>
 </body>
 </html>

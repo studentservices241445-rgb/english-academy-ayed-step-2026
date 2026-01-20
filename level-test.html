@@ -1,58 +1,62 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>اختبار تحديد المستوى - أكاديمية عايد</title>
-  <link rel="stylesheet" href="./assets/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>اختبار تحديد المستوى – أكاديمية عايد</title>
+  <link rel="stylesheet" href="./assets/styles.css?v=20260120" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a href="./index.html" class="logo">أكاديمية عايد</a>
-      <nav class="navbar">
-        <a href="./index.html">الرئيسية</a>
-        <a href="./course-content.html">محتوى الدورة</a>
-        <a href="./level-test.html" class="active">اختبار تحديد المستوى</a>
-        <a href="./testimonials.html">قصص النجاح</a>
-        <a href="./faq.html">الأسئلة الشائعة</a>
-        <a href="./support.html">الدعم</a>
-      </nav>
-    </div>
-  </header>
-  <main class="main-content">
-    <section class="test-section">
-      <h1>اختبار تحديد المستوى</h1>
-      <p>ابدأ الاختبار للإجابة على مجموعة من الأسئلة لتحديد مستواك في اللغة الإنجليزية. ستظهر النتائج والخطة بعد الانتهاء.</p>
-      <div id="testApp"></div>
-    </section>
-  </main>
-  <footer class="footer">
-    <div class="container">
-      <p>© 2026 أكاديمية عايد — جميع الحقوق محفوظة.</p>
-      <nav class="footer-nav">
-        <a href="./privacy.html">سياسة الخصوصية</a>
-        <a href="./refund.html">سياسة الاسترجاع</a>
-        <a href="./terms.html">الشروط والأحكام</a>
-        <a href="./support.html">الدعم</a>
-      </nav>
-    </div>
-  </footer>
-  <!-- Floating Assistant -->
-  <button id="assistantBtn" class="assistant-fab" aria-label="مساعد التسجيل"></button>
-  <div id="assistantPanel" class="assistant-panel">
-    <button class="close-panel" id="closePanelBtn">&times;</button>
-    <h3>مساعد التسجيل</h3>
-    <ul class="assistant-links">
-      <li><a href="./level-test.html">اختبار المستوى</a></li>
+  <!-- ترويسة الموقع -->
+  <header class="navbar">
+    <a href="./index.html" class="logo">أكاديمية&nbsp;عايد</a>
+    <button id="hamburger" class="hamburger">☰</button>
+    <ul id="navLinks" class="nav-links">
+      <li><a href="./index.html">الرئيسية</a></li>
       <li><a href="./course-content.html">محتوى الدورة</a></li>
+      <li><a href="./level-test.html" class="active">اختبار المستوى</a></li>
+      <li><a href="./testimonials.html">قصص النجاح</a></li>
       <li><a href="./faq.html">الأسئلة الشائعة</a></li>
       <li><a href="./support.html">الدعم</a></li>
     </ul>
-    <p class="assistant-note">يظهر زر التسجيل بعد الانتهاء من الاختبار والحصول على الخطة.</p>
+  </header>
+
+  <!-- شريط التنبيهات -->
+  <div class="ticker-bar"><span id="ticker"></span></div>
+
+  <!-- مساحة الاختبار -->
+  <main class="page-content">
+    <div id="testApp" class="test-container"></div>
+  </main>
+
+  <!-- المساعد العائم -->
+  <button id="assistantButton" class="assistant-button" aria-label="فتح المساعد">💬</button>
+  <div id="assistantPanel" class="assistant-panel">
+    <button id="closeAssistant" class="close-panel">×</button>
+    <h3>أين تود الذهاب؟</h3>
+    <ul>
+      <li><a href="./level-test.html">ابدأ اختبار المستوى</a></li>
+      <li><a href="./course-content.html">محتوى الدورة</a></li>
+      <li><a href="./faq.html">الأسئلة الشائعة</a></li>
+      <li><a href="./support.html">الدعم</a></li>
+      <li><a href="./terms.html">السياسات</a></li>
+    </ul>
+    <p style="font-size: 0.8rem; color:#bbb; margin-top:1rem;">زر التسجيل يظهر بعد إكمال الاختبار</p>
   </div>
-  <script src="./assets/site-data.js"></script>
-  <script src="./assets/app.js"></script>
-  <script src="./assets/test.js"></script>
+
+  <!-- فوتـر -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="./privacy.html">سياسة الخصوصية</a>
+      <a href="./terms.html">الشروط والأحكام</a>
+      <a href="./refund.html">سياسة الاسترجاع</a>
+      <a href="./support.html">الدعم</a>
+    </div>
+    <p>© 2026 أكاديمية عايد. جميع الحقوق محفوظة.</p>
+  </footer>
+
+  <script src="./assets/site-data.js?v=20260120"></script>
+  <script src="./assets/app.js?v=20260120"></script>
+  <script src="./assets/test.js?v=20260120"></script>
 </body>
 </html>
