@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نتيجة اختبارك | أكاديمية ايـد</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <h1 class="logo"><a href="./index.html">أكاديمية أيـد</a></h1>
+    <nav class="nav">
+      <a href="./index.html">الرئيسية</a>
+      <a href="./level-test.html">اختبار المستوى</a>
+      <a href="./course-content.html">محتوى الدورة</a>
+      <a href="./testimonials.html">قصص النجاح</a>
+      <a href="./faq.html">الأسئلة الشائعة</a>
+      <a href="./support.html">الدعم</a>
+    </nav>
+  </div>
+</header>
+
+<main class="results-page container">
+  <div id="resultsApp">
+    <!-- سيتم تعبئة النتيجة هنا عبر سكربت -->
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 أكاديمية أيـد. جميع الحقوق محفوظة.</p>
+    <nav class="footer-nav">
+      <a href="./privacy.html">الخصوصية</a>
+      <a href="./terms.html">الشروط</a>
+      <a href="./refund.html">سياسة الاسترجاع</a>
+      <a href="./support.html">الدعم</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- مساعد التسجيل العائم -->
+<button id="assistantBtn" class="assistant-btn" aria-label="مساعد التسجيل">؟</button>
+<div id="assistantPanel" class="assistant-panel">
+  <h3>كيف يمكنني مساعدتك؟</h3>
+  <a href="./level-test.html">ابدأ اختبار المستوى</a>
+  <a href="./course-content.html">محتوى الدورة</a>
+  <a href="./faq.html">الأسئلة الشائعة</a>
+  <a href="./support.html">الدعم</a>
+</div>
+
+<script>
+// عرض النتيجة من localStorage
+document.addEventListener('DOMContentLoaded', function () {
+  const container = document.getElementById('resultsApp');
+  let data;
+  try {
+    data = JSON.parse(localStorage.getItem('ayedResults') || '{}');
+  } catch (e) {
+    data = {};
+  }
+  if (!data || !data.percent) {
+    container.innerHTML = '<p>لم يتم العثور على نتيجة اختبار. يرجى إجراء الاختبار أولاً.</p><a href="./level-test.html" class="btn">ابدأ الاختبار</a>';
+    return;
+  }
+  const level = data.level || '\u063a\u064a\u0631 \u0645\u062d\u062f\u062f';
+  let analysis = '';
+  if (data.stats) {
+    analysis += '<section class="analysis"><h2>تحليل الأداء حسب الأقسام</h2>';
+    Object.keys(data.stats).forEach(sec => {
+      const stat = data.stats[sec];
+      const perc = Math.round((stat.correct / stat.total) * 100);
+      let secName;
+      if (sec === 'grammar') secName = '\u0627\u0644\u0642\u0648\u0627\u0639\u062f';
+      else if (sec === 'reading') secName = '\u0627\u0644\u0642\u0631\u0627\u0621\u0629';
+      else if (sec === 'listening') secName = '\u0627\u0644\u0627\u0633\u062a\u0645\u0627\u0639';
+      else secName = sec;
+      analysis += '<div class="analysis-row"><span>' + secName + '</span><div class="bar"><div class="bar-fill" style="width:' + perc + '%"></div></div><span>' + perc + '%</span></div>';
+    });
+    analysis += '</section>';
+  }
+  function buildPlan(lvl) {
+    if (lvl === '\u0645\u0628\u062a\u062f\u0626') {
+      return 'ابدأ بتقوية أساسيات اللغة الإنجليزية. ركز على قواعد النحو والكلمات الأساسية مع ممارسة القراءة اليومية.';
+    } else if (lvl === '\u0645\u062a\u0648\u0633\u0637') {
+      return 'قم بتقوية مهارات القراءة والاستماع، وركز على حل الأسئلة التجريبية لتحسين سرعتك وفهمك.';
+    } else if (lvl === '\u0645\u062a\u0642\u062f\u0645') {
+      return 'ركز على حل الاختبارات المتقدمة ومراجعة الأخطاء الشائعة، واستمر في ممارسة الاستماع والقراءة الأكاديمية.';
+    }
+    return 'استمر في الدراسة حسب النقاط التي ظهرت في التحليل، واستعن بمدرس أو مرجع موثوق إن لزم الأمر.';
+  }
+  container.innerHTML = `
+    <section class="result-summary">
+      <h1>نتيجة الاختبار</h1>
+      <p>حصلت على ${data.percent}% (${data.totalCorrect}/${data.totalQuestions})</p>
+      <h2>مستواك التقريبي: ${level}</h2>
+    </section>
+    ${analysis}
+    <section class="study-plan">
+      <h2>خطة المذاكرة المقترحة</h2>
+      <p>${buildPlan(level)}</p>
+    </section>
+    <section class="pricing">
+      <p>السعر المخفض:<strong> 349 ريال</strong></p>
+      <p>السعر الرسمي:<del> 599 ريال</del></p>
+      <a href="./register.html" class="cta-btn">أكمل التسجيل الآن</a>
+    </section>
+  `;
+});
+</script>
+
+<script src="./assets/site-data.js"></script>
+<script src="./assets/app.js"></script>
+</body>
+</html>
