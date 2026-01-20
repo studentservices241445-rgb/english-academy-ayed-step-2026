@@ -1,151 +1,382 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>أكاديمية عايد الرسمية — دورة STEP المكثفة 2026</title>
-  <!-- Manifest makes the site installable as a PWA -->
-  <link rel="manifest" href="./manifest.json" />
-  <link rel="icon" type="image/png" href="./assets/images/logo.png" />
-  <!-- Cache‑busted CSS for latest styles -->
-  <link rel="stylesheet" href="./assets/styles.css?v=20260120" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0f14" />
+  <meta name="description" content="الموقع الرسمي لدورة STEP المكثفة 2026 — اختبار تحديد مستوى + خطة مذاكرة مخصصة + تسجيل سريع." />
+
+  <title>STEP | دورة عايد المكثفة 2026 — الموقع الرسمي</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.json?v=2026-01-20" />
+  <link rel="icon" href="./assets/img/favicon.png?v=2026-01-20" />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./assets/styles.css?v=2026-01-20" />
 </head>
+
 <body>
-  <header>
-    <nav class="navbar">
-      <a href="./index.html" class="logo">أكاديمية عايد</a>
-      <button class="hamburger" id="hamburger" aria-label="القائمة">☰</button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="./index.html" class="active">الرئيسية</a></li>
-        <li><a href="./course-content.html">محتوى الدورة</a></li>
-        <li><a href="./level-test.html">اختبار تحديد المستوى</a></li>
-        <li><a href="./testimonials.html">قصص النجاح</a></li>
-        <li><a href="./faq.html">الأسئلة الشائعة</a></li>
-        <li><a href="./support.html">الدعم</a></li>
-      </ul>
-    </nav>
+  <!-- Top rotating notice bar -->
+  <div class="topbar" id="topbar" aria-live="polite">
+    <div class="topbar__inner">
+      <span class="dot pulse" aria-hidden="true"></span>
+      <span id="topbarText">جاري تحميل التحديثات…</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="./index.html" aria-label="الصفحة الرئيسية">
+        <span class="brand__mark">A</span>
+        <span class="brand__text">
+          <span class="brand__title">Ayed Academy</span>
+          <span class="brand__sub">STEP Intensive 2026</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="التنقل الرئيسي">
+        <a class="nav__link is-active" href="./index.html">الرئيسية</a>
+        <a class="nav__link" href="./course-content.html">محتوى الدورة</a>
+        <a class="nav__link" href="./testimonials.html">قصص النجاح</a>
+        <a class="nav__link" href="./faq.html">الأسئلة الشائعة</a>
+        <a class="nav__link" href="./support.html">الدعم</a>
+
+        <!-- Locked: يظهر فعلياً بعد الاختبار -->
+        <a class="nav__link nav__link--locked"
+           href="./register.html"
+           data-locked="true"
+           data-lock-reason="التسجيل يفتح بعد اختبار تحديد المستوى عشان نعطيك خطة مناسبة 💛">
+          التسجيل
+        </a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--ghost" href="./level-test.html">ابدأ اختبار تحديد المستوى</a>
+        <button class="btn btn--icon" id="openAssistantBtn" type="button" aria-label="فتح مساعد التسجيل">
+          <span aria-hidden="true">💬</span>
+        </button>
+      </div>
+    </div>
   </header>
-  <main>
-    <!-- Hero section -->
+
+  <!-- Main -->
+  <main class="main">
+    <!-- Hero -->
     <section class="hero">
-      <h1>اختصر طريقك لاختبار STEP — بخطة مبنية على مستواك</h1>
-      <p>
-        بدل ما تفتح 10 مصادر وتضيع وقتك… خذ اختبار تحديد المستوى أولاً، والموقع
-        يعطيك خطة مذاكرة واضحة تقول لك وش تذاكر بالضبط، وعلى أي قسم تركز، وبأي
-        ترتيب.
-      </p>
-      <div class="hero-buttons">
-        <a href="./level-test.html" class="btn primary">ابدأ اختبار تحديد المستوى</a>
-        <a href="./course-content.html" class="btn secondary">وش داخل الدورة؟</a>
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="badge">
+            <span class="badge__spark" aria-hidden="true">✨</span>
+            مبني على آخر تحديثات قياس 2026
+          </p>
+
+          <h1 class="hero__title">
+            STEP | دورة عايد المكثفة 2026
+            <span class="hero__title--muted">— أونلاين (شرح + تدريب)</span>
+          </h1>
+
+          <p class="hero__lead">
+            الهدف بسيط: <strong>نوقف التشتت</strong> ونخليك تمشي بخطة واضحة حسب مستواك وموعد اختبارك.
+            تبدأ بـ <strong>اختبار تحديد مستوى</strong>، وبعدها تطلع لك <strong>خطة مذاكرة مفصّلة</strong> وتفتح لك صفحة التسجيل.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="./level-test.html">ابدأ الاختبار الآن</a>
+
+            <!-- يظهر بعد الاختبار -->
+            <a class="btn btn--gold is-hidden" id="goRegisterBtn" href="./register.html">
+              خلاص جهزت؟ روح للتسجيل
+            </a>
+
+            <button class="btn btn--ghost" type="button" id="scrollHowBtn">
+              كيف يمشي الموضوع؟
+            </button>
+          </div>
+
+          <div class="hero__mini">
+            <div class="mini-card">
+              <div class="mini-card__icon" aria-hidden="true">🧭</div>
+              <div class="mini-card__text">
+                <div class="mini-card__title">خطة على مقاسك</div>
+                <div class="mini-card__sub">حسب الوقت + المستوى + نقاط الضعف</div>
+              </div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card__icon" aria-hidden="true">⚡</div>
+              <div class="mini-card__text">
+                <div class="mini-card__title">محتوى عملي</div>
+                <div class="mini-card__sub">شرح + تدريب + نماذج + مراجعات</div>
+              </div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card__icon" aria-hidden="true">🛡️</div>
+              <div class="mini-card__text">
+                <div class="mini-card__title">مصداقية ووضوح</div>
+                <div class="mini-card__sub">خطوات التسجيل واضحة + دعم</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero__panel" aria-label="لوحة ملخص">
+          <div class="panel">
+            <div class="panel__title">ملخص سريع</div>
+
+            <div class="panel__row">
+              <span class="k">مقاعد متبقية</span>
+              <span class="v" id="seatsBadge">—</span>
+            </div>
+
+            <div class="panel__row">
+              <span class="k">حالة العرض</span>
+              <span class="v" id="offerBadge">—</span>
+            </div>
+
+            <div class="panel__hint">
+              السعر ما يطلع لك هنا 🌿<br>
+              يطلع بعد الاختبار لأن خطتك هي اللي تحدد وش تحتاج بالضبط.
+            </div>
+
+            <div class="panel__divider"></div>
+
+            <ol class="steps" id="howSection">
+              <li class="steps__item">
+                <span class="steps__num">1</span>
+                <div class="steps__body">
+                  <div class="steps__title">جاوب معلومات سريعة</div>
+                  <div class="steps__sub">موعد اختبارك + مستواك + الهدف</div>
+                </div>
+              </li>
+              <li class="steps__item">
+                <span class="steps__num">2</span>
+                <div class="steps__body">
+                  <div class="steps__title">اختبار عشوائي 20 سؤال</div>
+                  <div class="steps__sub">من بنك أسئلة كبير (يتغير كل مرة)</div>
+                </div>
+              </li>
+              <li class="steps__item">
+                <span class="steps__num">3</span>
+                <div class="steps__body">
+                  <div class="steps__title">تطلع لك النتيجة + الخطة</div>
+                  <div class="steps__sub">وش تذاكر + ليه + كيف تمشي</div>
+                </div>
+              </li>
+              <li class="steps__item">
+                <span class="steps__num">4</span>
+                <div class="steps__body">
+                  <div class="steps__title">بعدها يفتح التسجيل</div>
+                  <div class="steps__sub">تحويل + رفع إيصال + رسالة جاهزة للتليجرام</div>
+                </div>
+              </li>
+            </ol>
+
+            <a class="btn btn--primary btn--block" href="./level-test.html">ابدأ اختبار تحديد المستوى</a>
+          </div>
+        </aside>
       </div>
     </section>
-    <!-- Features section -->
-    <section class="features">
-      <h2>ليش تختار هذه الدورة؟</h2>
-      <div class="feature-grid">
-        <div class="card">
-          <h3>محتوى مرتب</h3>
-          <p>كل شيء مكانه الصحيح — ما تحتاج تلف وتدور.</p>
+
+    <!-- Why -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">ليش هذا الموقع يختصر عليك التشتت؟</h2>
+          <p class="section__desc">
+            كثير يذاكرون “كل شيء” ثم يطلعون بدرجة أقل من المتوقع.
+            هنا نعكسها: <strong>نحدد احتياجك أول</strong> ثم نعطيك خطة واضحة.
+          </p>
         </div>
-        <div class="card">
-          <h3>خطط مذاكرة مخصصة</h3>
-          <p>خطة حسب وقت اختبارك: قريب، متوسط، أو بعيد.</p>
-        </div>
-        <div class="card">
-          <h3>تكنيكات ومراجعات</h3>
-          <p>تكنيكات ونماذج ذكية ترفع درجتك بسرعة.</p>
-        </div>
-        <div class="card">
-          <h3>إرشاد يومي</h3>
-          <p>وش تسوي اليوم؟ وش بكرة؟ جدول واضح خطوة بخطوة.</p>
-        </div>
-        <div class="card">
-          <h3>تحديثات دورية</h3>
-          <p>نحدث المحتوى باستمرار وفق نماذج الاختبار.</p>
+
+        <div class="grid grid--3">
+          <div class="card">
+            <div class="card__icon" aria-hidden="true">🧠</div>
+            <h3 class="card__title">تشخيص قبل العلاج</h3>
+            <p class="card__text">قبل ما تدخل الدورة، نعرف وضعك ونوجّهك وش تركز عليه فعلياً.</p>
+          </div>
+          <div class="card">
+            <div class="card__icon" aria-hidden="true">🧩</div>
+            <h3 class="card__title">خطة واقعية</h3>
+            <p class="card__text">الخطة تطلع حسب موعد اختبارك، وتوزع الوقت على Grammar/Reading/Listening.</p>
+          </div>
+          <div class="card">
+            <div class="card__icon" aria-hidden="true">🔒</div>
+            <h3 class="card__title">تسجيل منضبط</h3>
+            <p class="card__text">التسجيل يفتح بعد الاختبار عشان ما تدخل وأنت مو متأكد من احتياجك.</p>
+          </div>
         </div>
       </div>
     </section>
-    <!-- Steps section -->
-    <section class="steps">
-      <h2>كيف تبدأ؟</h2>
-      <ol class="step-list">
-        <li>
-          <h3>الخطوة الأولى</h3>
-          <p>ابدأ اختبار تحديد المستوى</p>
-        </li>
-        <li>
-          <h3>الخطوة الثانية</h3>
-          <p>اطلع على نتيجة التحليل والخطة التفصيلية</p>
-        </li>
-        <li>
-          <h3>الخطوة الثالثة</h3>
-          <p>احجز مقعدك وابدأ رحلة النجاح</p>
-        </li>
-      </ol>
-    </section>
-    <!-- Testimonials preview section -->
-    <section class="testimonials-preview">
-      <h2>قصص نجاح ملهمة</h2>
-      <div class="testimonials-grid">
-        <div class="testimonial">
-          <p>«كنت ضايعة بين مصادر كثير… بعد الخطة التزمت بمصدر واحد وفرق معي التنظيم.»</p>
-          <span>شهد (الرياض)</span>
+
+    <!-- Preview -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">وش داخل الدورة؟ (نظرة سريعة)</h2>
+          <p class="section__desc">
+            المحتوى متقسم أقسام واضحة: تمهيدي + Grammar + استثناءات + Reading + Listening + ملفات تدريب ونماذج.
+          </p>
         </div>
-        <div class="testimonial">
-          <p>«التكنيكات والنماذج خلتني أعرف وش أبغى من كل سؤال. النتيجة ارتفعت بشكل كبير.»</p>
-          <span>تركي (جدة)</span>
+
+        <div class="grid grid--2">
+          <div class="card card--soft">
+            <h3 class="card__title">التمهيدي</h3>
+            <ul class="list">
+              <li>تأسيس سريع لمن مستواه يحتاج تقوية</li>
+              <li>ملفات + شرح مختصر يجهزك للدخول في الأساسيات</li>
+            </ul>
+            <a class="link" href="./course-content.html">شوف التفاصيل كاملة →</a>
+          </div>
+
+          <div class="card card--soft">
+            <h3 class="card__title">الأقسام الأساسية</h3>
+            <ul class="list">
+              <li>Grammar: تأسيس + مراجعات + نماذج</li>
+              <li>Reading: استراتيجيات + قطع متكررة + نماذج</li>
+              <li>Listening: استراتيجيات + نماذج + تدريب عملي</li>
+            </ul>
+            <a class="link" href="./course-content.html">افتح صفحة المحتوى →</a>
+          </div>
         </div>
-        <div class="testimonial">
-          <p>«كنت أطيح في القراءة بسبب السرعة… الخطة ركزتني على نوعية أسئلة معينة وتحسنت.»</p>
-          <span>نورة (الشرقية)</span>
-        </div>
-        <div class="testimonial">
-          <p>«تقسيم الأيام خلاني أعرف وش علي كل يوم. النتيجة صارت أفضل بكثير.»</p>
-          <span>ريم (الرياض)</span>
+
+        <div class="cta-strip">
+          <div class="cta-strip__text">
+            تبي خطة دقيقة على وقتك؟ سو الاختبار وخلنا نبني لك طريق واضح 💛
+          </div>
+          <div class="cta-strip__actions">
+            <a class="btn btn--primary" href="./level-test.html">ابدأ الاختبار</a>
+            <a class="btn btn--ghost" href="./testimonials.html">شوف قصص النجاح</a>
+          </div>
         </div>
       </div>
-      <div class="center">
-        <a href="./testimonials.html" class="btn secondary">المزيد من القصص</a>
+    </section>
+
+    <!-- Quick success preview -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">لقطات من قصص النجاح</h2>
+          <p class="section__desc">نماذج بسيطة… والنتيجة فرق واضح لما تمشي بخطة.</p>
+        </div>
+
+        <div class="grid grid--3">
+          <div class="quote">
+            <div class="quote__head">
+              <span class="avatar" aria-hidden="true">ش</span>
+              <div>
+                <div class="quote__name">شهد المالكي</div>
+                <div class="quote__meta">الرياض • خطة 7 أيام</div>
+              </div>
+            </div>
+            <p class="quote__text">
+              كنت متشتتة بين مصادر… الاختبار طلع لي أن ضعفي Reading. الخطة خلتني أركز على القطع المتكررة + نماذج 50 وفرق معي.
+            </p>
+          </div>
+
+          <div class="quote">
+            <div class="quote__head">
+              <span class="avatar" aria-hidden="true">ت</span>
+              <div>
+                <div class="quote__name">تركي القحطاني</div>
+                <div class="quote__meta">جدة • خطة 10 أيام</div>
+              </div>
+            </div>
+            <p class="quote__text">
+              كنت أضيع وقتي على قواعد كثيرة. الخطة قالت لي ركز على تكنيكات معينة + مراجعات. دخلت الاختبار وأنا فاهم وش أسوي.
+            </p>
+          </div>
+
+          <div class="quote">
+            <div class="quote__head">
+              <span class="avatar" aria-hidden="true">ن</span>
+              <div>
+                <div class="quote__name">نوف العتيبي</div>
+                <div class="quote__meta">الشرقية • خطة 14 يوم</div>
+              </div>
+            </div>
+            <p class="quote__text">
+              أفضل شيء أن التسجيل ما يفتح إلا بعد الاختبار. حسيت القرار صار واعي مو اندفاع. دخلت الدورة وأنا عارف وش محتاج.
+            </p>
+          </div>
+        </div>
+
+        <div class="center">
+          <a class="btn btn--gold" href="./testimonials.html">عرض جميع قصص النجاح</a>
+        </div>
       </div>
     </section>
-    <!-- FAQ preview section -->
-    <section class="faq-preview">
-      <h2>أسئلة شائعة</h2>
-      <ul class="faq-list">
-        <li><strong>متى يظهر السعر؟</strong> بعد إكمال اختبار تحديد المستوى والاطلاع على الخطة.</li>
-        <li><strong>هل التسجيل إجباري بعد الاختبار؟</strong> لا، الاختبار مجاني لتحديد مستواك — التسجيل اختياري بعد مشاهدة النتيجة.</li>
-        <li><strong>كيف أبدأ؟</strong> اضغط على زر «ابدأ اختبار تحديد المستوى» لتبدأ الرحلة.</li>
-      </ul>
-      <div class="center">
-        <a href="./faq.html" class="btn secondary">المزيد من الأسئلة</a>
+
+    <!-- National touch -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="ribbon">
+          <div class="ribbon__icon" aria-hidden="true">🇸🇦</div>
+          <div class="ribbon__text">
+            <strong>نفخر بخدمة طلابنا داخل المملكة</strong> — ونسأل الله التوفيق للجميع، ويديم علينا الأمن والأمان،
+            ويحفظ قيادتنا الرشيدة.
+            <span class="ribbon__sub">رؤية المملكة 2030: طموح يتحقق ✨</span>
+          </div>
+        </div>
       </div>
     </section>
   </main>
-  <footer>
-    <div class="footer-links">
-      <a href="./privacy.html">الخصوصية</a>
-      <a href="./terms.html">الشروط</a>
-      <a href="./refund.html">سياسة الاسترجاع</a>
-      <a href="./support.html">الدعم</a>
+
+  <!-- Floating Assistant -->
+  <div class="assistant">
+    <button class="assistant__fab" id="assistantFab" type="button" aria-label="مساعد التسجيل السريع">
+      <span aria-hidden="true">💬</span>
+      <span class="assistant__fabText">مساعد التسجيل</span>
+    </button>
+
+    <div class="assistant__panel" id="assistantPanel" aria-hidden="true">
+      <div class="assistant__header">
+        <div>
+          <div class="assistant__title">مساعد التسجيل</div>
+          <div class="assistant__sub">اختصر عليك الطريق… خطوة بخطوة</div>
+        </div>
+        <button class="icon-btn" id="assistantClose" type="button" aria-label="إغلاق">✕</button>
+      </div>
+
+      <div class="assistant__body">
+        <div class="assistant__group">
+          <div class="assistant__groupTitle">ابدأ هنا</div>
+          <a class="assistant__link" href="./level-test.html">✅ اختبار تحديد المستوى</a>
+          <a class="assistant__link" href="./course-content.html">📦 محتوى الدورة بالتفصيل</a>
+          <a class="assistant__link" href="./faq.html">❓ الأسئلة الشائعة</a>
+          <a class="assistant__link" href="./support.html">🛟 الدعم والمساعدة</a>
+        </div>
+
+        <div class="assistant__group">
+          <div class="assistant__groupTitle">بعد ما تخلص الاختبار</div>
+          <a class="assistant__link assistant__link--locked"
+             href="./register.html"
+             data-locked="true"
+             data-lock-reason="أكمل اختبار تحديد المستوى أولاً، وبعدها يفتح لك التسجيل مباشرة 💛">
+            🔒 التسجيل (يفتح بعد الاختبار)
+          </a>
+          <a class="assistant__link" href="./results.html">📊 صفحة النتائج والخطة</a>
+        </div>
+
+        <div class="assistant__note">
+          📩 للاستفسار والاشتراك: <strong>@Ayed_Academy_2026</strong><br>
+          🤖 محتوى مجاني (تجميعات/كويزات): <strong>@ayedacadmeybot</strong><br>
+          📢 قروب التنبيهات: <strong>@Academy_Ayed_2026</strong>
+        </div>
+      </div>
     </div>
-    <p>© 2026 أكاديمية عايد. جميع الحقوق محفوظة.</p>
-  </footer>
-  <!-- Floating assistant -->
-  <button id="assistantButton" class="assistant-button" aria-label="مساعد التسجيل">؟</button>
-  <div id="assistantPanel" class="assistant-panel">
-    <button class="close-panel" id="closeAssistant">×</button>
-    <h3>مرحباً!</h3>
-    <p>كيف نقدر نساعدك؟</p>
-    <ul class="assistant-links">
-      <li><a href="./level-test.html">ابدأ اختبار المستوى</a></li>
-      <li><a href="./course-content.html">وش داخل الدورة؟</a></li>
-      <li><a href="./faq.html">الأسئلة الشائعة</a></li>
-      <li><a href="./support.html">الدعم</a></li>
-      <li><a href="./terms.html">السياسات</a></li>
-    </ul>
   </div>
+
+  <!-- Toasts -->
+  <div id="toasts" class="toast-wrap" aria-live="polite" aria-relevant="additions"></div>
+
   <!-- Scripts -->
-  <script src="./assets/site-data.js?v=20260120"></script>
-  <script src="./assets/app.js?v=20260120"></script>
+  <script src="./assets/site-data.js?v=2026-01-20"></script>
+  <script src="./assets/app.js?v=2026-01-20"></script>
 </body>
 </html>
