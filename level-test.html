@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اختبار تحديد المستوى - أكاديمية عايد</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="./index.html" class="logo">أكاديمية عايد</a>
+      <nav class="navbar">
+        <a href="./index.html">الرئيسية</a>
+        <a href="./course-content.html">محتوى الدورة</a>
+        <a href="./level-test.html" class="active">اختبار تحديد المستوى</a>
+        <a href="./testimonials.html">قصص النجاح</a>
+        <a href="./faq.html">الأسئلة الشائعة</a>
+        <a href="./support.html">الدعم</a>
+      </nav>
+    </div>
+  </header>
+  <main class="main-content">
+    <section class="test-section">
+      <h1>اختبار تحديد المستوى</h1>
+      <p>ابدأ الاختبار للإجابة على مجموعة من الأسئلة لتحديد مستواك في اللغة الإنجليزية. ستظهر النتائج والخطة بعد الانتهاء.</p>
+      <div id="testApp"></div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 أكاديمية عايد — جميع الحقوق محفوظة.</p>
+      <nav class="footer-nav">
+        <a href="./privacy.html">سياسة الخصوصية</a>
+        <a href="./refund.html">سياسة الاسترجاع</a>
+        <a href="./terms.html">الشروط والأحكام</a>
+        <a href="./support.html">الدعم</a>
+      </nav>
+    </div>
+  </footer>
+  <!-- Floating Assistant -->
+  <button id="assistantBtn" class="assistant-fab" aria-label="مساعد التسجيل"></button>
+  <div id="assistantPanel" class="assistant-panel">
+    <button class="close-panel" id="closePanelBtn">&times;</button>
+    <h3>مساعد التسجيل</h3>
+    <ul class="assistant-links">
+      <li><a href="./level-test.html">اختبار المستوى</a></li>
+      <li><a href="./course-content.html">محتوى الدورة</a></li>
+      <li><a href="./faq.html">الأسئلة الشائعة</a></li>
+      <li><a href="./support.html">الدعم</a></li>
+    </ul>
+    <p class="assistant-note">يظهر زر التسجيل بعد الانتهاء من الاختبار والحصول على الخطة.</p>
+  </div>
+  <script src="./assets/site-data.js"></script>
+  <script src="./assets/app.js"></script>
+  <script src="./assets/test.js"></script>
+</body>
+</html>
