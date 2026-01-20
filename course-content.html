@@ -1,358 +1,0 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0f14" />
-  <meta name="description" content="تفاصيل محتوى دورة STEP المكثفة 2026 — ملفات، أقسام، خطة استخدام المحتوى، ومسار مذاكرة واضح." />
-
-  <title>محتوى الدورة | STEP عايد المكثفة 2026</title>
-
-  <!-- PWA -->
-  <link rel="manifest" href="./manifest.json?v=2026-01-20" />
-  <link rel="icon" href="./assets/img/favicon.png?v=2026-01-20" />
-
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="./assets/styles.css?v=2026-01-20" />
-</head>
-
-<body>
-  <!-- Top rotating notice bar -->
-  <div class="topbar" id="topbar" aria-live="polite">
-    <div class="topbar__inner">
-      <span class="dot pulse" aria-hidden="true"></span>
-      <span id="topbarText">جاري تحميل التحديثات…</span>
-    </div>
-  </div>
-
-  <!-- Header -->
-  <header class="header" id="header">
-    <div class="container header__inner">
-      <a class="brand" href="./index.html" aria-label="الصفحة الرئيسية">
-        <span class="brand__mark">A</span>
-        <span class="brand__text">
-          <span class="brand__title">Ayed Academy</span>
-          <span class="brand__sub">STEP Intensive 2026</span>
-        </span>
-      </a>
-
-      <nav class="nav" aria-label="التنقل الرئيسي">
-        <a class="nav__link" href="./index.html">الرئيسية</a>
-        <a class="nav__link is-active" href="./course-content.html">محتوى الدورة</a>
-        <a class="nav__link" href="./testimonials.html">قصص النجاح</a>
-        <a class="nav__link" href="./faq.html">الأسئلة الشائعة</a>
-        <a class="nav__link" href="./support.html">الدعم</a>
-
-        <!-- Locked: يظهر فعلياً بعد الاختبار -->
-        <a class="nav__link nav__link--locked"
-           href="./register.html"
-           data-locked="true"
-           data-lock-reason="التسجيل يفتح بعد اختبار تحديد المستوى عشان نعطيك خطة مناسبة 💛">
-          التسجيل
-        </a>
-      </nav>
-
-      <div class="header__actions">
-        <a class="btn btn--ghost" href="./level-test.html">ابدأ اختبار تحديد المستوى</a>
-        <button class="btn btn--icon" id="openAssistantBtn" type="button" aria-label="فتح مساعد التسجيل">
-          <span aria-hidden="true">💬</span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main class="main">
-    <!-- Page Hero -->
-    <section class="page-hero">
-      <div class="container">
-        <p class="badge">
-          <span class="badge__spark" aria-hidden="true">📦</span>
-          كل محتوى الدورة مرتب وواضح
-        </p>
-        <h1 class="page-hero__title">محتوى الدورة المكثفة 2026</h1>
-        <p class="page-hero__lead">
-          هنا تشوف تفاصيل المحتوى وكيف تستخدمه صح. الفكرة مو “تفتح كل شيء” وتضيع…
-          الفكرة إنك تمشي <strong>حسب الخطة اللي تطلع لك بعد اختبار تحديد المستوى</strong>.
-        </p>
-
-        <div class="page-hero__cta">
-          <a class="btn btn--primary" href="./level-test.html">ابدأ الاختبار وخذ خطتك</a>
-          <a class="btn btn--ghost" href="#how-to-use">كيف أذاكر من المحتوى؟</a>
-        </div>
-
-        <div class="notice">
-          <div class="notice__icon" aria-hidden="true">ℹ️</div>
-          <div class="notice__text">
-            <strong>معلومة مهمة:</strong> السعر والتسجيل ما نعرضهم هنا. يطلعون لك بعد الاختبار مباشرة في صفحة النتائج،
-            لأن خطتك هي اللي تحدد وش تحتاج تركز عليه.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Content Map -->
-    <section class="section">
-      <div class="container">
-        <div class="section__head">
-          <h2 class="section__title">خارطة المحتوى</h2>
-          <p class="section__desc">
-            المحتوى مقسّم بطريقة تساعدك تمسك زمام المذاكرة. كل قسم له ملفات شرح + تدريب + مراجعات.
-          </p>
-        </div>
-
-        <div class="grid grid--2">
-          <div class="card">
-            <div class="card__icon" aria-hidden="true">🧱</div>
-            <h3 class="card__title">محاضرات تمهيدية (تأسيس)</h3>
-            <ul class="list">
-              <li>ملف المحاضرات التمهيدية Grammar</li>
-              <li>Reading تمهيدي (محلول + غير محلول)</li>
-              <li>ملف المحاضرات التمهيدية Listening (محلول + غير محلول)</li>
-            </ul>
-            <p class="muted">
-              مناسب للي يبغى يدخل القسم الأساسي وهو فاهم الأساسيات بدون ضغط.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card__icon" aria-hidden="true">📘</div>
-            <h3 class="card__title">Grammar (القواعد)</h3>
-            <ul class="list">
-              <li>شرح القواعد (محلول + غير محلول)</li>
-              <li>أسئلة مراجعة القواعد (محلول + غير محلول)</li>
-              <li>مراجعة أول 8 قواعد (محلولة)</li>
-              <li>نماذج Grammar (محلول + غير محلول)</li>
-              <li>نماذج متقدمة + نماذج حديثة حسب التحديثات</li>
-            </ul>
-            <p class="muted">
-              الهدف: تصير تقفل أغلب أخطاء القواعد وتعرف “الفخاخ” اللي تتكرر.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card__icon" aria-hidden="true">🧠</div>
-            <h3 class="card__title">محاضرات الاستثناءات</h3>
-            <ul class="list">
-              <li>استثناءات القواعد (محلول + غير محلول)</li>
-              <li>نقاط تتكرر كثير وتسبب أخطاء حتى للي مستواه كويس</li>
-            </ul>
-            <p class="muted">
-              هذا القسم “يرفع درجتك” لأنه يقلل الأخطاء السهلة اللي تضيع عليك نقاط.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card__icon" aria-hidden="true">📖</div>
-            <h3 class="card__title">Reading (القراءة)</h3>
-            <ul class="list">
-              <li>استراتيجيات Reading (محلول + غير محلول)</li>
-              <li>نماذج Reading 2025 (محلول + غير محلول)</li>
-              <li>القطع الأكثر تكراراً (محلول + غير محلول)</li>
-              <li>كبسولة الإنقاذ (مراجعة مركزة قبل الاختبار)</li>
-            </ul>
-            <p class="muted">
-              الهدف: تقرأ بسرعة صح، وتعرف كيف تختصر وقتك وتصيد الإجابة.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card__icon" aria-hidden="true">🎧</div>
-            <h3 class="card__title">Listening (الاستماع)</h3>
-            <ul class="list">
-              <li>استراتيجيات Listening</li>
-              <li>نماذج Listening (محلول + غير محلول)</li>
-              <li>نماذج بدون مقاطع (لتدريب السرعة والتركيز)</li>
-            </ul>
-            <p class="muted">
-              الهدف: تتحكم في تركيزك وتقلل التوهان وقت المقطع.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card__icon" aria-hidden="true">🗂️</div>
-            <h3 class="card__title">ملفات إضافية (تسندك بقوة)</h3>
-            <ul class="list">
-              <li>Vocabulary + أهم الكلمات</li>
-              <li>تصريفات الأفعال</li>
-              <li>القطع الأكثر تكراراً (مراجعة)</li>
-              <li>خرائط مفاهيم Grammar</li>
-              <li>ملخص قواعد + كلمات ومرادفاتها</li>
-              <li>جداول مذاكرة جاهزة</li>
-            </ul>
-            <p class="muted">
-              هذي الملفات “تنقذك” وقت ضغط الأيام الأخيرة.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How to use -->
-    <section class="section section--alt" id="how-to-use">
-      <div class="container">
-        <div class="section__head">
-          <h2 class="section__title">كيف تستخدم المحتوى بدون ما تتشتت؟</h2>
-          <p class="section__desc">
-            هذا أهم جزء. لو مشيت بدون خطة، بتفتح ملفات كثير وتضيع. الحل: امشِ على مسار واضح.
-          </p>
-        </div>
-
-        <div class="grid grid--3">
-          <div class="card card--soft">
-            <h3 class="card__title">1) سو اختبار تحديد المستوى</h3>
-            <p class="card__text">
-              الاختبار يطلع لك نقاط ضعفك ويعطيك خطة: وش تذاكر + ليه + كم يوم تحتاج + ترتيب الأولويات.
-            </p>
-            <a class="btn btn--primary btn--block" href="./level-test.html">ابدأ الاختبار</a>
-          </div>
-
-          <div class="card card--soft">
-            <h3 class="card__title">2) ركّز على قسمين أول</h3>
-            <p class="card__text">
-              غالباً الخطة بتقول لك: ركّز أول على أكبر ضعف عندك (مثلاً Reading)، ثم ثبّت القواعد الأساسية.
-              وبعدها تدخل على النماذج.
-            </p>
-            <a class="link" href="./faq.html">ليش قسمين أول؟ →</a>
-          </div>
-
-          <div class="card card--soft">
-            <h3 class="card__title">3) نماذج + مراجعات ذكية</h3>
-            <p class="card__text">
-              لا تحل نموذج وتسكت. بعد كل نموذج:
-              <strong>حلّل غلطك</strong> — وارجع لملف الاستراتيجية/القاعدة اللي سببته.
-            </p>
-            <a class="link" href="./support.html">احتجت مساعدة؟ →</a>
-          </div>
-        </div>
-
-        <div class="cta-strip">
-          <div class="cta-strip__text">
-            تبي خطة “تشخصك” وتختصر عليك؟ سو الاختبار وخلك على المسار الصح 💛
-          </div>
-          <div class="cta-strip__actions">
-            <a class="btn btn--primary" href="./level-test.html">ابدأ الاختبار</a>
-            <a class="btn btn--ghost" href="./testimonials.html">شوف قصص النجاح</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Suggested tracks -->
-    <section class="section">
-      <div class="container">
-        <div class="section__head">
-          <h2 class="section__title">مسارات مذاكرة مقترحة (كمثال)</h2>
-          <p class="section__desc">
-            هذي أمثلة عامة… والمسار الحقيقي يطلع لك تلقائياً بعد الاختبار حسب وقتك ومستواك.
-          </p>
-        </div>
-
-        <div class="grid grid--2">
-          <div class="card">
-            <h3 class="card__title">🔸 إذا موعدك قريب (7–10 أيام)</h3>
-            <ul class="list">
-              <li>Reading: استراتيجيات + قطع متكررة يومياً</li>
-              <li>Grammar: مراجعة القواعد الأكثر تكراراً + استثناءات</li>
-              <li>نماذج: نموذج يوم بعد يوم + تحليل الأخطاء</li>
-              <li>كبسولة الإنقاذ قبل الاختبار بـ 48 ساعة</li>
-            </ul>
-            <p class="muted">الهدف: أعلى عائد بأقل وقت.</p>
-          </div>
-
-          <div class="card">
-            <h3 class="card__title">🔸 إذا عندك وقت (14–21 يوم)</h3>
-            <ul class="list">
-              <li>تمهيدي (حسب الحاجة) + تثبيت الأساسيات</li>
-              <li>Grammar: شرح + تدريب + مراجعات</li>
-              <li>Reading/Listening: استراتيجيات + نماذج أسبوعياً</li>
-              <li>نماذج مكثفة آخر أسبوع + تحليل كامل</li>
-            </ul>
-            <p class="muted">الهدف: تأسيس + رفع الدرجة بثبات.</p>
-          </div>
-        </div>
-
-        <div class="notice">
-          <div class="notice__icon" aria-hidden="true">✅</div>
-          <div class="notice__text">
-            <strong>مبدأ مهم:</strong> لا تكثر مصادر. خلك على خطة واحدة ومحتوى واحد… والنتيجة تطلع.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="section section--alt">
-      <div class="container">
-        <div class="ribbon">
-          <div class="ribbon__icon" aria-hidden="true">🧪</div>
-          <div class="ribbon__text">
-            جاهز نحدد لك المسار المناسب؟ سو اختبار تحديد المستوى… وبعدها تطلع لك الخطة + يفتح التسجيل تلقائياً.
-            <span class="ribbon__sub">دقيقة الآن توفر عليك أيام من التشتت.</span>
-          </div>
-        </div>
-
-        <div class="center" style="margin-top:14px;">
-          <a class="btn btn--primary" href="./level-test.html">ابدأ اختبار تحديد المستوى</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Floating Assistant -->
-  <div class="assistant">
-    <button class="assistant__fab" id="assistantFab" type="button" aria-label="مساعد التسجيل السريع">
-      <span aria-hidden="true">💬</span>
-      <span class="assistant__fabText">مساعد التسجيل</span>
-    </button>
-
-    <div class="assistant__panel" id="assistantPanel" aria-hidden="true">
-      <div class="assistant__header">
-        <div>
-          <div class="assistant__title">مساعد التسجيل</div>
-          <div class="assistant__sub">اختصر عليك الطريق… خطوة بخطوة</div>
-        </div>
-        <button class="icon-btn" id="assistantClose" type="button" aria-label="إغلاق">✕</button>
-      </div>
-
-      <div class="assistant__body">
-        <div class="assistant__group">
-          <div class="assistant__groupTitle">ابدأ هنا</div>
-          <a class="assistant__link" href="./level-test.html">✅ اختبار تحديد المستوى</a>
-          <a class="assistant__link" href="./course-content.html">📦 محتوى الدورة بالتفصيل</a>
-          <a class="assistant__link" href="./faq.html">❓ الأسئلة الشائعة</a>
-          <a class="assistant__link" href="./support.html">🛟 الدعم والمساعدة</a>
-        </div>
-
-        <div class="assistant__group">
-          <div class="assistant__groupTitle">بعد ما تخلص الاختبار</div>
-          <a class="assistant__link assistant__link--locked"
-             href="./register.html"
-             data-locked="true"
-             data-lock-reason="أكمل اختبار تحديد المستوى أولاً، وبعدها يفتح لك التسجيل مباشرة 💛">
-            🔒 التسجيل (يفتح بعد الاختبار)
-          </a>
-          <a class="assistant__link" href="./results.html">📊 صفحة النتائج والخطة</a>
-        </div>
-
-        <div class="assistant__note">
-          📩 للاستفسار والاشتراك: <strong>@Ayed_Academy_2026</strong><br>
-          🤖 محتوى مجاني (تجميعات/كويزات): <strong>@ayedacadmeybot</strong><br>
-          📢 قروب التنبيهات: <strong>@Academy_Ayed_2026</strong>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toasts -->
-  <div id="toasts" class="toast-wrap" aria-live="polite" aria-relevant="additions"></div>
-
-  <!-- Scripts -->
-  <script src="./assets/site-data.js?v=2026-01-20"></script>
-  <script src="./assets/app.js?v=2026-01-20"></script>
-</body>
-</html>
