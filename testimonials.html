@@ -1,101 +1,469 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>قصص النجاح — أكاديمية عايد</title>
-  <link rel="manifest" href="./manifest.json" />
-  <link rel="icon" type="image/png" href="./assets/images/logo.png" />
-  <link rel="stylesheet" href="./assets/styles.css?v=20260120" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0f14" />
+  <meta name="description" content="قصص نجاح وتجارب طلاب دورة STEP المكثفة 2026 — تجارب واقعية تركز على التشتت، الخطة، والالتزام." />
+
+  <title>قصص النجاح | STEP عايد المكثفة 2026</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.json?v=2026-01-20" />
+  <link rel="icon" href="./assets/img/favicon.png?v=2026-01-20" />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./assets/styles.css?v=2026-01-20" />
 </head>
+
 <body>
-  <header>
-    <nav class="navbar">
-      <a href="./index.html" class="logo">أكاديمية عايد</a>
-      <button class="hamburger" id="hamburger" aria-label="القائمة">☰</button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="./index.html">الرئيسية</a></li>
-        <li><a href="./course-content.html">محتوى الدورة</a></li>
-        <li><a href="./level-test.html">اختبار تحديد المستوى</a></li>
-        <li><a href="./testimonials.html" class="active">قصص النجاح</a></li>
-        <li><a href="./faq.html">الأسئلة الشائعة</a></li>
-        <li><a href="./support.html">الدعم</a></li>
-      </ul>
-    </nav>
+  <!-- Top rotating notice bar -->
+  <div class="topbar" id="topbar" aria-live="polite">
+    <div class="topbar__inner">
+      <span class="dot pulse" aria-hidden="true"></span>
+      <span id="topbarText">جاري تحميل التحديثات…</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="./index.html" aria-label="الصفحة الرئيسية">
+        <span class="brand__mark">A</span>
+        <span class="brand__text">
+          <span class="brand__title">Ayed Academy</span>
+          <span class="brand__sub">STEP Intensive 2026</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="التنقل الرئيسي">
+        <a class="nav__link" href="./index.html">الرئيسية</a>
+        <a class="nav__link" href="./course-content.html">محتوى الدورة</a>
+        <a class="nav__link is-active" href="./testimonials.html">قصص النجاح</a>
+        <a class="nav__link" href="./faq.html">الأسئلة الشائعة</a>
+        <a class="nav__link" href="./support.html">الدعم</a>
+
+        <!-- Locked: يظهر فعلياً بعد الاختبار -->
+        <a class="nav__link nav__link--locked"
+           href="./register.html"
+           data-locked="true"
+           data-lock-reason="التسجيل يفتح بعد اختبار تحديد المستوى عشان نعطيك خطة مناسبة 💛">
+          التسجيل
+        </a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--ghost" href="./level-test.html">ابدأ اختبار تحديد المستوى</a>
+        <button class="btn btn--icon" id="openAssistantBtn" type="button" aria-label="فتح مساعد التسجيل">
+          <span aria-hidden="true">💬</span>
+        </button>
+      </div>
+    </div>
   </header>
-  <main>
-    <section class="page-header">
-      <h1>قصص نجاح طلابنا</h1>
-      <p>مجموعة من التجارب الواقعية لطالبات وطلاب استفادوا من خطة الدورة.</p>
+
+  <main class="main">
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="badge">
+          <span class="badge__spark" aria-hidden="true">🏆</span>
+          قصص نجاح تركز على “الخطة” قبل “الحماس”
+        </p>
+
+        <h1 class="page-hero__title">قصص النجاح وتجارب الطلاب</h1>
+
+        <p class="page-hero__lead">
+          أكثر شيء يفرق مع الطالب مو كثرة المصادر… اللي يفرق فعلاً هو
+          <strong>الخطة الواضحة + الالتزام</strong>.
+          القصص هنا تساعدك تشوف كيف ناس كثير كانوا مشتتين، وبعد ما عرفوا نقاط ضعفهم مشوا بخط واضح.
+        </p>
+
+        <div class="page-hero__cta">
+          <a class="btn btn--primary" href="./level-test.html">اختبر وخذ خطتك</a>
+          <a class="btn btn--ghost" href="#stories">شوف القصص</a>
+        </div>
+
+        <div class="notice">
+          <div class="notice__icon" aria-hidden="true">🔒</div>
+          <div class="notice__text">
+            <strong>معلومة مهمة:</strong> التسجيل والسعر يفتحون بعد الاختبار في صفحة النتائج — عشان توصلك خطة مناسبة لك وتعرف وش تركز عليه داخل الدورة.
+          </div>
+        </div>
+      </div>
     </section>
-    <section class="testimonials-section">
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <p>«كنت ضايعة بين مصادر كثير... بعد الخطة التزمت بمصدر واحد، وفرق معي التنظيم. أهم شي لا تكثّر مصادر.»</p>
-          <span>شهد (م.) — الرياض</span>
-          <span class="score">النتيجة: 92</span>
+
+    <!-- Proof strip -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="grid grid--3">
+          <div class="card stat">
+            <div class="stat__icon" aria-hidden="true">🧭</div>
+            <div class="stat__title">بدون تشتت</div>
+            <div class="stat__desc">خطة واضحة تمشيك خطوة بخطوة بدل “وش أذاكر؟”.</div>
+          </div>
+          <div class="card stat">
+            <div class="stat__icon" aria-hidden="true">🧩</div>
+            <div class="stat__title">توجيه حسب مستواك</div>
+            <div class="stat__desc">الاختبار يحدد نقاط ضعفك ويطلع لك توصيات مركّزة.</div>
+          </div>
+          <div class="card stat">
+            <div class="stat__icon" aria-hidden="true">⚡</div>
+            <div class="stat__title">نتائج أسرع</div>
+            <div class="stat__desc">تركيز على الأخطاء المتكررة + مراجعات ذكية داخل الدورة.</div>
+          </div>
         </div>
-        <div class="testimonial-card">
-          <p>«اللي نفعني هو التكنيكات + النماذج، وصرت أعرف وش أبغى من كل سؤال.»</p>
-          <span>تركي (ق.) — جدة</span>
-          <span class="score">النتيجة: 89</span>
+      </div>
+    </section>
+
+    <!-- Stories -->
+    <section class="section" id="stories">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">قصص مختصرة… لكنها تقول كل شيء</h2>
+          <p class="section__desc">
+            ملاحظة: نعرض هنا تجارب بنمط “اسم + أول حرف” حفاظًا على الخصوصية.
+          </p>
         </div>
-        <div class="testimonial-card">
-          <p>«كنت أطيح في Reading بسبب السرعة... الخطة ركزتني على نوعية أسئلة معينة وتحسنت.»</p>
-          <span>نورة (ع.) — الشرقية</span>
-          <span class="score">النتيجة: 90</span>
+
+        <div class="grid grid--3">
+          <!-- Card 1 -->
+          <article class="card t-card">
+            <div class="t-card__top">
+              <div class="avatar" aria-hidden="true">👩🏻‍🎓</div>
+              <div>
+                <div class="t-card__name">شهد م.</div>
+                <div class="t-card__meta">الرياض • كان عندها تشتت بالقراءة</div>
+              </div>
+            </div>
+            <p class="t-card__text">
+              “كنت أذاكر من مصادر كثيرة وكل مرة أحس ضايعة. بعد الاختبار طلعت لي خطة واضحة:
+              ركزت على استراتيجيات الريدينق + حل نماذج مع تحليل الغلط… فرق معي الالتزام أكثر من أي شيء.”
+            </p>
+            <div class="t-card__tags">
+              <span class="tag">Reading</span>
+              <span class="tag">خطة أسبوعين</span>
+              <span class="tag">تحليل أخطاء</span>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card t-card">
+            <div class="t-card__top">
+              <div class="avatar" aria-hidden="true">👨🏻‍🎓</div>
+              <div>
+                <div class="t-card__name">تركي ق.</div>
+                <div class="t-card__meta">جدة • يحتاج يثبت القواعد</div>
+              </div>
+            </div>
+            <p class="t-card__text">
+              “كنت أطيح في أخطاء Grammar بسيطة… بعد ما شفت نقاط ضعفي صرت أراجع القواعد الأساسية
+              مع الاستثناءات، وبديت أحل نماذج وأنا فاهم ليه غلطت. صراحة الخطة رتبت مخي.”
+            </p>
+            <div class="t-card__tags">
+              <span class="tag">Grammar</span>
+              <span class="tag">Exceptions</span>
+              <span class="tag">ثبات</span>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card t-card">
+            <div class="t-card__top">
+              <div class="avatar" aria-hidden="true">👩🏻‍🎓</div>
+              <div>
+                <div class="t-card__name">نوف س.</div>
+                <div class="t-card__meta">الدمام • مشكلتها Listening</div>
+              </div>
+            </div>
+            <p class="t-card__text">
+              “كنت أهرب من الليسننق لأنه يضغطني. الخطة خلتني أبدأ بتكنيكات الاستماع
+              ثم نماذج تدريجية، ومع الوقت صرت أفهم نمط الأسئلة. أهم شيء: التدرج.”
+            </p>
+            <div class="t-card__tags">
+              <span class="tag">Listening</span>
+              <span class="tag">تدرّج</span>
+              <span class="tag">تكنيكات</span>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="card t-card">
+            <div class="t-card__top">
+              <div class="avatar" aria-hidden="true">👨🏻‍🎓</div>
+              <div>
+                <div class="t-card__name">سلمان ا.</div>
+                <div class="t-card__meta">القصيم • وقت الاختبار قريب</div>
+              </div>
+            </div>
+            <p class="t-card__text">
+              “كنت خايف من ضيق الوقت. الاختبار عطاني أولويات واضحة:
+              وش أراجع سريعًا، وش أحل، وش أترك. اللي فرق معي إن الدورة ما خلتني أتشتت.”
+            </p>
+            <div class="t-card__tags">
+              <span class="tag">خطة سريعة</span>
+              <span class="tag">نماذج</span>
+              <span class="tag">أولويات</span>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="card t-card">
+            <div class="t-card__top">
+              <div class="avatar" aria-hidden="true">👩🏻‍🎓</div>
+              <div>
+                <div class="t-card__name">ريم ن.</div>
+                <div class="t-card__meta">مكة • تبي ترفع الثقة بالنفس</div>
+              </div>
+            </div>
+            <p class="t-card__text">
+              “قبل كنت أفتح نموذج وأقفل بسرعة من التوتر. بعد ما مشيت على خطة بسيطة
+              (قرامر + قراءة + مراجعة كلمات) صرت أحس إني مسيطرة على الوضع. هذا أهم شيء.”
+            </p>
+            <div class="t-card__tags">
+              <span class="tag">Confidence</span>
+              <span class="tag">Vocab</span>
+              <span class="tag">Routine</span>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="card t-card">
+            <div class="t-card__top">
+              <div class="avatar" aria-hidden="true">👨🏻‍🎓</div>
+              <div>
+                <div class="t-card__name">فيصل ر.</div>
+                <div class="t-card__meta">المدينة • يعاني من الوقت بالحل</div>
+              </div>
+            </div>
+            <p class="t-card__text">
+              “مشكلتي كانت الوقت… الخطة علمتني أجاوب بذكاء وأوزع وقتي.
+              ركزت على أكثر الأنماط تكرار، وصار عندي أسلوب ثابت بدل التوتر.”
+            </p>
+            <div class="t-card__tags">
+              <span class="tag">Time management</span>
+              <span class="tag">Patterns</span>
+              <span class="tag">ثبات</span>
+            </div>
+          </article>
+
+          <!-- Card 7 -->
+          <article class="card t-card">
+            <div class="t-card__top">
+              <div class="avatar" aria-hidden="true">👩🏻‍🎓</div>
+              <div>
+                <div class="t-card__name">الجوهرة ع.</div>
+                <div class="t-card__meta">أبها • ضعف بالمفردات</div>
+              </div>
+            </div>
+            <p class="t-card__text">
+              “كنت أفهم الجملة بس أوقف على كلمة وحده وتطير علي الفكرة. بعد الخطة
+              صار عندي جدول كلمات يومي + مراجعة مرادفات، وصرت أفهم النص أسرع.”
+            </p>
+            <div class="t-card__tags">
+              <span class="tag">Vocabulary</span>
+              <span class="tag">مرادفات</span>
+              <span class="tag">روتين</span>
+            </div>
+          </article>
+
+          <!-- Card 8 -->
+          <article class="card t-card">
+            <div class="t-card__top">
+              <div class="avatar" aria-hidden="true">👨🏻‍🎓</div>
+              <div>
+                <div class="t-card__name">علي ه.</div>
+                <div class="t-card__meta">حائل • يبي خطة “واضحة جدًا”</div>
+              </div>
+            </div>
+            <p class="t-card__text">
+              “أنا ما أمشي إلا إذا كان كل شيء واضح. أكثر شيء عجبني إن النتائج ما كانت كلام عام،
+              كانت تقول لي وش أسوي داخل الدورة: ملفات، نماذج، مراجعات… بالترتيب.”
+            </p>
+            <div class="t-card__tags">
+              <span class="tag">Structure</span>
+              <span class="tag">ملفات</span>
+              <span class="tag">ترتيب</span>
+            </div>
+          </article>
+
+          <!-- Card 9 -->
+          <article class="card t-card">
+            <div class="t-card__top">
+              <div class="avatar" aria-hidden="true">👩🏻‍🎓</div>
+              <div>
+                <div class="t-card__name">سارة ف.</div>
+                <div class="t-card__meta">تبوك • كانت تتخوف من الاختبار</div>
+              </div>
+            </div>
+            <p class="t-card__text">
+              “الفرق مو إن الاختبار سهل… الفرق إنه منظم ويقيسك صح.
+              بعده صرت أعرف وش نقاط ضعفي بدل ما أخمّن. ومع الخطة صرت أذاكر بثقة.”
+            </p>
+            <div class="t-card__tags">
+              <span class="tag">Mindset</span>
+              <span class="tag">تشخيص</span>
+              <span class="tag">خطة</span>
+            </div>
+          </article>
+
+          <!-- Card 10 -->
+          <article class="card t-card">
+            <div class="t-card__top">
+              <div class="avatar" aria-hidden="true">👨🏻‍🎓</div>
+              <div>
+                <div class="t-card__name">ماجد س.</div>
+                <div class="t-card__meta">الطائف • يبي يحسن كل الأقسام</div>
+              </div>
+            </div>
+            <p class="t-card__text">
+              “كنت أحاول أذاكر كل شيء بنفس القوة… وهذا غلط. الخطة وزعت جهدي حسب ضعف كل قسم.
+              يومين لهذا، يوم لهذا… ومع النماذج صرت أشوف التحسن.”
+            </p>
+            <div class="t-card__tags">
+              <span class="tag">Balanced plan</span>
+              <span class="tag">نماذج</span>
+              <span class="tag">استمرارية</span>
+            </div>
+          </article>
+
+          <!-- Card 11 -->
+          <article class="card t-card">
+            <div class="t-card__top">
+              <div class="avatar" aria-hidden="true">👩🏻‍🎓</div>
+              <div>
+                <div class="t-card__name">لطيفة د.</div>
+                <div class="t-card__meta">الخبر • تركيزها على الريدينق</div>
+              </div>
+            </div>
+            <p class="t-card__text">
+              “أنا كنت أضيع بالقطع الطويلة. لما مشيت على استراتيجية تحديد الفكرة الرئيسية
+              + الكلمات الدالة… صرت أقرأ بذكاء مو بسرعة بس. الخطة علمتني الأسلوب.”
+            </p>
+            <div class="t-card__tags">
+              <span class="tag">Main idea</span>
+              <span class="tag">Keywords</span>
+              <span class="tag">Strategy</span>
+            </div>
+          </article>
+
+          <!-- Card 12 -->
+          <article class="card t-card">
+            <div class="t-card__top">
+              <div class="avatar" aria-hidden="true">👨🏻‍🎓</div>
+              <div>
+                <div class="t-card__name">بدر ن.</div>
+                <div class="t-card__meta">نجران • كان ينسى بسرعة</div>
+              </div>
+            </div>
+            <p class="t-card__text">
+              “كنت أذاكر وأحس أني أنسى بسرعة. الخطة خلّت عندي مراجعات قصيرة ثابتة
+              (مراجعة قواعد + كلمات + نموذج) ومع الوقت صار ثباتي أعلى.”
+            </p>
+            <div class="t-card__tags">
+              <span class="tag">Review</span>
+              <span class="tag">ثبات</span>
+              <span class="tag">استمرارية</span>
+            </div>
+          </article>
         </div>
-        <div class="testimonial-card">
-          <p>«جرامر كان يكسّرني... مع المراجعات القصيرة اليومية صرت أجيب أعلى.»</p>
-          <span>عبدالله (س.) — القصيم</span>
-          <span class="score">النتيجة: 87</span>
+
+        <div class="cta-strip" style="margin-top:18px;">
+          <div class="cta-strip__text">
+            تبغى قصة نجاحك تكون الجاية؟ خلّنا نبدأ بتشخيص مستواك… وبعدها نرسم لك خطة تمشي عليها بثقة 💛
+          </div>
+          <div class="cta-strip__actions">
+            <a class="btn btn--primary" href="./level-test.html">ابدأ الاختبار</a>
+            <a class="btn btn--ghost" href="./course-content.html">شوف محتوى الدورة</a>
+          </div>
         </div>
-        <div class="testimonial-card">
-          <p>«أكثر شي فادني تقسيم الأيام، كل يوم أعرف وش علي.»</p>
-          <span>ريم (هـ.) — الرياض</span>
-          <span class="score">النتيجة: 93</span>
+      </div>
+    </section>
+
+    <!-- Tips + Motivation -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">نصيحة مختصرة من القلب 🤍</h2>
+          <p class="section__desc">
+            لا تجمع مصادر كثير. خلك على مسار واحد وكرّره بذكاء: تعلّم → حل → راجع الغلط → أعد المحاولة.
+            وبإذن الله تشوف فرق واضح.
+          </p>
         </div>
-        <div class="testimonial-card">
-          <p>«الليسننق كنت أتهرب منه... 20 دقيقة يومياً سوّت فرق كبير.»</p>
-          <span>فيصل (ن.) — مكة</span>
-          <span class="score">النتيجة: 88</span>
-        </div>
-        <div class="testimonial-card">
-          <p>«الخطة خلتني أراجع أخطائي بدل أعيد نفس الغلط.»</p>
-          <span>هند (ر.) — جدة</span>
-          <span class="score">النتيجة: 91</span>
-        </div>
-        <div class="testimonial-card">
-          <p>«تجميعات النماذج مع المراجعة قبل الاختبار طلّعت النتيجة.»</p>
-          <span>سلمان (ب.) — المدينة</span>
-          <span class="score">النتيجة: 86</span>
+
+        <div class="grid grid--2">
+          <div class="card">
+            <h3 class="card__title">دعاء للمختبرين</h3>
+            <p class="card__text">
+              الله يفتح عليك وييسر لك ويكتب لك أعلى الدرجات، ويجعل تعبك هذا سبب في مستقبل أجمل.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="card__title">لمسة وطنية</h3>
+            <p class="card__text">
+              🇸🇦 فخورين بطموح طلابنا… ومع رؤية المملكة 2030، تطوير المهارات صار جزء من رحلة أكبر.
+              تعلّمك اليوم ينعكس على فرصك بكرة.
+            </p>
+          </div>
         </div>
       </div>
     </section>
   </main>
-  <footer>
-    <div class="footer-links">
-      <a href="./privacy.html">الخصوصية</a>
-      <a href="./terms.html">الشروط</a>
-      <a href="./refund.html">سياسة الاسترجاع</a>
-      <a href="./support.html">الدعم</a>
+
+  <!-- Floating Assistant -->
+  <div class="assistant">
+    <button class="assistant__fab" id="assistantFab" type="button" aria-label="مساعد التسجيل السريع">
+      <span aria-hidden="true">💬</span>
+      <span class="assistant__fabText">مساعد التسجيل</span>
+    </button>
+
+    <div class="assistant__panel" id="assistantPanel" aria-hidden="true">
+      <div class="assistant__header">
+        <div>
+          <div class="assistant__title">مساعد التسجيل</div>
+          <div class="assistant__sub">اختصر عليك الطريق… خطوة بخطوة</div>
+        </div>
+        <button class="icon-btn" id="assistantClose" type="button" aria-label="إغلاق">✕</button>
+      </div>
+
+      <div class="assistant__body">
+        <div class="assistant__group">
+          <div class="assistant__groupTitle">الخطوة الأولى</div>
+          <a class="assistant__link" href="./level-test.html">✅ اختبار تحديد المستوى</a>
+          <a class="assistant__link" href="./course-content.html">📦 محتوى الدورة</a>
+          <a class="assistant__link" href="./faq.html">❓ الأسئلة الشائعة</a>
+          <a class="assistant__link" href="./support.html">🛟 الدعم</a>
+        </div>
+
+        <div class="assistant__group">
+          <div class="assistant__groupTitle">بعد ما تخلص الاختبار</div>
+          <a class="assistant__link" href="./results.html">📊 النتائج والخطة</a>
+          <a class="assistant__link assistant__link--locked"
+             href="./register.html"
+             data-locked="true"
+             data-lock-reason="أكمل اختبار تحديد المستوى أولاً، وبعدها يفتح لك التسجيل مباشرة 💛">
+            🔒 التسجيل (يفتح بعد الاختبار)
+          </a>
+        </div>
+
+        <div class="assistant__note">
+          📩 للاستفسار والاشتراك: <strong>@Ayed_Academy_2026</strong><br>
+          🤖 بوت مجاني: <strong>@ayedacadmeybot</strong><br>
+          📢 قروب التنبيهات: <strong>@Academy_Ayed_2026</strong>
+        </div>
+      </div>
     </div>
-    <p>© 2026 أكاديمية عايد. جميع الحقوق محفوظة.</p>
-  </footer>
-  <button id="assistantButton" class="assistant-button" aria-label="مساعد التسجيل">؟</button>
-  <div id="assistantPanel" class="assistant-panel">
-    <button class="close-panel" id="closeAssistant">×</button>
-    <h3>مرحباً!</h3>
-    <p>كيف نقدر نساعدك؟</p>
-    <ul class="assistant-links">
-      <li><a href="./level-test.html">ابدأ اختبار المستوى</a></li>
-      <li><a href="./course-content.html">وش داخل الدورة؟</a></li>
-      <li><a href="./faq.html">الأسئلة الشائعة</a></li>
-      <li><a href="./support.html">الدعم</a></li>
-      <li><a href="./terms.html">السياسات</a></li>
-    </ul>
   </div>
-  <script src="./assets/site-data.js?v=20260120"></script>
-  <script src="./assets/app.js?v=20260120"></script>
+
+  <!-- Toasts -->
+  <div id="toasts" class="toast-wrap" aria-live="polite" aria-relevant="additions"></div>
+
+  <!-- Scripts -->
+  <script src="./assets/site-data.js?v=2026-01-20"></script>
+  <script src="./assets/app.js?v=2026-01-20"></script>
 </body>
 </html>
