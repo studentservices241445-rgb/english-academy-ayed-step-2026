@@ -1,64 +1,63 @@
-// register.js - handles copy buttons and form submission
-
-window.addEventListener('DOMContentLoaded', function () {
-  // copy to clipboard buttons
-  document.querySelectorAll('.copy-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      const text = btn.getAttribute('data-copy');
+// register.js: نسخ بيانات التحويل، التحقق من رفع الإيصال، وإنشاء رسالة تليجرام للتسجيل
+document.addEventListener('DOMContentLoaded', () => {
+  // تفعيل أزرار النسخ لكل عنصر في قائمة البيانات البنكية
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const value = btn.getAttribute('data-copy');
       if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(function () {
-          if (typeof toast === 'function') {
-            toast('تم نسخ البيانات');
-          }
+        navigator.clipboard.writeText(value).then(() => {
+          // عرض توست اختياري إذا توفر التوست في app.js
+          if (typeof toast === 'function') toast('تم النسخ إلى الحافظة');
         });
       }
     });
   });
 
+  // التعامل مع نموذج التسجيل
   const form = document.getElementById('registerForm');
   if (form) {
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const receipt = document.getElementById('receipt');
-      if (!receipt || !receipt.files || receipt.files.length === 0) {
-        alert('يرجى رفع إيصال التحويل قبل الإرسال');
-        receipt.scrollIntoView({ behavior: 'smooth' });
+      // التحقق من رفع الإيصال
+      const receiptInput = document.getElementById('receiptFile');
+      if (!receiptInput || !receiptInput.files || receiptInput.files.length === 0) {
+        alert('يجب رفع الإيصال قبل الإرسال');
+        document.getElementById('bankSection').scrollIntoView({behavior:'smooth'});
         return;
       }
-      // gather fields
-      const name = document.getElementById('fullName').value.trim();
-      const testDate = document.getElementById('testDate').value;
-      const testedBefore = document.getElementById('testedBefore').value;
-      const score = document.getElementById('score').value.trim();
-      const method = document.getElementById('contactMethod').value;
-      const handle = document.getElementById('contactHandle').value.trim();
-      const region = document.getElementById('region').value.trim();
+      // جمع بيانات النموذج
+      const fullName = document.getElementById('fullName').value.trim();
+      const examDate = document.getElementById('examDate').value;
+      const prevExam = document.getElementById('previousExam').value;
+      const previousScore = document.getElementById('previousScore').value.trim();
+      const targetScore = document.getElementById('targetScore').value.trim();
+      const region = document.getElementById('region').value;
+      const contactMethod = document.getElementById('contactMethod').value;
+      const contactInfo = document.getElementById('contactInfo').value.trim();
       const notes = document.getElementById('notes').value.trim();
 
-      let msg = 'السلام عليكم،%0Aأرغب بالتسجيل في دورة STEP.%0A';
-      msg += 'الاسم: ' + name + '%0A';
-      if (testDate) msg += 'موعد الاختبار: ' + testDate + '%0A';
-      if (testedBefore) msg += 'اختبرت سابقاً: ' + (testedBefore === 'yes' ? 'نعم' : 'لا') + '%0A';
-      if (score) msg += 'الدرجة السابقة/المستهدفة: ' + score + '%0A';
-      if (method) {
-        let methodLabel = method;
-        if (method === 'telegram') methodLabel = 'Telegram';
-        else if (method === 'whatsapp') methodLabel = 'WhatsApp';
-        else if (method === 'email') methodLabel = 'Email';
-        msg += 'وسيلة التواصل المفضلة: ' + methodLabel;
-        if (handle) msg += ' (' + handle + ')';
-        msg += '%0A';
-      }
-      if (region) msg += 'المنطقة: ' + region + '%0A';
-      if (notes) msg += 'ملاحظات: ' + notes + '%0A';
+      // بناء نص الرسالة
+      let msg = '';
+      msg += 'السلام عليكم ورحمة الله وبركاته\\n\\n';
+      msg += 'تم التحويل للاشتراك في «دورة STEP المكثفة 2026» وأرسل لكم الإيصال الآن للتأكيد والتفعيل.\\n\\n';
+      msg += `الاسم: ${fullName}\\n`;
+      msg += `موعد الاختبار: ${examDate}\\n`;
+      msg += `هل اختبرت سابقاً؟ ${prevExam}\\n`;
+      msg += `الدرجة السابقة: ${previousScore || 'غير محدد'}\\n`;
+      msg += `الدرجة المستهدفة: ${targetScore || 'غير محدد'}\\n`;
+      msg += `منطقة الاختبار: ${region}\\n`;
+      msg += `وسيلة التواصل: ${contactMethod}${contactInfo ? ' - ' + contactInfo : ''}\\n`;
+      if (notes) msg += `ملاحظات: ${notes}\\n`;
+      msg += '\\n---\\n';
+      msg += 'ملاحظة مهمة: سأقوم بإرفاق الإيصال هنا مرة أخرى (صورة/ملف) للتأكيد النهائي.\\n';
+      msg += 'فضلاً: لا أرسل أكثر من رسالة حتى لا يتأخر الرد علي.';
 
-      msg += '_______%0A';
-      msg += 'رجاءً ارفق الإيصال هنا مرة أخرى للتأكيد النهائي.%0A';
-      msg += 'لا تكرر إرسال الرسائل حتى لا يتأخر الرد.%0A';
-
-      const tgUser = 'AyedAcademy';
-      const url = 'https://t.me/' + tgUser + '?text=' + msg;
-      window.location.href = url;
+      // مستخدم تيليجرام الرسمي للدورة
+      const tgUser = 'Ayed_Academy_2026';
+      const encoded = encodeURIComponent(msg);
+      const tgLink = `https://t.me/${tgUser}?text=${encoded}`;
+      // فتح الرابط (سيقوم بفتح تطبيق تيليجرام أو ويب تيليجرام)
+      window.location.href = tgLink;
     });
   }
 });
