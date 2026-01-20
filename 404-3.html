@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="صفحة غير موجودة — 404" />
+  <meta name="theme-color" content="#070a0f" />
+  <title>404 — الصفحة غير موجودة | أكاديمية عايد الرسمية</title>
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+</head>
+<body>
+<div class="ticker" aria-live="polite">
+    <div class="container">
+      <span class="pill">LIVE</span>
+      <span class="line">...</span>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="العودة للصفحة الرئيسية">
+        <!-- Logo: coded SVG (no image file) -->
+        <svg class="logo" viewBox="0 0 64 64" role="img" aria-label="شعار أكاديمية عايد">
+          <defs>
+            <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f4e3a1" />
+              <stop offset="0.5" stop-color="#d7b15a" />
+              <stop offset="1" stop-color="#b98a2e" />
+            </linearGradient>
+            <radialGradient id="gGlow" cx="50%" cy="35%" r="70%">
+              <stop offset="0" stop-color="rgba(215,177,90,.35)" />
+              <stop offset="1" stop-color="rgba(215,177,90,0)" />
+            </radialGradient>
+          </defs>
+          <rect x="6" y="6" width="52" height="52" rx="18" fill="rgba(255,255,255,.04)" stroke="rgba(215,177,90,.35)" />
+          <circle cx="32" cy="26" r="18" fill="url(#gGlow)" />
+          <!-- Monogram A (stroke animates nicely) -->
+          <path class="g1" d="M18 46 L28 18 L36 18 L46 46" fill="none" stroke="url(#gGold)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M23 36 H41" fill="none" stroke="url(#gGold)" stroke-width="4" stroke-linecap="round" />
+          <!-- Plus mark -->
+          <path d="M50 20 v10 M45 25 h10" fill="none" stroke="url(#gGold)" stroke-width="3" stroke-linecap="round" />
+        </svg>
+
+        <div>
+          <div class="brand__title">أكاديمية عايد الرسمية</div>
+          <div class="brand__sub">دورة STEP المكثفة 2026</div>
+        </div>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">☰ القائمة</button>
+      <nav class="nav" id="siteNav">
+        <a href="index.html">الرئيسية</a>
+        <a href="course-content.html">محتوى الدورة</a>
+        <a href="faq.html">الأسئلة الشائعة</a>
+        <a href="testimonials.html">قصص النجاح</a>
+        <a href="support.html">الدعم</a>
+        <a href="level-test.html" class="chip">اختبار المستوى</a>
+        <a href="results.html" class="chip" data-requires-test="true">النتائج والخطة</a>
+        <a href="register.html" class="chip" data-requires-test="true">التسجيل</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="section">
+      <h1 class="sectionTitle">404 👀</h1>
+      <p class="sectionLead">هذه الصفحة غير موجودة. نرجعك للطريق الصحيح بسرعة.</p>
+      
+<div class="card">
+  <h3>الصفحة غير موجودة</h3>
+  <div class="content">
+    <p>واضح أننا دخلنا لعنوان غلط 😅</p>
+    <ul>
+      <li><a href="index.html">ارجع للرئيسية</a></li>
+      <li><a href="level-test.html">ابدأ اختبار المستوى</a></li>
+      <li><a href="support.html">تواصل مع الدعم</a></li>
+    </ul>
+    <p class="muted">إذا الرابط كان المفروض يشتغل، بلغنا من صفحة الدعم وسنصلحه.</p>
+  </div>
+</div>
+
+    </section>
+  </main>
+<footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <div class="footer__title">أكاديمية عايد الرسمية — دورة STEP المكثفة 2026</div>
+        <div class="muted">محتوى مرتب + نماذج + تكنيكات + مراجعات مركزة — بدون لف ودوران.</div>
+      </div>
+      <div class="footer__links">
+        <a href="privacy.html">الخصوصية</a>
+        <a href="terms.html">الشروط</a>
+        <a href="refund.html">الاسترجاع</a>
+        <a href="404.html">404</a>
+      </div>
+    </div>
+    <div class="container footer__bottom">© 2026 — جميع الحقوق محفوظة</div>
+  </footer>
+
+  <!-- Floating assistant -->
+  <div id="assistant" class="assistant" aria-live="polite">
+    <button id="assistantFab" class="assistantFab" type="button" aria-label="فتح مساعد التسجيل">
+      <span class="dot"></span>
+      <span>مساعد التسجيل</span>
+    </button>
+
+    <div id="assistantPanel" class="assistantPanel" role="dialog" aria-modal="false" aria-label="مساعد التسجيل" hidden>
+      <div class="assistantHead">
+        <div>
+          <b>مساعد التسجيل</b>
+          <div class="muted">يمشي معك خطوة خطوة</div>
+        </div>
+        <button id="assistantClose" class="assistantClose" type="button" aria-label="إغلاق">✕</button>
+      </div>
+
+      <div class="assistantBody">
+        <div class="assistantMsg">1) اختبر 20 سؤال — 2) خذ خطة — 3) بعدها يظهر السعر وزر التسجيل.</div>
+        <div class="qa">
+          <button type="button" data-go="level-test.html">ابدأ اختبار المستوى</button>
+          <button type="button" data-go="results.html" data-requires-test="true">افتح الخطة</button>
+          <button type="button" data-go="register.html" data-requires-test="true">التسجيل الآن</button>
+          <button type="button" data-go="support.html">الدعم</button>
+        </div>
+        <div class="assistantHint">ملاحظة: إذا ما ظهر لك زر التسجيل… معناها لسا ما كملت الاختبار 🙂</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toasts" aria-live="polite" aria-relevant="additions"></div>
+
+  <script src="./assets/js/app.js" defer></script>
+</body>
+</html>
