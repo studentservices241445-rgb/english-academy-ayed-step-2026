@@ -72,7 +72,25 @@ document.addEventListener('DOMContentLoaded', () => {
       installBar.querySelector('button.dismiss-btn').onclick = () => {
         installBar.classList.remove('show');
       };
-    }
+   
+// Mobile nav toggle
+(function () {
+  const btn = document.querySelector("[data-nav-toggle]");
+  const links = document.querySelector("[data-nav-links]");
+  if (!btn || !links) return;
+
+  btn.addEventListener("click", () => {
+    links.classList.toggle("open");
+  });
+
+  // Active link highlight
+  const current = location.pathname.split("/").pop() || "index.html";
+  links.querySelectorAll("a").forEach(a => {
+    const href = (a.getAttribute("href") || "").replace("./", "");
+    if (href === current) a.classList.add("active");
+  });
+})();
+ }
   });
 });
 
