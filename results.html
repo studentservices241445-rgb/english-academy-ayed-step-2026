@@ -1,421 +1,0 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>نتيجتك وخطتك | الدورة المكثفة STEP 2026</title>
-  <meta name="description" content="نتيجة تحديد المستوى + خطة مذاكرة شخصية حسب وقت اختبارك ومستواك." />
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="./assets/styles.css?v=2026-01-20" />
-</head>
-
-<body class="theme-dark">
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="./index.html" aria-label="العودة للرئيسية">
-        <span class="brand__mark">★</span>
-        <span class="brand__name">English Academy | STEP 2026</span>
-      </a>
-
-      <nav class="nav">
-        <a href="./index.html" class="nav__link">الرئيسية</a>
-        <a href="./course-content.html" class="nav__link">محتوى الدورة</a>
-        <a href="./faq.html" class="nav__link">الأسئلة الشائعة</a>
-        <a href="./testimonials.html" class="nav__link">قصص النجاح</a>
-        <a href="./support.html" class="nav__link">الدعم</a>
-        <a href="./level-test.html" class="nav__link nav__link--primary">تحديد المستوى</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Top notice (optional dynamic) -->
-  <div class="topbar" role="status" aria-live="polite">
-    <div class="container topbar__inner">
-      <span>نتيجتك جاهزة ✅ الآن بتشوف الخطة… وبعدها يظهر لك خيار التسجيل.</span>
-      <span class="topbar__hint">ملاحظة: السعر يظهر بعد الاختبار فقط.</span>
-    </div>
-  </div>
-
-  <main class="container section">
-    <section class="card">
-      <header class="section-head">
-        <div>
-          <h1 class="h2">نتيجتك وخطتك الشخصية</h1>
-          <p class="muted">هنا بنوضح لك وضعك بالضبط: وش قوي؟ وش يحتاج تركيز؟ وكيف تمشي داخل الدورة خطوة بخطوة.</p>
-        </div>
-
-        <div class="badge" id="resultVersion">—</div>
-      </header>
-
-      <!-- If no result -->
-      <div id="noResult" class="note note--danger" style="display:none;">
-        <h3 class="h3">ما لقينا نتيجة محفوظة</h3>
-        <p>واضح إنك ما خلصت اختبار تحديد المستوى. لا تشيل هم… خذ الاختبار، وبعدها تجيك الخطة هنا مباشرة.</p>
-        <div class="actions">
-          <a class="btn btn--primary" href="./level-test.html">ابدأ تحديد المستوى</a>
-          <a class="btn btn--ghost" href="./index.html">رجوع للرئيسية</a>
-        </div>
-      </div>
-
-      <!-- Result view -->
-      <div id="resultWrap" style="display:none;">
-        <!-- Summary -->
-        <div class="grid-2">
-          <div class="card inner">
-            <h3 class="h3">ملخص سريع</h3>
-            <div class="stack small-gap">
-              <div class="kpi">
-                <div class="kpi__label">اسمك</div>
-                <div class="kpi__value" id="rName">—</div>
-              </div>
-
-              <div class="kpi">
-                <div class="kpi__label">موعد اختبارك</div>
-                <div class="kpi__value" id="rExamDate">—</div>
-              </div>
-
-              <div class="kpi">
-                <div class="kpi__label">وقت مذاكرتك اليومي</div>
-                <div class="kpi__value" id="rDaily">—</div>
-              </div>
-
-              <div class="kpi">
-                <div class="kpi__label">هدفك</div>
-                <div class="kpi__value" id="rTarget">—</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card inner">
-            <h3 class="h3">نتيجتك الحالية</h3>
-            <div class="score">
-              <div class="score__big" id="rPercent">0%</div>
-              <div class="muted" id="rScoreLine">—</div>
-              <div class="progress">
-                <span id="rBar" style="width:0%"></span>
-              </div>
-              <p class="muted small" id="rSummaryLine">—</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sections -->
-        <div class="card inner">
-          <h3 class="h3">تحليل الأقسام</h3>
-          <p class="muted small">هنا تشوف أداءك بكل قسم—عشان تعرف وين تحط مجهودك داخل الدورة.</p>
-
-          <div class="table-wrap">
-            <table class="table" id="sectionsTable" aria-label="جدول تحليل الأقسام">
-              <thead>
-                <tr>
-                  <th>القسم</th>
-                  <th>الإجابات</th>
-                  <th>الصحيح</th>
-                  <th>النسبة</th>
-                  <th>التوجيه</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Plan -->
-        <div class="card inner">
-          <h3 class="h3">الخطة المقترحة لك</h3>
-          <p class="muted" id="planSummary">—</p>
-          <div class="note">
-            <p class="small" id="planReasoning">—</p>
-          </div>
-
-          <ul class="bullets" id="planBullets"></ul>
-
-          <div class="actions">
-            <a class="btn btn--primary" href="./register.html" id="goRegisterBtn">اعتماد الخطة والانتقال للتسجيل</a>
-            <a class="btn btn--ghost" href="./level-test.html">إعادة تحديد المستوى</a>
-          </div>
-        </div>
-
-        <!-- Price (ظهر بعد الاختبار فقط) -->
-        <div class="card inner price-card" id="priceCard">
-          <div class="price-head">
-            <div>
-              <h3 class="h3">السعر بعد ما عرفنا خطتك ✅</h3>
-              <p class="muted small">الخصم مربوط بالمقاعد المتاحة (عشان نضمن جودة المتابعة).</p>
-            </div>
-            <div class="seat-widget" aria-live="polite">
-              <div class="seat-widget__label">المقاعد المتبقية</div>
-              <div class="seat-widget__value" id="seatsLeft">—</div>
-              <div class="seat-widget__hint muted small" id="seatHint">كل ما قلّت المقاعد… يرجع السعر الرسمي.</div>
-            </div>
-          </div>
-
-          <div class="prices">
-            <div class="price-box price-box--hot">
-              <div class="price-box__tag">السعر الحالي (خصم)</div>
-              <div class="price-box__value">349 ريال</div>
-              <div class="price-box__note muted small">ينتهي عند اكتمال المقاعد المخفّضة.</div>
-            </div>
-
-            <div class="price-box">
-              <div class="price-box__tag">السعر الرسمي</div>
-              <div class="price-box__value">599 ريال</div>
-              <div class="price-box__note muted small">يرجع بعد اكتمال المقاعد/انتهاء الخصم.</div>
-            </div>
-          </div>
-
-          <div class="actions">
-            <a class="btn btn--primary" href="./register.html">سجّل الحين (على السعر الحالي)</a>
-            <a class="btn btn--ghost" href="./course-content.html">أبي أشوف محتوى الدورة أول</a>
-          </div>
-        </div>
-
-        <!-- Wrong answers -->
-        <div class="card inner">
-          <h3 class="h3">أخطاءك مع الحل المختصر</h3>
-          <p class="muted small">هدفنا هنا مو “نجلدك” 😄… هدفنا نفهم الخطأ ونصلحه بسرعة.</p>
-
-          <div id="wrongList" class="accordion"></div>
-
-          <div class="note note--soft">
-            <p class="small">
-              تنبيه بسيط: إذا تبغى ترفع مستواك بسرعة، لا تكتفي تعرف الصح… لازم تعرف “ليش غلطت” (قاعدة؟ كلمة؟ فهم سؤال؟).
-              داخل الدورة بنحلها معك خطوة بخطوة.
-            </p>
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="card inner">
-          <h3 class="h3">جاهز تبدأ؟</h3>
-          <p class="muted">إذا تبغى تمشي صح من اليوم الأول… سجّل وخلك على خطتك بدون تشتت.</p>
-          <div class="actions">
-            <a class="btn btn--primary" href="./register.html">ابدأ التسجيل الآن</a>
-            <a class="btn btn--ghost" href="./support.html">عندي استفسار سريع</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Assistant + Toasts placeholders (لو app.js يستخدمها) -->
-  <div id="toasts" class="toast-wrap" aria-live="polite"></div>
-  <div id="floatingAssistantMount"></div>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="muted small">© 2026 — English Academy | الدورة المكثفة STEP</div>
-      <div class="footer-links">
-        <a href="./privacy.html">الخصوصية</a>
-        <a href="./terms.html">الشروط</a>
-        <a href="./refund.html">الاسترجاع</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- App JS -->
-  <script src="./assets/app.js?v=2026-01-20"></script>
-
-  <!-- Results renderer -->
-  <script>
-    (function () {
-      "use strict";
-
-      const STORAGE_KEY = "ayedTestResult";
-      const el = (id) => document.getElementById(id);
-
-      function escapeHtml(s) {
-        return String(s)
-          .replaceAll("&", "&amp;")
-          .replaceAll("<", "&lt;")
-          .replaceAll(">", "&gt;")
-          .replaceAll('"', "&quot;")
-          .replaceAll("'", "&#039;");
-      }
-
-      function getResult() {
-        try {
-          const raw = localStorage.getItem(STORAGE_KEY);
-          if (!raw) return null;
-          return JSON.parse(raw);
-        } catch (e) {
-          return null;
-        }
-      }
-
-      function sectionGuidance(acc) {
-        if (acc >= 85) return "ممتاز—ثبت بالممارسة والنماذج.";
-        if (acc >= 70) return "جيد—نحتاج تثبيت + نماذج.";
-        if (acc >= 55) return "يبغى شغل واضح—ابدأ بشرح ثم تدريب.";
-        return "هذا أولوياتك—ركز عليه داخل الدورة أول.";
-      }
-
-      function renderSections(sections) {
-        const tbody = document.querySelector("#sectionsTable tbody");
-        tbody.innerHTML = "";
-
-        const keys = Object.keys(sections || {});
-        if (!keys.length) return;
-
-        keys.forEach((k) => {
-          const s = sections[k];
-          const tr = document.createElement("tr");
-          const acc = Number(s.accuracy || 0);
-
-          tr.innerHTML = `
-            <td><span class="pill">${escapeHtml(s.label || k)}</span></td>
-            <td>${escapeHtml(String(s.total || 0))}</td>
-            <td>${escapeHtml(String(s.correct || 0))}</td>
-            <td><b>${escapeHtml(String(acc))}%</b></td>
-            <td class="muted">${escapeHtml(sectionGuidance(acc))}</td>
-          `;
-          tbody.appendChild(tr);
-        });
-      }
-
-      function renderPlanBullets(bullets) {
-        const ul = el("planBullets");
-        ul.innerHTML = "";
-        (bullets || []).forEach((b) => {
-          const li = document.createElement("li");
-          li.innerHTML = escapeHtml(b).replaceAll("\\n", "<br>");
-          ul.appendChild(li);
-        });
-      }
-
-      function renderWrong(wrong) {
-        const wrap = el("wrongList");
-        wrap.innerHTML = "";
-
-        if (!wrong || !wrong.length) {
-          wrap.innerHTML = `<div class="note note--soft"><p class="small">ممتاز! ما عندك أخطاء مسجلة في هذا الاختبار 👌</p></div>`;
-          return;
-        }
-
-        wrong.slice(0, 12).forEach((w, idx) => {
-          const item = document.createElement("details");
-          item.className = "acc-item";
-          item.innerHTML = `
-            <summary class="acc-sum">
-              <span class="acc-num">#${idx + 1}</span>
-              <span class="acc-title">${escapeHtml(w.sectionLabel || w.section || "")} — ${escapeHtml((w.prompt || "").slice(0, 80))}${(w.prompt || "").length > 80 ? "…" : ""}</span>
-            </summary>
-
-            <div class="acc-body">
-              <div class="muted small" style="margin-bottom:8px;">السؤال:</div>
-              <div class="box">${escapeHtml(w.prompt || "")}</div>
-
-              <div class="grid-2" style="margin-top:12px;">
-                <div class="box box--warn">
-                  <div class="muted small">إجابتك</div>
-                  <b>${escapeHtml(w.chosenText || "—")}</b>
-                </div>
-                <div class="box box--ok">
-                  <div class="muted small">الإجابة الصحيحة</div>
-                  <b>${escapeHtml(w.correctText || "—")}</b>
-                </div>
-              </div>
-
-              ${w.explanation ? `
-                <div style="margin-top:12px;">
-                  <div class="muted small">حل مختصر:</div>
-                  <div class="box">${escapeHtml(w.explanation)}</div>
-                </div>
-              ` : ""}
-
-              <div class="actions" style="margin-top:12px;">
-                <a class="btn btn--primary" href="./course-content.html">أبغى أقفل هذا القسم داخل الدورة</a>
-                <a class="btn btn--ghost" href="./register.html">سجّلني على خطتي</a>
-              </div>
-            </div>
-          `;
-          wrap.appendChild(item);
-        });
-
-        if (wrong.length > 12) {
-          const more = document.createElement("div");
-          more.className = "muted small";
-          more.style.marginTop = "10px";
-          more.textContent = `ملاحظة: تم عرض 12 خطأ من أصل ${wrong.length} (الباقي موجود ضمن بياناتك).`;
-          wrap.appendChild(more);
-        }
-      }
-
-      function humanMinutes(min) {
-        const m = Number(min || 0);
-        if (!m) return "—";
-        if (m < 60) return m + " دقيقة";
-        const h = (m / 60);
-        return (Math.round(h * 10) / 10) + " ساعة";
-      }
-
-      // Seats placeholder (لو app.js ما حدثه)
-      function seedSeatsFallback() {
-        const seatsEl = el("seatsLeft");
-        if (!seatsEl) return;
-        if (seatsEl.textContent && seatsEl.textContent.trim() !== "—") return;
-
-        // رقم قريب + تنازلي (Fallback بسيط)
-        const base = 19;
-        const drift = new Date().getDate() % 7; // 0..6
-        const val = Math.max(3, base - drift);
-        seatsEl.textContent = String(val);
-
-        const hint = el("seatHint");
-        if (hint) hint.textContent = val <= 6 ? "الطلب عالي… المقاعد قربت تخلص." : "المقاعد محدودة لضمان جودة المتابعة.";
-      }
-
-      // Main render
-      const data = getResult();
-      if (!data) {
-        el("noResult").style.display = "block";
-        return;
-      }
-
-      el("resultWrap").style.display = "block";
-      el("resultVersion").textContent = "نسخة: " + (data.version || "—");
-
-      // Profile
-      el("rName").textContent = data.profile?.name || "—";
-      el("rExamDate").textContent = data.profile?.examDate || "—";
-      el("rDaily").textContent = humanMinutes(data.profile?.dailyMinutes);
-      el("rTarget").textContent = (data.profile?.targetScore ? (data.profile.targetScore + "+") : "—");
-
-      // Score
-      const pct = Number(data.score?.percent || 0);
-      el("rPercent").textContent = pct + "%";
-      el("rScoreLine").textContent = `صحيح: ${data.score?.correct || 0} من ${data.score?.total || 0}`;
-      el("rBar").style.width = Math.max(0, Math.min(100, pct)) + "%";
-
-      // Summary line (لهجة مطمئنة)
-      let msg = "مستواك واضح الآن… والخطة بتساعدك تمشي صح.";
-      if (pct >= 85) msg = "ممتاز جدًا! نحتاج تثبيت بالنماذج وتصفية الأخطاء فقط.";
-      else if (pct >= 70) msg = "حلو جدًا! نقدر نرفعك بسرعة إذا ركزنا على نقاط ضعفك.";
-      else if (pct >= 55) msg = "بداية طيبة—بس نحتاج خطة واضحة داخل الدورة عشان تقفز درجة.";
-      else msg = "لا تشيل هم—الخطط هنا مصممة ترفعك خطوة خطوة بدون تشتت.";
-      el("rSummaryLine").textContent = msg;
-
-      // Sections
-      renderSections(data.sections || {});
-
-      // Plan
-      el("planSummary").textContent = data.planSummary || "—";
-      el("planReasoning").textContent = data.planReasoning || "—";
-      renderPlanBullets(data.planBullets || []);
-
-      // Wrong
-      renderWrong(data.wrong || []);
-
-      // Seats
-      seedSeatsFallback();
-
-      // إذا ودك تربط زر التسجيل بخطة المستخدم (اختياري لاحقًا)
-      // هنا فقط نودي للتسجيل
-      const regBtn = el("goRegisterBtn");
-      if (regBtn) regBtn.href = "./register.html";
-    })();
-  </script>
-</body>
-</html>
